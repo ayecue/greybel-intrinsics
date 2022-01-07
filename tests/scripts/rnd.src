@@ -1,0 +1,6 @@
+print(rnd("bar"))
+print(rnd("bar"))
+print(rnd("bar"))
+print(rnd("bar"))
+print(rnd("bar"))
+print(rnd("bar"))

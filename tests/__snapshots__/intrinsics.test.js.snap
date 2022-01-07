@@ -1,0 +1,1278 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`interpreter default scripts generics.src 1`] = `
+CustomString {
+  "value": "{",
+}
+`;
+
+exports[`interpreter default scripts generics.src 2`] = `
+CustomNumber {
+  "value": 123,
+}
+`;
+
+exports[`interpreter default scripts generics.src 3`] = `
+CustomString {
+  "value": "false",
+}
+`;
+
+exports[`interpreter default scripts generics.src 4`] = `
+CustomNumber {
+  "value": 1.23,
+}
+`;
+
+exports[`interpreter default scripts generics.src 5`] = `
+CustomString {
+  "value": "foo",
+}
+`;
+
+exports[`interpreter default scripts generics.src 6`] = `
+CustomNumber {
+  "value": 101574,
+}
+`;
+
+exports[`interpreter default scripts generics.src 7`] = `
+CustomNumber {
+  "value": 61655,
+}
+`;
+
+exports[`interpreter default scripts generics.src 8`] = `
+CustomNumber {
+  "value": 61653,
+}
+`;
+
+exports[`interpreter default scripts generics.src 9`] = `
+CustomNumber {
+  "value": 1,
+}
+`;
+
+exports[`interpreter default scripts generics.src 10`] = `
+CustomNumber {
+  "value": 1345,
+}
+`;
+
+exports[`interpreter default scripts generics.src 11`] = `
+CustomList {
+  "slice": [Function],
+  "value": Array [
+    CustomNumber {
+      "value": 1,
+    },
+    CustomNumber {
+      "value": 2,
+    },
+    CustomNumber {
+      "value": 3,
+    },
+    CustomNumber {
+      "value": 4,
+    },
+  ],
+}
+`;
+
+exports[`interpreter default scripts generics.src 12`] = `
+CustomList {
+  "slice": [Function],
+  "value": Array [
+    CustomNumber {
+      "value": 0,
+    },
+    CustomNumber {
+      "value": 2,
+    },
+    CustomNumber {
+      "value": 4,
+    },
+    CustomNumber {
+      "value": 6,
+    },
+    CustomNumber {
+      "value": 8,
+    },
+  ],
+}
+`;
+
+exports[`interpreter default scripts list.src 1`] = `
+CustomBoolean {
+  "value": true,
+}
+`;
+
+exports[`interpreter default scripts list.src 2`] = `
+CustomBoolean {
+  "value": false,
+}
+`;
+
+exports[`interpreter default scripts list.src 3`] = `
+CustomList {
+  "slice": [Function],
+  "value": Array [
+    CustomString {
+      "value": "0",
+    },
+    CustomString {
+      "value": "1",
+    },
+  ],
+}
+`;
+
+exports[`interpreter default scripts list.src 4`] = `
+CustomNumber {
+  "value": 1,
+}
+`;
+
+exports[`interpreter default scripts list.src 5`] = `
+CustomNil {
+  "value": null,
+}
+`;
+
+exports[`interpreter default scripts list.src 6`] = `
+CustomNumber {
+  "value": 2,
+}
+`;
+
+exports[`interpreter default scripts list.src 7`] = `
+CustomString {
+  "value": "bar",
+}
+`;
+
+exports[`interpreter default scripts list.src 8`] = `
+CustomList {
+  "slice": [Function],
+  "value": Array [
+    CustomString {
+      "value": "foo",
+    },
+  ],
+}
+`;
+
+exports[`interpreter default scripts list.src 9`] = `
+CustomString {
+  "value": "foo",
+}
+`;
+
+exports[`interpreter default scripts list.src 10`] = `
+CustomList {
+  "slice": [Function],
+  "value": Array [
+    CustomString {
+      "value": "bar",
+    },
+  ],
+}
+`;
+
+exports[`interpreter default scripts list.src 11`] = `
+CustomList {
+  "slice": [Function],
+  "value": Array [
+    CustomString {
+      "value": "foo",
+    },
+    CustomString {
+      "value": "bar",
+    },
+    CustomString {
+      "value": "xxx",
+    },
+  ],
+}
+`;
+
+exports[`interpreter default scripts list.src 12`] = `
+CustomList {
+  "slice": [Function],
+  "value": Array [
+    CustomNumber {
+      "value": 1,
+    },
+    CustomNumber {
+      "value": 2,
+    },
+    CustomNumber {
+      "value": 4,
+    },
+    CustomNumber {
+      "value": 6,
+    },
+  ],
+}
+`;
+
+exports[`interpreter default scripts list.src 13`] = `
+CustomNumber {
+  "value": 16,
+}
+`;
+
+exports[`interpreter default scripts list.src 14`] = `
+CustomNil {
+  "value": null,
+}
+`;
+
+exports[`interpreter default scripts list.src 15`] = `
+CustomList {
+  "slice": [Function],
+  "value": Array [
+    CustomString {
+      "value": "bar",
+    },
+  ],
+}
+`;
+
+exports[`interpreter default scripts list.src 16`] = `
+CustomList {
+  "slice": [Function],
+  "value": Array [
+    CustomString {
+      "value": "foo",
+    },
+    CustomString {
+      "value": "bar",
+    },
+  ],
+}
+`;
+
+exports[`interpreter default scripts list.src 17`] = `
+CustomList {
+  "slice": [Function],
+  "value": Array [
+    CustomString {
+      "value": "xxx",
+    },
+    CustomString {
+      "value": "bar",
+    },
+    CustomString {
+      "value": "foo",
+    },
+  ],
+}
+`;
+
+exports[`interpreter default scripts list.src 18`] = `
+CustomString {
+  "value": "foo;bar;xxx",
+}
+`;
+
+exports[`interpreter default scripts manipulation.src 1`] = `
+CustomBoolean {
+  "value": true,
+}
+`;
+
+exports[`interpreter default scripts manipulation.src 2`] = `
+CustomBoolean {
+  "value": false,
+}
+`;
+
+exports[`interpreter default scripts manipulation.src 3`] = `
+CustomBoolean {
+  "value": true,
+}
+`;
+
+exports[`interpreter default scripts manipulation.src 4`] = `
+CustomBoolean {
+  "value": false,
+}
+`;
+
+exports[`interpreter default scripts manipulation.src 5`] = `
+CustomBoolean {
+  "value": true,
+}
+`;
+
+exports[`interpreter default scripts manipulation.src 6`] = `
+CustomBoolean {
+  "value": false,
+}
+`;
+
+exports[`interpreter default scripts manipulation.src 7`] = `
+CustomString {
+  "value": "lore",
+}
+`;
+
+exports[`interpreter default scripts manipulation.src 8`] = `
+CustomNil {
+  "value": null,
+}
+`;
+
+exports[`interpreter default scripts manipulation.src 9`] = `
+CustomNumber {
+  "value": 1,
+}
+`;
+
+exports[`interpreter default scripts manipulation.src 10`] = `
+CustomNil {
+  "value": null,
+}
+`;
+
+exports[`interpreter default scripts manipulation.src 11`] = `
+CustomNumber {
+  "value": 4,
+}
+`;
+
+exports[`interpreter default scripts manipulation.src 12`] = `
+CustomNil {
+  "value": null,
+}
+`;
+
+exports[`interpreter default scripts manipulation.src 13`] = `
+CustomList {
+  "slice": [Function],
+  "value": Array [
+    CustomString {
+      "value": "foo",
+    },
+    CustomString {
+      "value": "bar",
+    },
+    CustomString {
+      "value": "lore",
+    },
+  ],
+}
+`;
+
+exports[`interpreter default scripts manipulation.src 14`] = `
+CustomList {
+  "slice": [Function],
+  "value": Array [
+    CustomString {
+      "value": "0",
+    },
+    CustomString {
+      "value": "1",
+    },
+    CustomString {
+      "value": "2",
+    },
+  ],
+}
+`;
+
+exports[`interpreter default scripts manipulation.src 15`] = `
+CustomList {
+  "slice": [Function],
+  "value": Array [
+    CustomString {
+      "value": "0",
+    },
+    CustomString {
+      "value": "1",
+    },
+    CustomString {
+      "value": "2",
+    },
+    CustomString {
+      "value": "3",
+    },
+    CustomString {
+      "value": "4",
+    },
+    CustomString {
+      "value": "5",
+    },
+    CustomString {
+      "value": "6",
+    },
+    CustomString {
+      "value": "7",
+    },
+    CustomString {
+      "value": "8",
+    },
+    CustomString {
+      "value": "9",
+    },
+    CustomString {
+      "value": "10",
+    },
+    CustomString {
+      "value": "11",
+    },
+    CustomString {
+      "value": "12",
+    },
+    CustomString {
+      "value": "13",
+    },
+    CustomString {
+      "value": "14",
+    },
+    CustomString {
+      "value": "15",
+    },
+    CustomString {
+      "value": "16",
+    },
+    CustomString {
+      "value": "17",
+    },
+    CustomString {
+      "value": "18",
+    },
+    CustomString {
+      "value": "19",
+    },
+    CustomString {
+      "value": "20",
+    },
+  ],
+}
+`;
+
+exports[`interpreter default scripts manipulation.src 16`] = `
+CustomList {
+  "slice": [Function],
+  "value": Array [
+    CustomNumber {
+      "value": 123,
+    },
+    CustomBoolean {
+      "value": true,
+    },
+    CustomString {
+      "value": "moo",
+    },
+  ],
+}
+`;
+
+exports[`interpreter default scripts manipulation.src 17`] = `
+CustomList {
+  "slice": [Function],
+  "value": Array [
+    CustomString {
+      "value": "xxx",
+    },
+    CustomNumber {
+      "value": 123,
+    },
+    CustomString {
+      "value": "foo",
+    },
+  ],
+}
+`;
+
+exports[`interpreter default scripts manipulation.src 18`] = `
+CustomNumber {
+  "value": 3,
+}
+`;
+
+exports[`interpreter default scripts manipulation.src 19`] = `
+CustomNumber {
+  "value": 3,
+}
+`;
+
+exports[`interpreter default scripts manipulation.src 20`] = `
+CustomNumber {
+  "value": 21,
+}
+`;
+
+exports[`interpreter default scripts manipulation.src 21`] = `
+CustomString {
+  "value": "abc lorem ipsum xxxav",
+}
+`;
+
+exports[`interpreter default scripts manipulation.src 22`] = `
+CustomString {
+  "value": "ABC LOREM IPSUM XXXAV",
+}
+`;
+
+exports[`interpreter default scripts manipulation.src 23`] = `
+CustomList {
+  "slice": [Function],
+  "value": Array [
+    CustomNumber {
+      "value": 123,
+    },
+    CustomString {
+      "value": "foo",
+    },
+  ],
+}
+`;
+
+exports[`interpreter default scripts manipulation.src 24`] = `
+CustomList {
+  "slice": [Function],
+  "value": Array [
+    CustomString {
+      "value": "xxx",
+    },
+    CustomNumber {
+      "value": 123,
+    },
+  ],
+}
+`;
+
+exports[`interpreter default scripts manipulation.src 25`] = `
+CustomString {
+  "value": " lorem ipsum XxXaV",
+}
+`;
+
+exports[`interpreter default scripts manipulation.src 26`] = `
+CustomString {
+  "value": "abc",
+}
+`;
+
+exports[`interpreter default scripts manipulation.src 27`] = `
+CustomNil {
+  "value": null,
+}
+`;
+
+exports[`interpreter default scripts manipulation.src 28`] = `
+CustomList {
+  "slice": [Function],
+  "value": Array [
+    CustomString {
+      "value": "xxx",
+    },
+    CustomNumber {
+      "value": 123,
+    },
+    CustomString {
+      "value": "foo",
+    },
+  ],
+}
+`;
+
+exports[`interpreter default scripts manipulation.src 29`] = `
+CustomNumber {
+  "value": 124,
+}
+`;
+
+exports[`interpreter default scripts manipulation.src 30`] = `
+CustomNumber {
+  "value": 123,
+}
+`;
+
+exports[`interpreter default scripts manipulation.src 31`] = `
+CustomNumber {
+  "value": 0,
+}
+`;
+
+exports[`interpreter default scripts manipulation.src 32`] = `
+CustomNumber {
+  "value": 123,
+}
+`;
+
+exports[`interpreter default scripts manipulation.src 33`] = `
+CustomString {
+  "value": "foo",
+}
+`;
+
+exports[`interpreter default scripts manipulation.src 34`] = `
+CustomMap {
+  "isInstance": false,
+  "value": Map {
+    "bar" => CustomBoolean {
+      "value": true,
+    },
+    "lore" => CustomString {
+      "value": "moo",
+    },
+  },
+}
+`;
+
+exports[`interpreter default scripts manipulation.src 35`] = `
+CustomList {
+  "slice": [Function],
+  "value": Array [
+    CustomString {
+      "value": "xxx",
+    },
+    CustomNumber {
+      "value": 123,
+    },
+  ],
+}
+`;
+
+exports[`interpreter default scripts manipulation.src 36`] = `
+CustomNumber {
+  "value": 123,
+}
+`;
+
+exports[`interpreter default scripts manipulation.src 37`] = `
+CustomString {
+  "value": "xxx",
+}
+`;
+
+exports[`interpreter default scripts manipulation.src 38`] = `
+CustomMap {
+  "isInstance": false,
+  "value": Map {
+    "bar" => CustomBoolean {
+      "value": true,
+    },
+    "lore" => CustomString {
+      "value": "moo",
+    },
+  },
+}
+`;
+
+exports[`interpreter default scripts manipulation.src 39`] = `
+CustomList {
+  "slice": [Function],
+  "value": Array [
+    CustomNumber {
+      "value": 123,
+    },
+    CustomString {
+      "value": "foo",
+    },
+  ],
+}
+`;
+
+exports[`interpreter default scripts manipulation.src 40`] = `
+CustomMap {
+  "isInstance": false,
+  "value": Map {
+    "foo" => CustomNumber {
+      "value": 123,
+    },
+    "bar" => CustomBoolean {
+      "value": true,
+    },
+    "lore" => CustomString {
+      "value": "moo",
+    },
+    "addition" => CustomNumber {
+      "value": 1,
+    },
+  },
+}
+`;
+
+exports[`interpreter default scripts manipulation.src 41`] = `
+CustomList {
+  "slice": [Function],
+  "value": Array [
+    CustomString {
+      "value": "xxx",
+    },
+    CustomNumber {
+      "value": 123,
+    },
+    CustomString {
+      "value": "foo",
+    },
+    CustomString {
+      "value": "addition",
+    },
+  ],
+}
+`;
+
+exports[`interpreter default scripts manipulation.src 42`] = `
+CustomMap {
+  "isInstance": false,
+  "value": Map {
+    "foo" => CustomNumber {
+      "value": 123,
+    },
+    "lore" => CustomString {
+      "value": "moo",
+    },
+  },
+}
+`;
+
+exports[`interpreter default scripts manipulation.src 43`] = `
+CustomList {
+  "slice": [Function],
+  "value": Array [
+    CustomString {
+      "value": "xxx",
+    },
+    CustomString {
+      "value": "foo",
+    },
+  ],
+}
+`;
+
+exports[`interpreter default scripts manipulation.src 44`] = `
+CustomString {
+  "value": "abc lorem  XxXaV",
+}
+`;
+
+exports[`interpreter default scripts map.src 1`] = `
+CustomBoolean {
+  "value": true,
+}
+`;
+
+exports[`interpreter default scripts map.src 2`] = `
+CustomBoolean {
+  "value": false,
+}
+`;
+
+exports[`interpreter default scripts map.src 3`] = `
+CustomList {
+  "slice": [Function],
+  "value": Array [
+    CustomString {
+      "value": "foo",
+    },
+    CustomString {
+      "value": "bar",
+    },
+  ],
+}
+`;
+
+exports[`interpreter default scripts map.src 4`] = `
+CustomList {
+  "slice": [Function],
+  "value": Array [
+    CustomNumber {
+      "value": 9064,
+    },
+    CustomString {
+      "value": "ipsum",
+    },
+  ],
+}
+`;
+
+exports[`interpreter default scripts map.src 5`] = `
+CustomString {
+  "value": "bar",
+}
+`;
+
+exports[`interpreter default scripts map.src 6`] = `
+CustomNil {
+  "value": null,
+}
+`;
+
+exports[`interpreter default scripts map.src 7`] = `
+CustomNumber {
+  "value": 2,
+}
+`;
+
+exports[`interpreter default scripts map.src 8`] = `
+CustomNumber {
+  "value": 123,
+}
+`;
+
+exports[`interpreter default scripts map.src 9`] = `
+CustomMap {
+  "isInstance": false,
+  "value": Map {
+    "bar" => CustomString {
+      "value": "ipsum",
+    },
+  },
+}
+`;
+
+exports[`interpreter default scripts map.src 10`] = `
+CustomMap {
+  "isInstance": false,
+  "value": Map {
+    "foo" => CustomNumber {
+      "value": 123,
+    },
+    "bar" => CustomString {
+      "value": "ipsum",
+    },
+    "moo" => CustomNumber {
+      "value": 1,
+    },
+  },
+}
+`;
+
+exports[`interpreter default scripts map.src 11`] = `
+CustomNumber {
+  "value": 323,
+}
+`;
+
+exports[`interpreter default scripts map.src 12`] = `
+CustomMap {
+  "isInstance": false,
+  "value": Map {
+    "foo" => CustomNumber {
+      "value": 123,
+    },
+    "bar" => CustomString {
+      "value": "ipsum",
+    },
+  },
+}
+`;
+
+exports[`interpreter default scripts math.src 1`] = `
+CustomNumber {
+  "value": 1337,
+}
+`;
+
+exports[`interpreter default scripts math.src 2`] = `
+CustomNumber {
+  "value": NaN,
+}
+`;
+
+exports[`interpreter default scripts math.src 3`] = `
+CustomNumber {
+  "value": NaN,
+}
+`;
+
+exports[`interpreter default scripts math.src 4`] = `
+CustomNumber {
+  "value": 1.5700483837780477,
+}
+`;
+
+exports[`interpreter default scripts math.src 5`] = `
+CustomNumber {
+  "value": 1337,
+}
+`;
+
+exports[`interpreter default scripts math.src 6`] = `
+CustomNumber {
+  "value": 0.2496568790410366,
+}
+`;
+
+exports[`interpreter default scripts math.src 7`] = `
+CustomNumber {
+  "value": 1337,
+}
+`;
+
+exports[`interpreter default scripts math.src 8`] = `
+CustomNumber {
+  "value": -0.9683343651587963,
+}
+`;
+
+exports[`interpreter default scripts math.src 9`] = `
+CustomNumber {
+  "value": 1337,
+}
+`;
+
+exports[`interpreter default scripts math.src 10`] = `
+CustomNumber {
+  "value": 36.565010597564445,
+}
+`;
+
+exports[`interpreter default scripts math.src 11`] = `
+CustomNumber {
+  "value": 3.141592653589793,
+}
+`;
+
+exports[`interpreter default scripts math.src 12`] = `
+CustomNumber {
+  "value": 281,
+}
+`;
+
+exports[`interpreter default scripts math.src 13`] = `
+CustomNumber {
+  "value": 1403,
+}
+`;
+
+exports[`interpreter default scripts math.src 14`] = `
+CustomNumber {
+  "value": 1122,
+}
+`;
+
+exports[`interpreter default scripts math.src 15`] = `
+CustomNumber {
+  "value": -939524096,
+}
+`;
+
+exports[`interpreter default scripts math.src 16`] = `
+CustomNumber {
+  "value": 0,
+}
+`;
+
+exports[`interpreter default scripts math.src 17`] = `
+CustomNumber {
+  "value": 0,
+}
+`;
+
+exports[`interpreter default scripts math.src 18`] = `
+CustomNumber {
+  "value": -1338,
+}
+`;
+
+exports[`interpreter default scripts rnd.src 1`] = `
+CustomNumber {
+  "value": 0.4985665436834097,
+}
+`;
+
+exports[`interpreter default scripts rnd.src 2`] = `
+CustomNumber {
+  "value": 0.04626259859651327,
+}
+`;
+
+exports[`interpreter default scripts rnd.src 3`] = `
+CustomNumber {
+  "value": 0.04173178947530687,
+}
+`;
+
+exports[`interpreter default scripts rnd.src 4`] = `
+CustomNumber {
+  "value": 0.22427810914814472,
+}
+`;
+
+exports[`interpreter default scripts rnd.src 5`] = `
+CustomNumber {
+  "value": 0.2948848782107234,
+}
+`;
+
+exports[`interpreter default scripts rnd.src 6`] = `
+CustomNumber {
+  "value": 0.8563546116929501,
+}
+`;
+
+exports[`interpreter default scripts string.src 1`] = `
+CustomBoolean {
+  "value": true,
+}
+`;
+
+exports[`interpreter default scripts string.src 2`] = `
+CustomBoolean {
+  "value": false,
+}
+`;
+
+exports[`interpreter default scripts string.src 3`] = `
+CustomList {
+  "slice": [Function],
+  "value": Array [
+    CustomString {
+      "value": "0",
+    },
+    CustomString {
+      "value": "1",
+    },
+    CustomString {
+      "value": "2",
+    },
+    CustomString {
+      "value": "3",
+    },
+    CustomString {
+      "value": "4",
+    },
+    CustomString {
+      "value": "5",
+    },
+    CustomString {
+      "value": "6",
+    },
+    CustomString {
+      "value": "7",
+    },
+    CustomString {
+      "value": "8",
+    },
+    CustomString {
+      "value": "9",
+    },
+    CustomString {
+      "value": "10",
+    },
+    CustomString {
+      "value": "11",
+    },
+    CustomString {
+      "value": "12",
+    },
+    CustomString {
+      "value": "13",
+    },
+    CustomString {
+      "value": "14",
+    },
+    CustomString {
+      "value": "15",
+    },
+    CustomString {
+      "value": "16",
+    },
+    CustomString {
+      "value": "17",
+    },
+    CustomString {
+      "value": "18",
+    },
+    CustomString {
+      "value": "19",
+    },
+    CustomString {
+      "value": "20",
+    },
+    CustomString {
+      "value": "21",
+    },
+    CustomString {
+      "value": "22",
+    },
+  ],
+}
+`;
+
+exports[`interpreter default scripts string.src 4`] = `
+CustomList {
+  "slice": [Function],
+  "value": Array [
+    CustomString {
+      "value": "x",
+    },
+    CustomString {
+      "value": "x",
+    },
+    CustomString {
+      "value": "x",
+    },
+    CustomString {
+      "value": " ",
+    },
+    CustomString {
+      "value": "l",
+    },
+    CustomString {
+      "value": "o",
+    },
+    CustomString {
+      "value": "r",
+    },
+    CustomString {
+      "value": "e",
+    },
+    CustomString {
+      "value": "m",
+    },
+    CustomString {
+      "value": " ",
+    },
+    CustomString {
+      "value": "i",
+    },
+    CustomString {
+      "value": "p",
+    },
+    CustomString {
+      "value": "s",
+    },
+    CustomString {
+      "value": "u",
+    },
+    CustomString {
+      "value": "m",
+    },
+    CustomString {
+      "value": " ",
+    },
+    CustomString {
+      "value": "b",
+    },
+    CustomString {
+      "value": "a",
+    },
+    CustomString {
+      "value": "r",
+    },
+    CustomString {
+      "value": " ",
+    },
+    CustomString {
+      "value": "f",
+    },
+    CustomString {
+      "value": "o",
+    },
+    CustomString {
+      "value": "r",
+    },
+  ],
+}
+`;
+
+exports[`interpreter default scripts string.src 5`] = `
+CustomNumber {
+  "value": 16,
+}
+`;
+
+exports[`interpreter default scripts string.src 6`] = `
+CustomNil {
+  "value": null,
+}
+`;
+
+exports[`interpreter default scripts string.src 7`] = `
+CustomNumber {
+  "value": 120,
+}
+`;
+
+exports[`interpreter default scripts string.src 8`] = `
+CustomNumber {
+  "value": 23,
+}
+`;
+
+exports[`interpreter default scripts string.src 9`] = `
+CustomString {
+  "value": "xxx was ccccccc",
+}
+`;
+
+exports[`interpreter default scripts string.src 10`] = `
+CustomNumber {
+  "value": 1.23,
+}
+`;
+
+exports[`interpreter default scripts string.src 11`] = `
+CustomString {
+  "value": "nonumber",
+}
+`;
+
+exports[`interpreter default scripts string.src 12`] = `
+CustomString {
+  "value": "XXX  CCCCCCC",
+}
+`;
+
+exports[`interpreter default scripts string.src 13`] = `
+CustomString {
+  "value": "XXX WAS CCCCCCC",
+}
+`;
+
+exports[`interpreter default scripts string.src 14`] = `
+CustomList {
+  "slice": [Function],
+  "value": Array [
+    CustomString {
+      "value": "123",
+    },
+    CustomString {
+      "value": "was",
+    },
+    CustomString {
+      "value": "false",
+    },
+  ],
+}
+`;
+
+exports[`interpreter default scripts string.src 15`] = `
+CustomString {
+  "value": "xxx replaced ipsum bar for",
+}
+`;
+
+exports[`interpreter default scripts string.src 16`] = `
+CustomString {
+  "value": "was      xx",
+}
+`;
+
+exports[`interpreter default scripts string.src 17`] = `
+CustomNumber {
+  "value": 12,
+}
+`;
+
+exports[`interpreter default scripts string.src 18`] = `
+CustomNumber {
+  "value": 1.23,
+}
+`;
+
+exports[`interpreter default scripts string.src 19`] = `
+CustomString {
+  "value": "nonumber",
+}
+`;

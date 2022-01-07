@@ -1,0 +1,32 @@
+print("xxx lorem ipsum bar for".hasIndex(4))
+print("xxx lorem ipsum bar for".hasIndex(1000))
+
+print("xxx lorem ipsum bar for".indexes())
+print("xxx lorem ipsum bar for".values())
+
+print("xxx lorem ipsum bar for".indexOf("bar"))
+print("xxx lorem ipsum bar for".indexOf("unknown"))
+
+print("x".code)
+
+print("xxx lorem ipsum bar for".len)
+
+print("XXX was CCCCCCC".lower)
+
+print("1.23".val)
+print("nonumber".val)
+
+print("XXX was CCCCCCC".remove("was"))
+
+print("xxx WAS ccccccc".upper)
+
+print("123,was,false".split(","))
+
+print("xxx lorem ipsum bar for".replace("lorem", "replaced"))
+
+print(" was      xx       ".trim)
+
+print("bar bar bar bar".lastIndexOf("bar"))
+
+print("1.23".to_int)
+print("nonumber".to_int)

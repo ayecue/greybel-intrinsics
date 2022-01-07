@@ -1,0 +1,36 @@
+print(["foo", "bar"].hasIndex(1))
+print(["foo", "bar"].hasIndex("xxx"))
+
+print(["foo", "bar"].indexes());
+
+print(["foo", "bar"].indexOf("bar"));
+print(["foo", "bar"].indexOf("xxx"));
+
+print(["foo", "bar"].len);
+
+myList = ["foo", "bar"]
+print(myList.pop())
+print(myList)
+
+myList = ["foo", "bar"]
+print(myList.pull())
+print(myList)
+
+myList = ["foo", "bar"]
+print(myList.push("xxx"))
+
+print([1,6,2,4].sort())
+
+print([1,4,5,6].sum())
+
+myList = ["foo", "bar"]
+print(myList.remove("foo"))
+print(myList)
+
+print(["foo", "bar"].values());
+
+myList = ["foo", "bar", "xxx"]
+myList.reverse()
+print(myList)
+
+print(["foo", "bar", "xxx"].join(";"))

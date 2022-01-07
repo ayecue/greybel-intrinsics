@@ -1,0 +1,17 @@
+print(char(123))
+
+print(code(char(123)))
+
+print(str(false))
+
+print(val("1.23"))
+print(val("foo"))
+
+print(hash("foo"))
+print(hash(["foo", "bar"]))
+print(hash({"foo": 2, "bar": false}))
+print(hash(true))
+print(hash(1345))
+
+print(range(1, 5))
+print(range(0, 10, 2))
