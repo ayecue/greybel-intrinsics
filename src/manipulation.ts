@@ -1,7 +1,8 @@
 import {
 	toInt,
 	toNumber,
-	compare
+	compare,
+	itemAtIndex
 } from './utils';
 import {
 	CustomBoolean,
@@ -20,10 +21,10 @@ export function hasIndex(customValue: any, index: any): boolean {
 		if (!(index instanceof CustomNumber)) {
 			return false;
 		}
-		const listIndex = customValue.toIndex(toInt(index).value.toString());
+		const listIndex = toInt(index).value;
 		return customValue.value.hasOwnProperty(listIndex);
 	} else if (customValue instanceof CustomString) {
-		const strIndex = customValue.toIndex(toInt(index).value.toString());
+		const strIndex = toInt(index).value;
 		return !!customValue.value[strIndex];
 	}
 
@@ -236,7 +237,7 @@ export function remove(customValue: any, keyValue: any): any {
 		}
 		return false;
 	} else if (customValue instanceof CustomList) {
-		const listIndex = customValue.toIndex(toInt(keyValue).value.toString());
+		const listIndex = itemAtIndex(customValue.value, toInt(keyValue).value);
 		if (customValue.value.hasOwnProperty(listIndex)) {
 			customValue.value.splice(listIndex, 1);
 		}

@@ -7,6 +7,13 @@ import {
 	CustomList
 } from 'greybel-interpreter';
 
+export function itemAtIndex(list: any[] | string, n: number): number {
+	n = Math.trunc(n) || 0;
+	if (n < 0) n += list.length;
+	if (n < 0 || n >= list.length) return -1;
+	return n;
+}
+
 export function toNumber(customValue: any): CustomNumber {
 	if (customValue instanceof CustomNumber) {
 		return customValue;
