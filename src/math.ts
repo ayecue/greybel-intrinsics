@@ -64,7 +64,7 @@ export function sign(customValue: any): number {
 export function round(customValue: any, decimalPlaces: any): number {
 	if (customValue instanceof CustomNil) return null;
 	const number = toNumber(customValue);
-	const decPlaces = (toInt(decimalPlaces).value + 1) * 10;
+	const decPlaces = Math.max(toInt(decimalPlaces).value * 10, 1);
 	return Math.round((number.valueOf() + Number.EPSILON) * decPlaces) / decPlaces;
 }
 
