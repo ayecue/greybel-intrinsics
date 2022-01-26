@@ -13,5 +13,6 @@ print(hash({"foo": 2, "bar": false}))
 print(hash(true))
 print(hash(1345))
 
+print(range(6))
 print(range(1, 5))
 print(range(0, 10, 2))

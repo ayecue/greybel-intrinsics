@@ -65,6 +65,32 @@ CustomList {
   "slice": [Function],
   "value": Array [
     CustomNumber {
+      "value": 0,
+    },
+    CustomNumber {
+      "value": 1,
+    },
+    CustomNumber {
+      "value": 2,
+    },
+    CustomNumber {
+      "value": 3,
+    },
+    CustomNumber {
+      "value": 4,
+    },
+    CustomNumber {
+      "value": 5,
+    },
+  ],
+}
+`;
+
+exports[`interpreter default scripts generics.src 12`] = `
+CustomList {
+  "slice": [Function],
+  "value": Array [
+    CustomNumber {
       "value": 1,
     },
     CustomNumber {
@@ -80,7 +106,7 @@ CustomList {
 }
 `;
 
-exports[`interpreter default scripts generics.src 12`] = `
+exports[`interpreter default scripts generics.src 13`] = `
 CustomList {
   "slice": [Function],
   "value": Array [

@@ -84,8 +84,13 @@ export function hash(customValue: any, recursionDepth: number = 16): number {
 }
 
 export function range(from: any, to: any, step: any): any[] {
+	if (!(from instanceof CustomNumber)) {
+		throw new Error('from not a number');
+	}
+
 	if (!(to instanceof CustomNumber)) {
-		throw new Error('range() "to" parameter not a number');
+		to = from;
+		from = new CustomNumber(0);
 	}
 
 	const inc = step?.toNumber() || 1;
