@@ -278,6 +278,36 @@ CustomString {
 }
 `;
 
+exports[`interpreter default scripts list.src 19`] = `
+CustomNumber {
+  "value": 0,
+}
+`;
+
+exports[`interpreter default scripts list.src 20`] = `
+CustomBoolean {
+  "value": false,
+}
+`;
+
+exports[`interpreter default scripts list.src 21`] = `
+CustomBoolean {
+  "value": true,
+}
+`;
+
+exports[`interpreter default scripts list.src 22`] = `
+CustomBoolean {
+  "value": true,
+}
+`;
+
+exports[`interpreter default scripts list.src 23`] = `
+CustomString {
+  "value": "true",
+}
+`;
+
 exports[`interpreter default scripts manipulation.src 1`] = `
 CustomBoolean {
   "value": true,

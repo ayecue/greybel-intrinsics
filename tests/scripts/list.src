@@ -34,3 +34,13 @@ myList.reverse()
 print(myList)
 
 print(["foo", "bar", "xxx"].join(";"))
+
+print(params.len)
+print(params.len != 0)
+print(params.len == 0)
+item = params.len == 0
+print(item)
+
+if (params.len == 0) then
+	print("true")
+end if
