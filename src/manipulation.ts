@@ -1,6 +1,4 @@
 import {
-	toInt,
-	toNumber,
 	compare,
 	itemAtIndex
 } from './utils';
@@ -15,16 +13,16 @@ import {
 
 export function hasIndex(customValue: any, index: any): boolean {
 	if (customValue instanceof CustomMap) {
-		const key = index.value.toString();
+		const key = index?.toString();
 		return customValue.value.has(key);
 	} else if (customValue instanceof CustomList) {
 		if (!(index instanceof CustomNumber)) {
 			return false;
 		}
-		const listIndex = toInt(index).value;
+		const listIndex = index?.toNumber() | 0;
 		return customValue.value.hasOwnProperty(listIndex);
 	} else if (customValue instanceof CustomString) {
-		const strIndex = toInt(index).value;
+		const strIndex = index?.toNumber() | 0;
 		return !!customValue.value[strIndex];
 	}
 
@@ -43,13 +41,13 @@ export function indexOf(customValue: any, value: any, after: any): number | stri
 			}
 		}
 	} else if (customValue instanceof CustomList) {
-		for (let index = toInt(after).value; index < customValue.value.length; index++) {
+		for (let index = after?.toNumber() | 0; index < customValue.value.length; index++) {
 			if (compare(customValue.value[index], value)) {
 				return index;
 			}
 		}
 	} else if (customValue instanceof CustomString) {
-		const strIndex = customValue.value.indexOf(value.value.toString());
+		const strIndex = customValue.value.indexOf(value?.toString());
 		if (strIndex !== -1) {
 			return strIndex;
 		}
@@ -106,15 +104,15 @@ export function slice(customValue: any, from: any, to: any): any {
 		return null;
 	}
 
-	const start = toInt(from);
-	let end = toInt(to);
+	const start = from?.toNumber() | 0;
+	let end = to?.toNumber() | 0;
 
 	if (customValue instanceof CustomList || customValue instanceof CustomString) {
-		if (end.value === 0) {
-			end = new CustomNumber(customValue.value.length);
+		if (end === 0) {
+			end = customValue.value.length;
 		}
 
-		return customValue.slice(start, end);
+		return customValue.slice(new CustomNumber(start), new CustomNumber(end));
 	}
 
 	return null;
@@ -128,8 +126,8 @@ export function sort(customValue: any, key: any): any[] {
 	const orderBy = key ? key.toString() : null;
 
 	return customValue.value.sort((a: any, b: any) => {
-		let aVal = a.valueOf();
-		let bVal = b.valueOf();
+		let aVal = a?.toNumber();
+		let bVal = b?.toNumber();
 
 		if (orderBy) {
 			throw new Error("order key is not yet supported");
@@ -150,7 +148,7 @@ export function sum(customValue: any): number {
 
 	if (customValue instanceof CustomList || customValue instanceof CustomMap) {
 		customValue.value.forEach((v) => {
-			const temp = toNumber(v).value;
+			const temp = v?.toNumber();
 			result += Number.isNaN(temp) ? 0 : temp;
 		});
 	}
@@ -211,7 +209,7 @@ export function push(customValue: any, value: any): any {
 			throw new Error('Key map cannot be null.');
 		}
 
-		const key = value.value.toString();
+		const key = value?.toString();
 
 		if (customValue.value.has(key)) {
 			throw new Error(`Key map has already been added: ${key}`);
@@ -228,7 +226,7 @@ export function push(customValue: any, value: any): any {
 }
 
 export function remove(customValue: any, keyValue: any): any {
-	const key = keyValue.value.toString();
+	const key = keyValue?.toString();
 
 	if (customValue instanceof CustomMap) {
 		if (customValue.value.has(key)) {
@@ -237,7 +235,7 @@ export function remove(customValue: any, keyValue: any): any {
 		}
 		return false;
 	} else if (customValue instanceof CustomList) {
-		const listIndex = itemAtIndex(customValue.value, toInt(keyValue).value);
+		const listIndex = itemAtIndex(customValue.value, keyValue?.toNumber() | 0);
 		if (customValue.value.hasOwnProperty(listIndex)) {
 			customValue.value.splice(listIndex, 1);
 		}
@@ -252,15 +250,15 @@ export function reverse(customValue: CustomList): void {
 }
 
 export function join(customValue: CustomList, seperator: any): string {
-	return customValue.value.join(seperator.value.toString());
+	return customValue.value.join(seperator?.toString());
 }
 
 export function split(customValue: CustomString, delimiter: any): string[] {
-	return customValue.value.split(delimiter.value.toString());
+	return customValue.toString().split(delimiter?.toString());
 }
 
 export function replace(customValue: CustomString, toReplace: any, replaceWith: any): string {
-	return customValue.value.replace(toReplace.value.toString(), replaceWith.value.toString());
+	return customValue.toString().replace(toReplace?.toString(), replaceWith?.toString());
 }
 
 export function trim(customValue: CustomString): string {
@@ -272,6 +270,6 @@ export function lastIndexOf(customValue: CustomString, value: any): number {
 }
 
 export function to_int(customValue: CustomString): any {
-	const result = Number(customValue.value);
-	return Number.isNaN(result) ? customValue : result;
+	const result = customValue?.toNumber();
+	return Number.isNaN(result) ? customValue : result | 0;
 }

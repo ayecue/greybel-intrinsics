@@ -14,23 +14,6 @@ export function itemAtIndex(list: any[] | string, n: number): number {
 	return n;
 }
 
-export function toNumber(customValue: any): CustomNumber {
-	if (customValue instanceof CustomNumber) {
-		return customValue;
-	} else if (customValue instanceof CustomBoolean || customValue instanceof CustomString) {
-		return new CustomNumber(Number(customValue.value));
-	}
-	return new CustomNumber(.0);
-}
-
-export function toBoolean(customValue: any): CustomBoolean {
-	return new CustomBoolean(!!customValue.valueOf());
-}
-
-export function toInt(customValue: any): CustomNumber {
-	return new CustomNumber(toNumber(customValue).value | 0);
-}
-
 export function getHashCode(value: number, offset: number = 0): number {
 	if (value === 0.0) return 0;
 	return (((offset << 5) - offset) + value) | 0;

@@ -1267,7 +1267,7 @@ CustomNumber {
 
 exports[`interpreter default scripts string.src 18`] = `
 CustomNumber {
-  "value": 1.23,
+  "value": 1,
 }
 `;
 

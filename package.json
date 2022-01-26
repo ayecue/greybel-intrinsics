@@ -38,6 +38,6 @@
         "greyhack"
     ],
     "dependencies": {
-        "greybel-interpreter": "^0.6.0"
+        "greybel-interpreter": "^0.6.1"
     }
 }

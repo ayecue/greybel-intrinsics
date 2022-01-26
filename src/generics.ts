@@ -1,6 +1,4 @@
 import {
-	toInt,
-	toNumber,
 	getStringHashCode,
 	getHashCode
 } from './utils';
@@ -14,11 +12,11 @@ import {
 } from 'greybel-interpreter';
 
 export function print(customValue: any): void {
-	console.log(customValue.toString());
+	console.log(customValue?.toString());
 }
 
 export function wait(delay: any): Promise<void> {
-	const seconds = toNumber(delay).value || 1;
+	const seconds = delay?.toNumber() || 1;
 
 	return new Promise((resolve) => {
 		setTimeout(resolve, seconds);
@@ -27,7 +25,7 @@ export function wait(delay: any): Promise<void> {
 
 export function char(customValue: any): string {
 	if (customValue instanceof CustomNil) return null;
-	const code = toInt(customValue).value;
+	const code = parseInt(customValue.toNumber());
 	if (code === 0) return null;
 	return String.fromCharCode(code);
 }
@@ -51,7 +49,7 @@ export function val(customValue: any): any {
 	if (customValue instanceof CustomNumber) {
 		return customValue.value;
 	} else if (customValue instanceof CustomString) {
-		const result = toNumber(customValue).value;
+		const result = customValue.toNumber();
 		return Number.isNaN(result) ? customValue : result;
 	}
 	return null;
@@ -75,11 +73,11 @@ export function hash(customValue: any, recursionDepth: number = 16): number {
 		});
 		return result;
 	} else if (customValue instanceof CustomString) {
-		return getStringHashCode(customValue.value);
+		return getStringHashCode(customValue.toString());
 	} else if (customValue instanceof CustomBoolean) {
-		return getHashCode(toInt(customValue).value);
+		return getHashCode(customValue.toNumber());
 	} else if (customValue instanceof CustomNumber) {
-		return getHashCode(customValue.value);
+		return getHashCode(customValue.toNumber());
 	}
 
 	return 0;
@@ -90,14 +88,14 @@ export function range(from: any, to: any, step: any): any[] {
 		throw new Error('range() "to" parameter not a number');
 	}
 
-	const inc = toNumber(step).value || 1;
+	const inc = step?.toNumber() || 1;
 
 	if (inc === .0) {
 		throw new Error('range() error (step==0)');
 	}
 
-	const start = toNumber(from).value;
-	const end = to.value;
+	const start = from?.toNumber();
+	const end = to?.toNumber();
 	const result = [];
 
 	for (let index = start; index < end; index += inc) {
