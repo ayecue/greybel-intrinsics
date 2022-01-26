@@ -44,3 +44,8 @@ print(item)
 if (params.len == 0) then
 	print("true")
 end if
+
+test = [][0:]
+for i in test.indexes
+	print(i)
+end for
