@@ -1,90 +1,204 @@
 import {
-	CustomNumber,
-	CustomNil
+  CustomFunction,
+  CustomNil,
+  CustomNumber,
+  CustomValue,
+  Defaults,
+  OperationContext
 } from 'greybel-interpreter';
 
-export function abs(customValue: any): number {
-	if (customValue instanceof CustomNil) return null;
-	return Math.abs(customValue.toNumber());
-}
+export const abs = CustomFunction.createExternal(
+  'abs',
+  (
+    _ctx: OperationContext,
+    _self: CustomValue,
+    args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    const value = args.get('value');
+    if (value instanceof CustomNil) return Promise.resolve(Defaults.Void);
+    return Promise.resolve(new CustomNumber(Math.abs(value.toNumber())));
+  }
+).addArgument('value');
 
-export function acos(customValue: any): number {
-	if (customValue instanceof CustomNil) return null;
-	return Math.acos(customValue.toNumber());
-}
+export const acos = CustomFunction.createExternal(
+  'acos',
+  (
+    _ctx: OperationContext,
+    _self: CustomValue,
+    args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    const value = args.get('value');
+    if (value instanceof CustomNil) return Promise.resolve(Defaults.Void);
+    return Promise.resolve(new CustomNumber(Math.acos(value.toNumber())));
+  }
+).addArgument('value');
 
-export function asin(customValue: any): number {
-	if (customValue instanceof CustomNil) return null;
-	return Math.asin(customValue.toNumber());
-}
+export const asin = CustomFunction.createExternal(
+  'asin',
+  (
+    _ctx: OperationContext,
+    _self: CustomValue,
+    args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    const value = args.get('value');
+    if (value instanceof CustomNil) return Promise.resolve(Defaults.Void);
+    return Promise.resolve(new CustomNumber(Math.asin(value.toNumber())));
+  }
+).addArgument('value');
 
-export function atan(customValue: any): number {
-	if (customValue instanceof CustomNil) return null;
-	return Math.atan(customValue.toNumber());
-}
+export const atan = CustomFunction.createExternal(
+  'atan',
+  (
+    _ctx: OperationContext,
+    _self: CustomValue,
+    args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    const value = args.get('value');
+    if (value instanceof CustomNil) return Promise.resolve(Defaults.Void);
+    return Promise.resolve(new CustomNumber(Math.atan(value.toNumber())));
+  }
+).addArgument('value');
 
-export function ceil(customValue: any): number {
-	if (customValue instanceof CustomNil) return null;
-	return Math.ceil(customValue.toNumber());
-}
+export const ceil = CustomFunction.createExternal(
+  'ceil',
+  (
+    _ctx: OperationContext,
+    _self: CustomValue,
+    args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    const value = args.get('value');
+    if (value instanceof CustomNil) return Promise.resolve(Defaults.Void);
+    return Promise.resolve(new CustomNumber(Math.ceil(value.toNumber())));
+  }
+).addArgument('value');
 
-export function cos(customValue: any): number {
-	if (customValue instanceof CustomNil) return null;
-	return Math.cos(customValue.toNumber());
-}
+export const cos = CustomFunction.createExternal(
+  'cos',
+  (
+    _ctx: OperationContext,
+    _self: CustomValue,
+    args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    const value = args.get('value');
+    if (value instanceof CustomNil) return Promise.resolve(Defaults.Void);
+    return Promise.resolve(new CustomNumber(Math.cos(value.toNumber())));
+  }
+).addArgument('value');
 
-export function floor(customValue: any): number {
-	if (customValue instanceof CustomNil) return null;
-	return Math.floor(customValue.toNumber());
-}
+export const floor = CustomFunction.createExternal(
+  'floor',
+  (
+    _ctx: OperationContext,
+    _self: CustomValue,
+    args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    const value = args.get('value');
+    if (value instanceof CustomNil) return Promise.resolve(Defaults.Void);
+    return Promise.resolve(new CustomNumber(Math.floor(value.toNumber())));
+  }
+).addArgument('value');
 
-export function sin(customValue: any): number {
-	if (customValue instanceof CustomNil) return null;
-	return Math.sin(customValue.toNumber());
-}
+export const sin = CustomFunction.createExternal(
+  'sin',
+  (
+    _ctx: OperationContext,
+    _self: CustomValue,
+    args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    const value = args.get('value');
+    if (value instanceof CustomNil) return Promise.resolve(Defaults.Void);
+    return Promise.resolve(new CustomNumber(Math.sin(value.toNumber())));
+  }
+).addArgument('value');
 
-export function sign(customValue: any): number {
-	if (customValue instanceof CustomNil) return null;
-	return Math.sign(customValue.toNumber());
-}
+export const sign = CustomFunction.createExternal(
+  'sign',
+  (
+    _ctx: OperationContext,
+    _self: CustomValue,
+    args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    const value = args.get('value');
+    if (value instanceof CustomNil) return Promise.resolve(Defaults.Void);
+    return Promise.resolve(new CustomNumber(Math.sign(value.toNumber())));
+  }
+).addArgument('value');
 
-export function round(customValue: any, decimalPlaces: any): number {
-	if (customValue instanceof CustomNil) return null;
-	const decPlaces = Math.max(Math.round(decimalPlaces?.toNumber() || 0) * 10, 1);
-	return Math.round((customValue.toNumber() + Number.EPSILON) * decPlaces) / decPlaces;
-}
+export const round = CustomFunction.createExternal(
+  'round',
+  (
+    _ctx: OperationContext,
+    _self: CustomValue,
+    args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    const value = args.get('value');
+    if (value instanceof CustomNil) return Promise.resolve(Defaults.Void);
+    const decimalPlaces = args.get('decimalPlaces');
+    const decPlaces = Math.max(Math.round(decimalPlaces.toNumber()) * 10, 1);
+    const result =
+      Math.round((value.toNumber() + Number.EPSILON) * decPlaces) / decPlaces;
+    return Promise.resolve(new CustomNumber(result));
+  }
+)
+  .addArgument('value')
+  .addArgument('decimalPlaces', new CustomNumber(0));
 
-export function sqrt(customValue: any): number {
-	if (customValue instanceof CustomNil) return null;
-	return Math.sqrt(customValue.toNumber());
-}
+export const sqrt = CustomFunction.createExternal(
+  'sqrt',
+  (
+    _ctx: OperationContext,
+    _self: CustomValue,
+    args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    const value = args.get('value');
+    if (value instanceof CustomNil) return Promise.resolve(Defaults.Void);
+    return Promise.resolve(new CustomNumber(Math.sqrt(value.toNumber())));
+  }
+).addArgument('value');
 
-export function pi(): number {
-	return Math.PI;
-}
+export const pi = CustomFunction.createExternal(
+  'pi',
+  (
+    _ctx: OperationContext,
+    _self: CustomValue,
+    _args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    return Promise.resolve(new CustomNumber(Math.PI));
+  }
+);
 
-export function bitwise(operator: any, numA: any, numB: any): number {
-	const a = numA.toNumber();
-	const b = numB?.toNumber();
-	const op = operator.toString();
+export const bitwise = CustomFunction.createExternal(
+  'bitwise',
+  (
+    _ctx: OperationContext,
+    _self: CustomValue,
+    args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    const a = args.get('numA').toNumber();
+    const b = args.get('numB').toNumber();
+    const op = args.get('operator').toString();
 
-	switch (op) {
-		case '&':
-			return a & b;
-		case '|':
-			return a | b;
-		case '^':
-			return a ^ b;
-		case '<<':
-			return a << b;
-		case '>>':
-			return a >> b;
-		case '>>>':
-			return a >>> b;
-		case '~':
-			return ~a;
-		default:
-	}
+    switch (op) {
+      case '&':
+        return Promise.resolve(new CustomNumber(a & b));
+      case '|':
+        return Promise.resolve(new CustomNumber(a | b));
+      case '^':
+        return Promise.resolve(new CustomNumber(a ^ b));
+      case '<<':
+        return Promise.resolve(new CustomNumber(a << b));
+      case '>>':
+        return Promise.resolve(new CustomNumber(a >> b));
+      case '>>>':
+        return Promise.resolve(new CustomNumber(a >>> b));
+      case '~':
+        return Promise.resolve(new CustomNumber(~a));
+      default:
+    }
 
-	return null;
-}
+    return Promise.resolve(Defaults.Void);
+  }
+)
+  .addArgument('operator')
+  .addArgument('numA')
+  .addArgument('numB');
