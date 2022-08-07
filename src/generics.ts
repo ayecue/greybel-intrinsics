@@ -1,111 +1,189 @@
 import {
-	getStringHashCode,
-	getHashCode
-} from './utils';
-import {
-	CustomBoolean,
-	CustomNumber,
-	CustomString,
-	CustomNil,
-	CustomMap,
-	CustomList
+  CustomBoolean,
+  CustomFunction,
+  CustomList,
+  CustomMap,
+  CustomNil,
+  CustomNumber,
+  CustomString,
+  CustomValue,
+  Defaults,
+  OperationContext
 } from 'greybel-interpreter';
 
-export function print(customValue: any): void {
-	console.log(customValue?.toString());
-}
+import { getHashCode, getStringHashCode } from './utils';
 
-export function wait(delay: any): Promise<void> {
-	const seconds = delay?.toNumber() || 1;
+export const print = CustomFunction.createExternal(
+  'print',
+  (
+    ctx: OperationContext,
+    self: CustomValue,
+    args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    console.log(args.get('value').toString());
+    return Promise.resolve(Defaults.Void);
+  }
+).addArgument('value');
 
-	return new Promise((resolve) => {
-		setTimeout(resolve, seconds);
-	});
-}
+export const wait = CustomFunction.createExternal(
+  'wait',
+  (
+    ctx: OperationContext,
+    self: CustomValue,
+    args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    const seconds = args.get('delay').toNumber();
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(Defaults.Void);
+      }, seconds);
+    });
+  }
+).addArgument('delay', new CustomNumber(1));
 
-export function char(customValue: any): string {
-	if (customValue instanceof CustomNil) return null;
-	const code = parseInt(customValue.toNumber());
-	if (code === 0) return null;
-	return String.fromCharCode(code);
-}
+export const char = CustomFunction.createExternal(
+  'char',
+  (
+    ctx: OperationContext,
+    self: CustomValue,
+    args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    const code = args.get('code');
+    if (code instanceof CustomNil) return Promise.resolve(Defaults.Void);
+    const str = String.fromCharCode(code.toInt());
+    return Promise.resolve(new CustomString(str));
+  }
+).addArgument('code');
 
-export function code(customValue: any): number {
-	if (customValue instanceof CustomNil) {
-		throw new Error('code: invalid char code.')
-	}
-	const str = customValue.value.toString();
-	return str.charCodeAt(0);
-}
+export const code = CustomFunction.createExternal(
+  'code',
+  (
+    ctx: OperationContext,
+    self: CustomValue,
+    args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    const value = args.get('value');
+    if (value instanceof CustomNil)
+      return Promise.reject(new Error('code: invalid char code.'));
+    const str = value.toString();
+    const strCode = str.charCodeAt(0);
+    return Promise.resolve(new CustomNumber(strCode));
+  }
+)
+  .addArgument('value')
+  .setInjectSelf(true);
 
-export function str(customValue: any): string {
-	if (customValue instanceof CustomString) {
-		return customValue.value.toString();
-	}
-	return customValue.toString();
-}
+export const str = CustomFunction.createExternal(
+  'str',
+  (
+    ctx: OperationContext,
+    self: CustomValue,
+    args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    return Promise.resolve(new CustomString(args.get('value').toString()));
+  }
+).addArgument('value');
 
-export function val(customValue: any): any {
-	if (customValue instanceof CustomNumber) {
-		return customValue.value;
-	} else if (customValue instanceof CustomString) {
-		const result = customValue.toNumber();
-		return Number.isNaN(result) ? customValue : result;
-	}
-	return null;
-}
+export const val = CustomFunction.createExternal(
+  'val',
+  (
+    ctx: OperationContext,
+    self: CustomValue,
+    args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    const value = args.get('value');
+    if (value instanceof CustomNumber) {
+      return Promise.resolve(value);
+    } else if (value instanceof CustomString) {
+      return Promise.resolve(
+        value.isNumber() ? new CustomNumber(value.parseFloat()) : Defaults.Zero
+      );
+    }
+    return Promise.resolve(Defaults.Void);
+  }
+)
+  .addArgument('value')
+  .setInjectSelf(true);
 
-export function hash(customValue: any, recursionDepth: number = 16): number {
-	let result: number;
-	if (customValue instanceof CustomList) {
-		result = getHashCode(customValue.value.length);
-		if (recursionDepth < 1) return result;
-		customValue.value.forEach((value: any) => {
-			result ^= hash(value, recursionDepth - 1);
-		});
-		return result;
-	} else if (customValue instanceof CustomMap) {
-		result = getHashCode(customValue.value.size);
-		if (recursionDepth < 0) return result;
-		customValue.value.forEach((value: any, key: string) => {
-			result ^= getStringHashCode(key);
-			result ^= hash(value, recursionDepth - 1);
-		});
-		return result;
-	} else if (customValue instanceof CustomString) {
-		return getStringHashCode(customValue.toString());
-	} else if (customValue instanceof CustomBoolean) {
-		return getHashCode(customValue.toNumber());
-	} else if (customValue instanceof CustomNumber) {
-		return getHashCode(customValue.toNumber());
-	}
+const hashEx = (value: CustomValue, recursionDepth: number): number => {
+  let result: number;
+  if (value instanceof CustomList) {
+    result = getHashCode(value.value.length);
+    if (recursionDepth < 1) return result;
+    value.value.forEach((value: CustomValue) => {
+      result ^= hashEx(value, recursionDepth - 1);
+    });
+    return result;
+  } else if (value instanceof CustomMap) {
+    result = getHashCode(value.value.size);
+    if (recursionDepth < 0) return result;
+    value.value.forEach((value: CustomValue, key: string) => {
+      result ^= getStringHashCode(key);
+      result ^= hashEx(value, recursionDepth - 1);
+    });
+    return result;
+  } else if (value instanceof CustomString) {
+    return getStringHashCode(value.toString());
+  } else if (value instanceof CustomBoolean) {
+    return getHashCode(value.toNumber());
+  } else if (value instanceof CustomNumber) {
+    return getHashCode(value.toNumber());
+  }
 
-	return 0;
-}
+  return 0;
+};
 
-export function range(from: any, to: any, step: any): any[] {
-	if (!(from instanceof CustomNumber)) {
-		throw new Error('from not a number');
-	}
+export const hash = CustomFunction.createExternal(
+  'hash',
+  (
+    ctx: OperationContext,
+    self: CustomValue,
+    args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    const value = args.get('value');
+    const recursionDepth = args.get('recursionDepth').toInt();
 
-	if (!(to instanceof CustomNumber)) {
-		to = from;
-		from = new CustomNumber(0);
-	}
+    return Promise.resolve(new CustomNumber(hashEx(value, recursionDepth)));
+  }
+)
+  .addArgument('value')
+  .addArgument('recursionDepth', new CustomNumber(16));
 
-	const inc = step?.toNumber() || 1;
+export const range = CustomFunction.createExternal(
+  'range',
+  (
+    ctx: OperationContext,
+    self: CustomValue,
+    args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    let from = args.get('from');
+    let to = args.get('to');
+    const step = args.get('step').toInt();
 
-	if (inc === .0) {
-		throw new Error('range() error (step==0)');
-	}
+    if (!(from instanceof CustomNumber)) {
+      return Promise.reject(new Error('from not a number'));
+    }
 
-	const start = from?.toNumber();
-	const end = to?.toNumber();
-	const result = [];
+    if (!(to instanceof CustomNumber)) {
+      to = from;
+      from = Defaults.Zero;
+    }
 
-	for (let index = start; index < end; index += inc) {
-		result.push(index);
-	}
+    if (step === 0) {
+      return Promise.reject(new Error('range() error (step==0)'));
+    }
 
-	return result;
-}
+    const start = from.toNumber();
+    const end = to.toNumber();
+    const result: Array<CustomValue> = [];
+
+    for (let index = start; index < end; index += step) {
+      result.push(new CustomNumber(index));
+    }
+
+    return Promise.resolve(new CustomList(result));
+  }
+)
+  .addArgument('from')
+  .addArgument('to')
+  .addArgument('step', new CustomNumber(1));

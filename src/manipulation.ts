@@ -1,275 +1,560 @@
 import {
-	compare,
-	itemAtIndex
-} from './utils';
-import {
-	CustomBoolean,
-	CustomNumber,
-	CustomString,
-	CustomNil,
-	CustomMap,
-	CustomList
+  CustomBoolean,
+  CustomFunction,
+  CustomList,
+  CustomMap,
+  CustomNil,
+  CustomNumber,
+  CustomString,
+  CustomValue,
+  Defaults,
+  OperationContext
 } from 'greybel-interpreter';
 
-export function hasIndex(customValue: any, index: any): boolean {
-	if (customValue instanceof CustomMap) {
-		const key = index?.toString();
-		return customValue.value.has(key);
-	} else if (customValue instanceof CustomList) {
-		if (!(index instanceof CustomNumber)) {
-			return false;
-		}
-		const listIndex = index?.toNumber() | 0;
-		return customValue.value.hasOwnProperty(listIndex);
-	} else if (customValue instanceof CustomString) {
-		const strIndex = index?.toNumber() | 0;
-		return !!customValue.value[strIndex];
-	}
+import { compare, itemAtIndex } from './utils';
 
-	return false;
-}
+export const hasIndex = CustomFunction.createExternalWithSelf(
+  'hasIndex',
+  (
+    _ctx: OperationContext,
+    _self: CustomValue,
+    args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    const origin = args.get('self');
+    const index = args.get('index');
 
-export function indexOf(customValue: any, value: any, after: any): number | string {
-	if (value instanceof CustomNil) {
-		throw new Error('indexOf requires a value argument');
-	}
+    if (origin instanceof CustomMap) {
+      const key = index.toString();
+      return Promise.resolve(new CustomBoolean(origin.value.has(key)));
+    } else if (origin instanceof CustomList) {
+      if (!(index instanceof CustomNumber)) {
+        return Promise.resolve(Defaults.False);
+      }
+      const listIndex = index.toInt();
+      return Promise.resolve(
+        new CustomBoolean(
+          Object.prototype.hasOwnProperty.call(origin.value, listIndex)
+        )
+      );
+    } else if (origin instanceof CustomString) {
+      const strIndex = index.toInt();
+      return Promise.resolve(new CustomBoolean(!!origin.value[strIndex]));
+    }
 
-	if (customValue instanceof CustomMap) {
-		for (let [key, item] of customValue.value) {
-			if (compare(item, value)) {
-				return key;
-			}
-		}
-	} else if (customValue instanceof CustomList) {
-		for (let index = after?.toNumber() | 0; index < customValue.value.length; index++) {
-			if (compare(customValue.value[index], value)) {
-				return index;
-			}
-		}
-	} else if (customValue instanceof CustomString) {
-		const strIndex = customValue.value.indexOf(value?.toString());
-		if (strIndex !== -1) {
-			return strIndex;
-		}
-	}
+    return Promise.resolve(Defaults.False);
+  }
+).addArgument('index');
 
-	return null;
-}
+export const indexOf = CustomFunction.createExternalWithSelf(
+  'indexOf',
+  (
+    _ctx: OperationContext,
+    _self: CustomValue,
+    args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    const origin = args.get('self');
+    const value = args.get('value');
+    const after = args.get('after');
 
-export function indexes(customValue: any): any[] {
-	if (customValue instanceof CustomMap) {
-		return Array.from(customValue.value.keys());
-	} else if (customValue instanceof CustomList || customValue instanceof CustomString) {
-		return Object.keys(customValue.value);
-	}
+    if (value instanceof CustomNil) {
+      throw new Error('indexOf requires a value argument');
+    }
 
-	return null;
-}
+    if (origin instanceof CustomMap) {
+      for (const [key, item] of origin.value) {
+        if (compare(item, value)) {
+          return Promise.resolve(new CustomString(key));
+        }
+      }
+    } else if (origin instanceof CustomList) {
+      for (let index = after.toInt(); index < origin.value.length; index++) {
+        if (compare(origin.value[index], value)) {
+          return Promise.resolve(new CustomNumber(index));
+        }
+      }
+    } else if (origin instanceof CustomString) {
+      const strIndex = origin.value.indexOf(value.toString(), after.toInt());
+      if (strIndex !== -1) {
+        return Promise.resolve(new CustomNumber(strIndex));
+      }
+    }
 
-export function values(customValue: any): any[] {
-	if (customValue instanceof CustomMap) {
-		return Array.from(customValue.value.values());
-	} else if (customValue instanceof CustomList || customValue instanceof CustomString) {
-		return Object.values(customValue.value);
-	}
+    return Promise.resolve(Defaults.Void);
+  }
+)
+  .addArgument('value')
+  .addArgument('after', new CustomNumber(0));
 
-	return null;
-}
+export const indexes = CustomFunction.createExternalWithSelf(
+  'indexes',
+  (
+    _ctx: OperationContext,
+    _self: CustomValue,
+    args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    const origin = args.get('self');
 
-export function len(customValue: any): number {
-	if (customValue instanceof CustomMap) {
-		return customValue.value.size;
-	} else if (customValue instanceof CustomList || customValue instanceof CustomString) {
-		return customValue.value.length;
-	}
-	return null;
-}
+    if (origin instanceof CustomMap) {
+      const keys = Array.from(origin.value.keys()).map(
+        (item) => new CustomString(item)
+      );
+      return Promise.resolve(new CustomList(keys));
+    } else if (origin instanceof CustomList || origin instanceof CustomString) {
+      const keys = Object.keys(origin.value).map(
+        (item) => new CustomString(item)
+      );
+      return Promise.resolve(new CustomList(keys));
+    }
 
-export function lower(customValue: any): string {
-	if (customValue instanceof CustomString) {
-		return customValue.value.toLowerCase();
-	}
-	return customValue;
-}
+    return Promise.resolve(Defaults.Void);
+  }
+);
 
-export function upper(customValue: any): string {
-	if (customValue instanceof CustomString) {
-		return customValue.value.toUpperCase();
-	}
-	return customValue;
-}
+export const values = CustomFunction.createExternalWithSelf(
+  'values',
+  (
+    _ctx: OperationContext,
+    _self: CustomValue,
+    args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    const origin = args.get('self');
 
-export function slice(customValue: any, from: any, to: any): any {
-	if (from instanceof CustomNil) {
-		return null;
-	}
+    if (origin instanceof CustomMap) {
+      const values = Array.from(origin.value.values());
+      return Promise.resolve(new CustomList(values));
+    } else if (origin instanceof CustomList) {
+      const values = Object.values(origin.value);
+      return Promise.resolve(new CustomList(values));
+    } else if (origin instanceof CustomString) {
+      const values = Object.values(origin.value).map(
+        (item) => new CustomString(item)
+      );
+      return Promise.resolve(new CustomList(values));
+    }
 
-	const start = from?.toNumber() | 0;
-	let end = to?.toNumber() | 0;
+    return Promise.resolve(Defaults.Void);
+  }
+);
 
-	if (customValue instanceof CustomList || customValue instanceof CustomString) {
-		if (end === 0) {
-			end = customValue.value.length;
-		}
+export const len = CustomFunction.createExternalWithSelf(
+  'len',
+  (
+    _ctx: OperationContext,
+    _self: CustomValue,
+    args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    const origin = args.get('self');
 
-		return customValue.slice(new CustomNumber(start), new CustomNumber(end));
-	}
+    if (origin instanceof CustomMap) {
+      return Promise.resolve(new CustomNumber(origin.value.size));
+    } else if (origin instanceof CustomList || origin instanceof CustomString) {
+      return Promise.resolve(new CustomNumber(origin.value.length));
+    }
 
-	return null;
-}
+    return Promise.resolve(Defaults.Void);
+  }
+);
 
-export function sort(customValue: any, key: any): any[] {
-	if (!(customValue instanceof CustomList)) {
-		return null;
-	}
+export const lower = CustomFunction.createExternalWithSelf(
+  'lower',
+  (
+    _ctx: OperationContext,
+    _self: CustomValue,
+    args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    const origin = args.get('self');
 
-	const orderBy = key ? key.toString() : null;
+    if (origin instanceof CustomString) {
+      return Promise.resolve(new CustomString(origin.value.toLowerCase()));
+    }
+    return Promise.resolve(origin);
+  }
+);
 
-	return customValue.value.sort((a: any, b: any) => {
-		let aVal = a?.toNumber();
-		let bVal = b?.toNumber();
+export const upper = CustomFunction.createExternalWithSelf(
+  'upper',
+  (
+    _ctx: OperationContext,
+    _self: CustomValue,
+    args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    const origin = args.get('self');
 
-		if (orderBy) {
-			throw new Error("order key is not yet supported");
-		}
+    if (origin instanceof CustomString) {
+      return Promise.resolve(new CustomString(origin.value.toUpperCase()));
+    }
+    return Promise.resolve(origin);
+  }
+);
 
-		if (typeof aVal === 'string' && typeof bVal === 'string') {
-			return aVal.localeCompare(bVal);
-		}
+export const slice = CustomFunction.createExternalWithSelf(
+  'slice',
+  (
+    _ctx: OperationContext,
+    _self: CustomValue,
+    args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    const origin = args.get('self');
+    const from = args.get('from');
+    const to = args.get('to');
 
-		return aVal - bVal;
-	});
+    if (from instanceof CustomNil) {
+      return Promise.resolve(Defaults.Void);
+    }
 
-	return null;
-}
+    if (origin instanceof CustomList || origin instanceof CustomString) {
+      return Promise.resolve(origin.slice(from, to));
+    }
 
-export function sum(customValue: any): number {
-	let result = 0;
+    return Promise.resolve(Defaults.Void);
+  }
+)
+  .addArgument('from')
+  .addArgument('to');
 
-	if (customValue instanceof CustomList || customValue instanceof CustomMap) {
-		customValue.value.forEach((v) => {
-			const temp = v?.toNumber();
-			result += Number.isNaN(temp) ? 0 : temp;
-		});
-	}
+export const sort = CustomFunction.createExternalWithSelf(
+  'sort',
+  (
+    _ctx: OperationContext,
+    _self: CustomValue,
+    args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    const origin = args.get('self');
+    const key = args.get('key');
 
-	return result;
-}
+    if (!(origin instanceof CustomList)) {
+      return null;
+    }
 
-export function shuffle(customValue: any) {
-	const value = customValue.value;
+    const orderBy = key instanceof CustomNil ? null : key.toString();
+    const sorted = origin.value.sort((a: CustomValue, b: CustomValue) => {
+      if (orderBy) {
+        throw new Error('order key is not yet supported');
+      }
 
-	if (customValue instanceof CustomList) {
-		for (let i = value.length - 1; i > 0; i--) {
-			const j = Math.floor(Math.random() * (i + 1));
-			[value[i], value[j]] = [value[j], value[i]];
-		}
-	} else if (customValue instanceof CustomMap) {
-		const keys = Array.from(value.keys());
+      if (a instanceof CustomString && b instanceof CustomString) {
+        return a.toString().localeCompare(b.toString());
+      }
 
-		for (let i = keys.length - 1; i > 0; i--) {
-			const j = Math.floor(Math.random() * (i + 1));
-			const a: any = value.get(keys[j]);
-			const b: any = value.get(keys[i]);
-			value.set(keys[i], b);
-			value.set(keys[j], a);
-		}
-	}
-}
+      return a.toNumber() - b.toNumber();
+    });
 
-export function pop(customValue: any): any {
-	if (customValue instanceof CustomMap) {
-		const keys = Array.from(customValue.value.keys());
-		const item = customValue.value.get(keys[0]);
-		customValue.value.delete(keys[0]);
-		return item;
-	} else if (customValue instanceof CustomList) {
-		return customValue.value.pop();
-	}
+    return Promise.resolve(new CustomList(sorted));
+  }
+).addArgument('key');
 
-	return null;
-}
+export const sum = CustomFunction.createExternalWithSelf(
+  'sum',
+  (
+    _ctx: OperationContext,
+    _self: CustomValue,
+    args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    const origin = args.get('self');
+    let result = 0;
 
-export function pull(customValue: any): any {
-	if (customValue instanceof CustomMap) {
-		const keys = Array.from(customValue.value.keys());
-		const item = customValue.value.get(keys[0]);
-		customValue.value.delete(keys[0]);
-		return item;
-	} else if (customValue instanceof CustomList) {
-		return customValue.value.shift();
-	}
+    if (origin instanceof CustomList || origin instanceof CustomMap) {
+      origin.value.forEach((v) => {
+        result += v instanceof CustomNil ? 0 : v.toNumber();
+      });
+    }
 
-	return null;
-}
+    return Promise.resolve(new CustomNumber(result));
+  }
+);
 
-export function push(customValue: any, value: any): any {
-	if (customValue instanceof CustomMap) {
-		if (value instanceof CustomNil) {
-			throw new Error('Key map cannot be null.');
-		}
+export const shuffle = CustomFunction.createExternalWithSelf(
+  'shuffle',
+  (
+    _ctx: OperationContext,
+    _self: CustomValue,
+    args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    const origin = args.get('self');
 
-		const key = value?.toString();
+    if (origin instanceof CustomList) {
+      const value = origin.value;
+      for (let i = value.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [value[i], value[j]] = [value[j], value[i]];
+      }
+    } else if (origin instanceof CustomMap) {
+      const value = origin.value;
+      const keys = Array.from(value.keys());
 
-		if (customValue.value.has(key)) {
-			throw new Error(`Key map has already been added: ${key}`);
-		}
+      for (let i = keys.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const a: any = value.get(keys[j]);
+        const b: any = value.get(keys[i]);
+        value.set(keys[i], b);
+        value.set(keys[j], a);
+      }
+    }
 
-		customValue.value.set(key, new CustomNumber(1));
-		return customValue;
-	} else if (customValue instanceof CustomList) {
-		customValue.value.push(value);
-		return customValue;
-	}
+    return Promise.resolve(Defaults.Void);
+  }
+);
 
-	return null;
-}
+export const pop = CustomFunction.createExternalWithSelf(
+  'pop',
+  (
+    _ctx: OperationContext,
+    _self: CustomValue,
+    args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    const origin = args.get('self');
 
-export function remove(customValue: any, keyValue: any): any {
-	const key = keyValue?.toString();
+    if (origin instanceof CustomMap) {
+      const keys = Array.from(origin.value.keys());
+      const lastIndex = keys.length - 1;
+      const item = origin.value.get(keys[lastIndex]);
+      origin.value.delete(keys[lastIndex]);
+      return Promise.resolve(item);
+    } else if (origin instanceof CustomList) {
+      return Promise.resolve(origin.value.pop());
+    }
 
-	if (customValue instanceof CustomMap) {
-		if (customValue.value.has(key)) {
-			customValue.value.delete(key);
-			return true;
-		}
-		return false;
-	} else if (customValue instanceof CustomList) {
-		const listIndex = itemAtIndex(customValue.value, keyValue?.toNumber() | 0);
-		if (customValue.value.hasOwnProperty(listIndex)) {
-			customValue.value.splice(listIndex, 1);
-		}
-		return null;
-	} else if (customValue instanceof CustomString) {
-		return customValue.value.replace(key, '');
-	}
-}
+    return Promise.resolve(Defaults.Void);
+  }
+);
 
-export function reverse(customValue: CustomList): void {
-	customValue.value = customValue.value.reverse();
-}
+export const pull = CustomFunction.createExternalWithSelf(
+  'pull',
+  (
+    _ctx: OperationContext,
+    _self: CustomValue,
+    args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    const origin = args.get('self');
 
-export function join(customValue: CustomList, seperator: any): string {
-	return customValue.value.join(seperator?.toString());
-}
+    if (origin instanceof CustomMap) {
+      const keys = Array.from(origin.value.keys());
+      const item = origin.value.get(keys[0]);
+      origin.value.delete(keys[0]);
+      return Promise.resolve(item);
+    } else if (origin instanceof CustomList) {
+      return Promise.resolve(origin.value.shift());
+    }
 
-export function split(customValue: CustomString, delimiter: any): string[] {
-	return customValue.toString().split(delimiter?.toString());
-}
+    return Promise.resolve(Defaults.Void);
+  }
+);
 
-export function replace(customValue: CustomString, toReplace: any, replaceWith: any): string {
-	return customValue.toString().replace(toReplace?.toString(), replaceWith?.toString());
-}
+export const push = CustomFunction.createExternalWithSelf(
+  'push',
+  (
+    _ctx: OperationContext,
+    _self: CustomValue,
+    args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    const origin = args.get('self');
+    const value = args.get('value');
 
-export function trim(customValue: CustomString): string {
-	return customValue.value.trim();
-}
+    if (origin instanceof CustomMap) {
+      if (value instanceof CustomNil) {
+        throw new Error('Key map cannot be null.');
+      }
 
-export function lastIndexOf(customValue: CustomString, value: any): number {
-	return customValue.value.lastIndexOf(value.value.toString());
-}
+      const key = value.toString();
 
-export function to_int(customValue: CustomString): any {
-	const result = customValue?.toNumber();
-	return Number.isNaN(result) ? customValue : result | 0;
-}
+      if (origin.value.has(key)) {
+        throw new Error(`Key map has already been added: ${key}`);
+      }
+
+      origin.value.set(key, new CustomNumber(1));
+      return Promise.resolve(origin);
+    } else if (origin instanceof CustomList) {
+      origin.value.push(value);
+      return Promise.resolve(origin);
+    }
+
+    return Promise.resolve(Defaults.Void);
+  }
+).addArgument('value');
+
+export const remove = CustomFunction.createExternalWithSelf(
+  'remove',
+  (
+    _ctx: OperationContext,
+    _self: CustomValue,
+    args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    const origin = args.get('self');
+    const keyValue = args.get('keyValue');
+    const key = keyValue.toString();
+
+    if (origin instanceof CustomMap) {
+      if (origin.value.has(key)) {
+        origin.value.delete(key);
+        return Promise.resolve(Defaults.True);
+      }
+      return Promise.resolve(Defaults.False);
+    } else if (origin instanceof CustomList) {
+      const listIndex = itemAtIndex(origin.value, keyValue.toInt());
+      if (Object.prototype.hasOwnProperty.call(origin.value, listIndex)) {
+        origin.value.splice(listIndex, 1);
+      }
+      return Promise.resolve(Defaults.Void);
+    } else if (origin instanceof CustomString) {
+      const replaced = new CustomString(origin.value.replace(key, ''));
+      return Promise.resolve(replaced);
+    }
+
+    return Promise.resolve(Defaults.Void);
+  }
+).addArgument('keyValue');
+
+export const reverse = CustomFunction.createExternalWithSelf(
+  'reverse',
+  (
+    _ctx: OperationContext,
+    _self: CustomValue,
+    args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    const origin = args.get('self');
+
+    if (origin instanceof CustomList) {
+      origin.value.reverse();
+    }
+
+    return Promise.resolve(Defaults.Void);
+  }
+);
+
+export const join = CustomFunction.createExternalWithSelf(
+  'join',
+  (
+    _ctx: OperationContext,
+    _self: CustomValue,
+    args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    const origin = args.get('self');
+
+    if (origin instanceof CustomList) {
+      const str = origin.value.join(args.get('seperator').toString());
+      return Promise.resolve(new CustomString(str));
+    }
+
+    return Promise.resolve(Defaults.Void);
+  }
+).addArgument('seperator', new CustomString(','));
+
+export const split = CustomFunction.createExternalWithSelf(
+  'split',
+  (
+    _ctx: OperationContext,
+    _self: CustomValue,
+    args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    const origin = args.get('self');
+
+    if (origin instanceof CustomString) {
+      const list = origin.value
+        .split(args.get('delimiter').toString())
+        .map((item) => new CustomString(item));
+      return Promise.resolve(new CustomList(list));
+    }
+
+    return Promise.resolve(Defaults.Void);
+  }
+).addArgument('delimiter', new CustomString(','));
+
+export const replace = CustomFunction.createExternalWithSelf(
+  'replace',
+  (
+    _ctx: OperationContext,
+    _self: CustomValue,
+    args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    const origin = args.get('self');
+    const toReplace = args.get('toReplace').toString();
+    const replaceWith = args.get('replaceWith').toString();
+    const replaced = origin.toString().replace(toReplace, replaceWith);
+
+    return Promise.resolve(new CustomString(replaced));
+  }
+)
+  .addArgument('toReplace')
+  .addArgument('replaceWith');
+
+export const trim = CustomFunction.createExternalWithSelf(
+  'trim',
+  (
+    _ctx: OperationContext,
+    _self: CustomValue,
+    args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    const origin = args.get('self');
+    const trimmed = origin.toString().trim();
+
+    return Promise.resolve(new CustomString(trimmed));
+  }
+);
+
+export const lastIndexOf = CustomFunction.createExternalWithSelf(
+  'lastIndexOf',
+  (
+    _ctx: OperationContext,
+    _self: CustomValue,
+    args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    const origin = args.get('self');
+    const value = args.get('value');
+    const before = args.get('before');
+
+    if (value instanceof CustomNil) {
+      throw new Error('lastIndexOf requires a value argument');
+    }
+
+    if (origin instanceof CustomMap) {
+      const reversedMap = Array.from(origin.value.entries()).reverse();
+      for (const [key, item] of reversedMap) {
+        if (compare(item, value)) {
+          return Promise.resolve(new CustomString(key));
+        }
+      }
+    } else if (origin instanceof CustomList) {
+      for (
+        let index =
+          before instanceof CustomNil
+            ? origin.value.length - 1
+            : before.toInt();
+        index >= 0;
+        index--
+      ) {
+        if (compare(origin.value[index], value)) {
+          return Promise.resolve(new CustomNumber(index));
+        }
+      }
+    } else if (origin instanceof CustomString) {
+      const strIndex = origin.value.lastIndexOf(
+        value.toString(),
+        before.toInt()
+      );
+      if (strIndex !== -1) {
+        return Promise.resolve(new CustomNumber(strIndex));
+      }
+    }
+
+    return Promise.resolve(Defaults.Void);
+  }
+)
+  .addArgument('value')
+  .addArgument('before');
+
+export const to_int = CustomFunction.createExternalWithSelf(
+  'to_int',
+  (
+    _ctx: OperationContext,
+    _self: CustomValue,
+    args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    const origin = args.get('self');
+    if (origin instanceof CustomString) {
+      return Promise.resolve(
+        origin.isNumber() ? new CustomNumber(origin.parseInt()) : origin
+      );
+    }
+    return Promise.resolve(Defaults.Void);
+  }
+);
