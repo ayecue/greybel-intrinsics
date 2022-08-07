@@ -69,7 +69,9 @@ export const code = CustomFunction.createExternal(
     const strCode = str.charCodeAt(0);
     return Promise.resolve(new CustomNumber(strCode));
   }
-).addArgument('value');
+)
+  .addArgument('value')
+  .setInjectSelf(true);
 
 export const str = CustomFunction.createExternal(
   'str',
@@ -99,7 +101,9 @@ export const val = CustomFunction.createExternal(
     }
     return Promise.resolve(Defaults.Void);
   }
-).addArgument('value');
+)
+  .addArgument('value')
+  .setInjectSelf(true);
 
 const hashEx = (value: CustomValue, recursionDepth: number): number => {
   let result: number;
