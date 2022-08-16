@@ -177,7 +177,7 @@ export const range = CustomFunction.createExternal(
     const end = to.toNumber();
     const result: Array<CustomValue> = [];
 
-    for (let index = start; index < end; index += step) {
+    for (let index = start; index <= end; index += step) {
       result.push(new CustomNumber(index));
     }
 

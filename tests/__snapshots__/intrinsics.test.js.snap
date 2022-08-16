@@ -81,6 +81,9 @@ CustomList {
     CustomNumber {
       "value": 5,
     },
+    CustomNumber {
+      "value": 6,
+    },
   ],
 }
 `;
@@ -99,6 +102,9 @@ CustomList {
     },
     CustomNumber {
       "value": 4,
+    },
+    CustomNumber {
+      "value": 5,
     },
   ],
 }
@@ -121,6 +127,9 @@ CustomList {
     },
     CustomNumber {
       "value": 8,
+    },
+    CustomNumber {
+      "value": 10,
     },
   ],
 }
