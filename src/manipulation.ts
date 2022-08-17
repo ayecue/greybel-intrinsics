@@ -101,7 +101,7 @@ export const indexes = CustomFunction.createExternalWithSelf(
       return Promise.resolve(new CustomList(keys));
     } else if (origin instanceof CustomList || origin instanceof CustomString) {
       const keys = Object.keys(origin.value).map(
-        (item) => new CustomString(item)
+        (item) => new CustomNumber(Number(item))
       );
       return Promise.resolve(new CustomList(keys));
     }

@@ -150,11 +150,11 @@ CustomBoolean {
 exports[`interpreter default scripts list.src 3`] = `
 CustomList {
   "value": Array [
-    CustomString {
-      "value": "0",
+    CustomNumber {
+      "value": 0,
     },
-    CustomString {
-      "value": "1",
+    CustomNumber {
+      "value": 1,
     },
   ],
 }
@@ -403,14 +403,14 @@ CustomList {
 exports[`interpreter default scripts manipulation.src 14`] = `
 CustomList {
   "value": Array [
-    CustomString {
-      "value": "0",
+    CustomNumber {
+      "value": 0,
     },
-    CustomString {
-      "value": "1",
+    CustomNumber {
+      "value": 1,
     },
-    CustomString {
-      "value": "2",
+    CustomNumber {
+      "value": 2,
     },
   ],
 }
@@ -419,68 +419,68 @@ CustomList {
 exports[`interpreter default scripts manipulation.src 15`] = `
 CustomList {
   "value": Array [
-    CustomString {
-      "value": "0",
+    CustomNumber {
+      "value": 0,
     },
-    CustomString {
-      "value": "1",
+    CustomNumber {
+      "value": 1,
     },
-    CustomString {
-      "value": "2",
+    CustomNumber {
+      "value": 2,
     },
-    CustomString {
-      "value": "3",
+    CustomNumber {
+      "value": 3,
     },
-    CustomString {
-      "value": "4",
+    CustomNumber {
+      "value": 4,
     },
-    CustomString {
-      "value": "5",
+    CustomNumber {
+      "value": 5,
     },
-    CustomString {
-      "value": "6",
+    CustomNumber {
+      "value": 6,
     },
-    CustomString {
-      "value": "7",
+    CustomNumber {
+      "value": 7,
     },
-    CustomString {
-      "value": "8",
+    CustomNumber {
+      "value": 8,
     },
-    CustomString {
-      "value": "9",
+    CustomNumber {
+      "value": 9,
     },
-    CustomString {
-      "value": "10",
+    CustomNumber {
+      "value": 10,
     },
-    CustomString {
-      "value": "11",
+    CustomNumber {
+      "value": 11,
     },
-    CustomString {
-      "value": "12",
+    CustomNumber {
+      "value": 12,
     },
-    CustomString {
-      "value": "13",
+    CustomNumber {
+      "value": 13,
     },
-    CustomString {
-      "value": "14",
+    CustomNumber {
+      "value": 14,
     },
-    CustomString {
-      "value": "15",
+    CustomNumber {
+      "value": 15,
     },
-    CustomString {
-      "value": "16",
+    CustomNumber {
+      "value": 16,
     },
-    CustomString {
-      "value": "17",
+    CustomNumber {
+      "value": 17,
     },
-    CustomString {
-      "value": "18",
+    CustomNumber {
+      "value": 18,
     },
-    CustomString {
-      "value": "19",
+    CustomNumber {
+      "value": 19,
     },
-    CustomString {
-      "value": "20",
+    CustomNumber {
+      "value": 20,
     },
   ],
 }
@@ -1037,74 +1037,74 @@ CustomBoolean {
 exports[`interpreter default scripts string.src 3`] = `
 CustomList {
   "value": Array [
-    CustomString {
-      "value": "0",
+    CustomNumber {
+      "value": 0,
     },
-    CustomString {
-      "value": "1",
+    CustomNumber {
+      "value": 1,
     },
-    CustomString {
-      "value": "2",
+    CustomNumber {
+      "value": 2,
     },
-    CustomString {
-      "value": "3",
+    CustomNumber {
+      "value": 3,
     },
-    CustomString {
-      "value": "4",
+    CustomNumber {
+      "value": 4,
     },
-    CustomString {
-      "value": "5",
+    CustomNumber {
+      "value": 5,
     },
-    CustomString {
-      "value": "6",
+    CustomNumber {
+      "value": 6,
     },
-    CustomString {
-      "value": "7",
+    CustomNumber {
+      "value": 7,
     },
-    CustomString {
-      "value": "8",
+    CustomNumber {
+      "value": 8,
     },
-    CustomString {
-      "value": "9",
+    CustomNumber {
+      "value": 9,
     },
-    CustomString {
-      "value": "10",
+    CustomNumber {
+      "value": 10,
     },
-    CustomString {
-      "value": "11",
+    CustomNumber {
+      "value": 11,
     },
-    CustomString {
-      "value": "12",
+    CustomNumber {
+      "value": 12,
     },
-    CustomString {
-      "value": "13",
+    CustomNumber {
+      "value": 13,
     },
-    CustomString {
-      "value": "14",
+    CustomNumber {
+      "value": 14,
     },
-    CustomString {
-      "value": "15",
+    CustomNumber {
+      "value": 15,
     },
-    CustomString {
-      "value": "16",
+    CustomNumber {
+      "value": 16,
     },
-    CustomString {
-      "value": "17",
+    CustomNumber {
+      "value": 17,
     },
-    CustomString {
-      "value": "18",
+    CustomNumber {
+      "value": 18,
     },
-    CustomString {
-      "value": "19",
+    CustomNumber {
+      "value": 19,
     },
-    CustomString {
-      "value": "20",
+    CustomNumber {
+      "value": 20,
     },
-    CustomString {
-      "value": "21",
+    CustomNumber {
+      "value": 21,
     },
-    CustomString {
-      "value": "22",
+    CustomNumber {
+      "value": 22,
     },
   ],
 }
