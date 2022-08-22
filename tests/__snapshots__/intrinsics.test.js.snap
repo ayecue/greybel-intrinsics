@@ -114,6 +114,28 @@ exports[`interpreter default scripts generics.src 13`] = `
 CustomList {
   "value": Array [
     CustomNumber {
+      "value": 5,
+    },
+    CustomNumber {
+      "value": 4,
+    },
+    CustomNumber {
+      "value": 3,
+    },
+    CustomNumber {
+      "value": 2,
+    },
+    CustomNumber {
+      "value": 1,
+    },
+  ],
+}
+`;
+
+exports[`interpreter default scripts generics.src 14`] = `
+CustomList {
+  "value": Array [
+    CustomNumber {
       "value": 0,
     },
     CustomNumber {

@@ -158,7 +158,7 @@ export const range = CustomFunction.createExternal(
   ): Promise<CustomValue> => {
     let from = args.get('from');
     let to = args.get('to');
-    const step = args.get('step').toInt();
+    const step = args.get('step');
 
     if (!(from instanceof CustomNumber)) {
       return Promise.reject(new Error('from not a number'));
@@ -169,15 +169,18 @@ export const range = CustomFunction.createExternal(
       from = Defaults.Zero;
     }
 
-    if (step === 0) {
+    const start = from.toNumber();
+    const end = to.toNumber();
+    const inc = step?.toInt() || (end >= start ? 1 : -1);
+
+    if (inc === 0) {
       return Promise.reject(new Error('range() error (step==0)'));
     }
 
-    const start = from.toNumber();
-    const end = to.toNumber();
+    const check = end >= start ? (i: number) => i >= start && i <= end : (i: number) => i >= end && i <= start;
     const result: Array<CustomValue> = [];
 
-    for (let index = start; index <= end; index += step) {
+    for (let index = start; check(index); index += inc) {
       result.push(new CustomNumber(index));
     }
 
@@ -186,4 +189,4 @@ export const range = CustomFunction.createExternal(
 )
   .addArgument('from')
   .addArgument('to')
-  .addArgument('step', new CustomNumber(1));
+  .addArgument('step');
