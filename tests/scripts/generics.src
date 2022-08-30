@@ -17,3 +17,7 @@ print(range(6))
 print(range(1, 5))
 print(range(5, 1))
 print(range(0, 10, 2))
+
+print(hash({
+    {"myTest": 0, 1: 2}: true
+}))

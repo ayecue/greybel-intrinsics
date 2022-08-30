@@ -157,6 +157,12 @@ CustomList {
 }
 `;
 
+exports[`interpreter default scripts generics.src 15`] = `
+CustomNumber {
+  "value": -1060040609,
+}
+`;
+
 exports[`interpreter default scripts list.src 1`] = `
 CustomBoolean {
   "value": true,
