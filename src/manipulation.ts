@@ -24,8 +24,7 @@ export const hasIndex = CustomFunction.createExternalWithSelf(
     const index = args.get('index');
 
     if (origin instanceof CustomMap) {
-      const key = index.toString();
-      return Promise.resolve(new CustomBoolean(origin.value.has(key)));
+      return Promise.resolve(new CustomBoolean(origin.has(index)));
     } else if (origin instanceof CustomList) {
       if (!(index instanceof CustomNumber)) {
         return Promise.resolve(Defaults.False);
@@ -63,7 +62,7 @@ export const indexOf = CustomFunction.createExternalWithSelf(
     if (origin instanceof CustomMap) {
       for (const [key, item] of origin.value) {
         if (compare(item, value)) {
-          return Promise.resolve(new CustomString(key));
+          return Promise.resolve(key);
         }
       }
     } else if (origin instanceof CustomList) {
@@ -95,9 +94,7 @@ export const indexes = CustomFunction.createExternalWithSelf(
     const origin = args.get('self');
 
     if (origin instanceof CustomMap) {
-      const keys = Array.from(origin.value.keys()).map(
-        (item) => new CustomString(item)
-      );
+      const keys = Array.from(origin.value.keys());
       return Promise.resolve(new CustomList(keys));
     } else if (origin instanceof CustomList || origin instanceof CustomString) {
       const keys = Object.keys(origin.value).map(
@@ -355,13 +352,11 @@ export const push = CustomFunction.createExternalWithSelf(
         throw new Error('Key map cannot be null.');
       }
 
-      const key = value.toString();
-
-      if (origin.value.has(key)) {
-        throw new Error(`Key map has already been added: ${key}`);
+      if (origin.has(value)) {
+        throw new Error(`Key map has already been added: ${value.toString()}`);
       }
 
-      origin.value.set(key, new CustomNumber(1));
+      origin.set(value, new CustomNumber(1));
       return Promise.resolve(origin);
     } else if (origin instanceof CustomList) {
       origin.value.push(value);
@@ -381,11 +376,10 @@ export const remove = CustomFunction.createExternalWithSelf(
   ): Promise<CustomValue> => {
     const origin = args.get('self');
     const keyValue = args.get('keyValue');
-    const key = keyValue.toString();
 
     if (origin instanceof CustomMap) {
-      if (origin.value.has(key)) {
-        origin.value.delete(key);
+      if (origin.has(keyValue)) {
+        origin.value.delete(keyValue.value);
         return Promise.resolve(Defaults.True);
       }
       return Promise.resolve(Defaults.False);
@@ -396,7 +390,7 @@ export const remove = CustomFunction.createExternalWithSelf(
       }
       return Promise.resolve(Defaults.Void);
     } else if (origin instanceof CustomString) {
-      const replaced = new CustomString(origin.value.replace(key, ''));
+      const replaced = new CustomString(origin.value.replace(keyValue.toString(), ''));
       return Promise.resolve(replaced);
     }
 
@@ -510,7 +504,7 @@ export const lastIndexOf = CustomFunction.createExternalWithSelf(
       const reversedMap = Array.from(origin.value.entries()).reverse();
       for (const [key, item] of reversedMap) {
         if (compare(item, value)) {
-          return Promise.resolve(new CustomString(key));
+          return Promise.resolve(key);
         }
       }
     } else if (origin instanceof CustomList) {

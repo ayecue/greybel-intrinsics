@@ -188,7 +188,11 @@ CustomNumber {
 }
 `;
 
-exports[`interpreter default scripts list.src 5`] = `CustomNil {}`;
+exports[`interpreter default scripts list.src 5`] = `
+CustomNil {
+  "value": null,
+}
+`;
 
 exports[`interpreter default scripts list.src 6`] = `
 CustomNumber {
@@ -269,7 +273,11 @@ CustomNumber {
 }
 `;
 
-exports[`interpreter default scripts list.src 14`] = `CustomNil {}`;
+exports[`interpreter default scripts list.src 14`] = `
+CustomNil {
+  "value": null,
+}
+`;
 
 exports[`interpreter default scripts list.src 15`] = `
 CustomList {
@@ -388,7 +396,11 @@ CustomString {
 }
 `;
 
-exports[`interpreter default scripts manipulation.src 8`] = `CustomNil {}`;
+exports[`interpreter default scripts manipulation.src 8`] = `
+CustomNil {
+  "value": null,
+}
+`;
 
 exports[`interpreter default scripts manipulation.src 9`] = `
 CustomNumber {
@@ -396,7 +408,11 @@ CustomNumber {
 }
 `;
 
-exports[`interpreter default scripts manipulation.src 10`] = `CustomNil {}`;
+exports[`interpreter default scripts manipulation.src 10`] = `
+CustomNil {
+  "value": null,
+}
+`;
 
 exports[`interpreter default scripts manipulation.src 11`] = `
 CustomNumber {
@@ -404,7 +420,11 @@ CustomNumber {
 }
 `;
 
-exports[`interpreter default scripts manipulation.src 12`] = `CustomNil {}`;
+exports[`interpreter default scripts manipulation.src 12`] = `
+CustomNil {
+  "value": null,
+}
+`;
 
 exports[`interpreter default scripts manipulation.src 13`] = `
 CustomList {
@@ -608,7 +628,11 @@ CustomString {
 }
 `;
 
-exports[`interpreter default scripts manipulation.src 27`] = `CustomNil {}`;
+exports[`interpreter default scripts manipulation.src 27`] = `
+CustomNil {
+  "value": null,
+}
+`;
 
 exports[`interpreter default scripts manipulation.src 28`] = `
 CustomList {
@@ -660,10 +684,14 @@ exports[`interpreter default scripts manipulation.src 34`] = `
 CustomMap {
   "isInstance": false,
   "value": Map {
-    "foo" => CustomNumber {
+    CustomString {
+      "value": "foo",
+    } => CustomNumber {
       "value": 123,
     },
-    "bar" => CustomBoolean {
+    CustomString {
+      "value": "bar",
+    } => CustomBoolean {
       "value": true,
     },
   },
@@ -699,10 +727,14 @@ exports[`interpreter default scripts manipulation.src 38`] = `
 CustomMap {
   "isInstance": false,
   "value": Map {
-    "bar" => CustomBoolean {
+    CustomString {
+      "value": "bar",
+    } => CustomBoolean {
       "value": true,
     },
-    "lore" => CustomString {
+    CustomString {
+      "value": "lore",
+    } => CustomString {
       "value": "moo",
     },
   },
@@ -726,16 +758,24 @@ exports[`interpreter default scripts manipulation.src 40`] = `
 CustomMap {
   "isInstance": false,
   "value": Map {
-    "foo" => CustomNumber {
+    CustomString {
+      "value": "foo",
+    } => CustomNumber {
       "value": 123,
     },
-    "bar" => CustomBoolean {
+    CustomString {
+      "value": "bar",
+    } => CustomBoolean {
       "value": true,
     },
-    "lore" => CustomString {
+    CustomString {
+      "value": "lore",
+    } => CustomString {
       "value": "moo",
     },
-    "addition" => CustomNumber {
+    CustomString {
+      "value": "addition",
+    } => CustomNumber {
       "value": 1,
     },
   },
@@ -765,10 +805,19 @@ exports[`interpreter default scripts manipulation.src 42`] = `
 CustomMap {
   "isInstance": false,
   "value": Map {
-    "foo" => CustomNumber {
+    CustomString {
+      "value": "foo",
+    } => CustomNumber {
       "value": 123,
     },
-    "lore" => CustomString {
+    CustomString {
+      "value": "bar",
+    } => CustomBoolean {
+      "value": true,
+    },
+    CustomString {
+      "value": "lore",
+    } => CustomString {
       "value": "moo",
     },
   },
@@ -838,7 +887,11 @@ CustomString {
 }
 `;
 
-exports[`interpreter default scripts map.src 6`] = `CustomNil {}`;
+exports[`interpreter default scripts map.src 6`] = `
+CustomNil {
+  "value": null,
+}
+`;
 
 exports[`interpreter default scripts map.src 7`] = `
 CustomNumber {
@@ -856,7 +909,9 @@ exports[`interpreter default scripts map.src 9`] = `
 CustomMap {
   "isInstance": false,
   "value": Map {
-    "foo" => CustomNumber {
+    CustomString {
+      "value": "foo",
+    } => CustomNumber {
       "value": 123,
     },
   },
@@ -867,13 +922,19 @@ exports[`interpreter default scripts map.src 10`] = `
 CustomMap {
   "isInstance": false,
   "value": Map {
-    "foo" => CustomNumber {
+    CustomString {
+      "value": "foo",
+    } => CustomNumber {
       "value": 123,
     },
-    "bar" => CustomString {
+    CustomString {
+      "value": "bar",
+    } => CustomString {
       "value": "ipsum",
     },
-    "moo" => CustomNumber {
+    CustomString {
+      "value": "moo",
+    } => CustomNumber {
       "value": 1,
     },
   },
@@ -890,11 +951,20 @@ exports[`interpreter default scripts map.src 12`] = `
 CustomMap {
   "isInstance": false,
   "value": Map {
-    "foo" => CustomNumber {
+    CustomString {
+      "value": "foo",
+    } => CustomNumber {
       "value": 123,
     },
-    "bar" => CustomString {
+    CustomString {
+      "value": "bar",
+    } => CustomString {
       "value": "ipsum",
+    },
+    CustomString {
+      "value": "xxx",
+    } => CustomNumber {
+      "value": 200,
     },
   },
 }
@@ -1214,7 +1284,11 @@ CustomNumber {
 }
 `;
 
-exports[`interpreter default scripts string.src 6`] = `CustomNil {}`;
+exports[`interpreter default scripts string.src 6`] = `
+CustomNil {
+  "value": null,
+}
+`;
 
 exports[`interpreter default scripts string.src 7`] = `
 CustomNumber {

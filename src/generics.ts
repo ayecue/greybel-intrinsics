@@ -117,8 +117,8 @@ const hashEx = (value: CustomValue, recursionDepth: number): number => {
   } else if (value instanceof CustomMap) {
     result = getHashCode(value.value.size);
     if (recursionDepth < 0) return result;
-    value.value.forEach((value: CustomValue, key: string) => {
-      result ^= getStringHashCode(key);
+    value.value.forEach((value: CustomValue, key: CustomValue) => {
+      result ^= hashEx(key, recursionDepth - 1);
       result ^= hashEx(value, recursionDepth - 1);
     });
     return result;
