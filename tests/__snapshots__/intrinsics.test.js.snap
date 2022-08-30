@@ -970,6 +970,12 @@ CustomMap {
 }
 `;
 
+exports[`interpreter default scripts map.src 13`] = `
+CustomBoolean {
+  "value": true,
+}
+`;
+
 exports[`interpreter default scripts math.src 1`] = `
 CustomNumber {
   "value": 1337,
