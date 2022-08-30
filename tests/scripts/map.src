@@ -22,3 +22,12 @@ print({"foo":123,"bar":"ipsum","xxx":200}.sum())
 value = {"foo":123,"bar":"ipsum","xxx":200}
 value.remove("xxx")
 print(value)
+
+test = {
+    {"myTest": 0, 1: 2}: true
+}
+test2 = {
+    test: 234
+}
+
+print(hasIndex(test2, test))

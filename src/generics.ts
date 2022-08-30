@@ -117,8 +117,8 @@ const hashEx = (value: CustomValue, recursionDepth: number): number => {
   } else if (value instanceof CustomMap) {
     result = getHashCode(value.value.size);
     if (recursionDepth < 0) return result;
-    value.value.forEach((value: CustomValue, key: string) => {
-      result ^= getStringHashCode(key);
+    value.value.forEach((value: CustomValue, key: CustomValue) => {
+      result ^= hashEx(key, recursionDepth - 1);
       result ^= hashEx(value, recursionDepth - 1);
     });
     return result;
@@ -177,7 +177,10 @@ export const range = CustomFunction.createExternal(
       return Promise.reject(new Error('range() error (step==0)'));
     }
 
-    const check = end >= start ? (i: number) => i >= start && i <= end : (i: number) => i >= end && i <= start;
+    const check =
+      end >= start
+        ? (i: number) => i >= start && i <= end
+        : (i: number) => i >= end && i <= start;
     const result: Array<CustomValue> = [];
 
     for (let index = start; check(index); index += inc) {
