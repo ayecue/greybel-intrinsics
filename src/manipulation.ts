@@ -390,7 +390,9 @@ export const remove = CustomFunction.createExternalWithSelf(
       }
       return Promise.resolve(Defaults.Void);
     } else if (origin instanceof CustomString) {
-      const replaced = new CustomString(origin.value.replace(keyValue.toString(), ''));
+      const replaced = new CustomString(
+        origin.value.replace(keyValue.toString(), '')
+      );
       return Promise.resolve(replaced);
     }
 

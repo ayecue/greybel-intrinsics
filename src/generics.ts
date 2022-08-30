@@ -177,7 +177,10 @@ export const range = CustomFunction.createExternal(
       return Promise.reject(new Error('range() error (step==0)'));
     }
 
-    const check = end >= start ? (i: number) => i >= start && i <= end : (i: number) => i >= end && i <= start;
+    const check =
+      end >= start
+        ? (i: number) => i >= start && i <= end
+        : (i: number) => i >= end && i <= start;
     const result: Array<CustomValue> = [];
 
     for (let index = start; check(index); index += inc) {
