@@ -303,9 +303,8 @@ export const pop = CustomFunction.createExternalWithSelf(
 
     if (origin instanceof CustomMap) {
       const keys = Array.from(origin.value.keys());
-      const lastIndex = keys.length - 1;
-      const item = origin.value.get(keys[lastIndex]);
-      origin.value.delete(keys[lastIndex]);
+      const item = origin.value.get(keys[0]);
+      origin.value.delete(keys[0]);
       return Promise.resolve(item);
     } else if (origin instanceof CustomList) {
       return Promise.resolve(origin.value.pop());
@@ -324,12 +323,7 @@ export const pull = CustomFunction.createExternalWithSelf(
   ): Promise<CustomValue> => {
     const origin = args.get('self');
 
-    if (origin instanceof CustomMap) {
-      const keys = Array.from(origin.value.keys());
-      const item = origin.value.get(keys[0]);
-      origin.value.delete(keys[0]);
-      return Promise.resolve(item);
-    } else if (origin instanceof CustomList) {
+    if (origin instanceof CustomList) {
       return Promise.resolve(origin.value.shift());
     }
 

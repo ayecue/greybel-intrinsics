@@ -675,8 +675,8 @@ CustomNumber {
 `;
 
 exports[`interpreter default scripts manipulation.src 32`] = `
-CustomString {
-  "value": "moo",
+CustomNumber {
+  "value": 123,
 }
 `;
 
@@ -691,14 +691,14 @@ CustomMap {
   "isInstance": false,
   "value": Map {
     CustomString {
-      "value": "foo",
-    } => CustomNumber {
-      "value": 123,
-    },
-    CustomString {
       "value": "bar",
     } => CustomBoolean {
       "value": true,
+    },
+    CustomString {
+      "value": "lore",
+    } => CustomString {
+      "value": "moo",
     },
   },
 }
@@ -718,18 +718,12 @@ CustomList {
 `;
 
 exports[`interpreter default scripts manipulation.src 36`] = `
-CustomNumber {
-  "value": 123,
-}
-`;
-
-exports[`interpreter default scripts manipulation.src 37`] = `
 CustomString {
   "value": "foo",
 }
 `;
 
-exports[`interpreter default scripts manipulation.src 38`] = `
+exports[`interpreter default scripts manipulation.src 37`] = `
 CustomMap {
   "isInstance": false,
   "value": Map {
@@ -747,7 +741,7 @@ CustomMap {
 }
 `;
 
-exports[`interpreter default scripts manipulation.src 39`] = `
+exports[`interpreter default scripts manipulation.src 38`] = `
 CustomList {
   "value": Array [
     CustomString {
@@ -760,7 +754,7 @@ CustomList {
 }
 `;
 
-exports[`interpreter default scripts manipulation.src 40`] = `
+exports[`interpreter default scripts manipulation.src 39`] = `
 CustomMap {
   "isInstance": false,
   "value": Map {
@@ -788,7 +782,7 @@ CustomMap {
 }
 `;
 
-exports[`interpreter default scripts manipulation.src 41`] = `
+exports[`interpreter default scripts manipulation.src 40`] = `
 CustomList {
   "value": Array [
     CustomString {
@@ -807,7 +801,7 @@ CustomList {
 }
 `;
 
-exports[`interpreter default scripts manipulation.src 42`] = `
+exports[`interpreter default scripts manipulation.src 41`] = `
 CustomMap {
   "isInstance": false,
   "value": Map {
@@ -830,7 +824,7 @@ CustomMap {
 }
 `;
 
-exports[`interpreter default scripts manipulation.src 43`] = `
+exports[`interpreter default scripts manipulation.src 42`] = `
 CustomList {
   "value": Array [
     CustomString {
@@ -843,7 +837,7 @@ CustomList {
 }
 `;
 
-exports[`interpreter default scripts manipulation.src 44`] = `
+exports[`interpreter default scripts manipulation.src 43`] = `
 CustomString {
   "value": "abc lorem  XxXaV",
 }
@@ -906,8 +900,8 @@ CustomNumber {
 `;
 
 exports[`interpreter default scripts map.src 8`] = `
-CustomString {
-  "value": "ipsum",
+CustomNumber {
+  "value": 123,
 }
 `;
 
@@ -916,9 +910,9 @@ CustomMap {
   "isInstance": false,
   "value": Map {
     CustomString {
-      "value": "foo",
-    } => CustomNumber {
-      "value": 123,
+      "value": "bar",
+    } => CustomString {
+      "value": "ipsum",
     },
   },
 }

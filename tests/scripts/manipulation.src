@@ -61,10 +61,8 @@ print(pop(tempList))
 print(tempMap)
 print(tempList)
 
-tempMap = {} + myMap
 tempList = [] + myList
 
-print(pull(tempMap))
 print(pull(tempList))
 
 print(tempMap)
