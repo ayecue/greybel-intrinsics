@@ -11,7 +11,7 @@ import {
   OperationContext
 } from 'greybel-interpreter';
 
-import { compare, itemAtIndex } from './utils';
+import { itemAtIndex } from './utils';
 
 export const hasIndex = CustomFunction.createExternalWithSelf(
   'hasIndex',
@@ -61,13 +61,13 @@ export const indexOf = CustomFunction.createExternalWithSelf(
 
     if (origin instanceof CustomMap) {
       for (const [key, item] of origin.value) {
-        if (compare(item, value)) {
+        if (item.value === value.value) {
           return Promise.resolve(key);
         }
       }
     } else if (origin instanceof CustomList) {
       for (let index = after.toInt(); index < origin.value.length; index++) {
-        if (compare(origin.value[index], value)) {
+        if (origin.value[index].value === value.value) {
           return Promise.resolve(new CustomNumber(index));
         }
       }
@@ -303,9 +303,8 @@ export const pop = CustomFunction.createExternalWithSelf(
 
     if (origin instanceof CustomMap) {
       const keys = Array.from(origin.value.keys());
-      const lastIndex = keys.length - 1;
-      const item = origin.value.get(keys[lastIndex]);
-      origin.value.delete(keys[lastIndex]);
+      const item = origin.value.get(keys[0]);
+      origin.value.delete(keys[0]);
       return Promise.resolve(item);
     } else if (origin instanceof CustomList) {
       return Promise.resolve(origin.value.pop());
@@ -324,12 +323,7 @@ export const pull = CustomFunction.createExternalWithSelf(
   ): Promise<CustomValue> => {
     const origin = args.get('self');
 
-    if (origin instanceof CustomMap) {
-      const keys = Array.from(origin.value.keys());
-      const item = origin.value.get(keys[0]);
-      origin.value.delete(keys[0]);
-      return Promise.resolve(item);
-    } else if (origin instanceof CustomList) {
+    if (origin instanceof CustomList) {
       return Promise.resolve(origin.value.shift());
     }
 
@@ -505,7 +499,7 @@ export const lastIndexOf = CustomFunction.createExternalWithSelf(
     if (origin instanceof CustomMap) {
       const reversedMap = Array.from(origin.value.entries()).reverse();
       for (const [key, item] of reversedMap) {
-        if (compare(item, value)) {
+        if (item.value === value.value) {
           return Promise.resolve(key);
         }
       }
@@ -518,7 +512,7 @@ export const lastIndexOf = CustomFunction.createExternalWithSelf(
         index >= 0;
         index--
       ) {
-        if (compare(origin.value[index], value)) {
+        if (origin.value[index].value === value.value) {
           return Promise.resolve(new CustomNumber(index));
         }
       }
