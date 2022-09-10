@@ -11,7 +11,7 @@ import {
   OperationContext
 } from 'greybel-interpreter';
 
-import { compare, itemAtIndex } from './utils';
+import { itemAtIndex } from './utils';
 
 export const hasIndex = CustomFunction.createExternalWithSelf(
   'hasIndex',
@@ -61,13 +61,13 @@ export const indexOf = CustomFunction.createExternalWithSelf(
 
     if (origin instanceof CustomMap) {
       for (const [key, item] of origin.value) {
-        if (compare(item, value)) {
+        if (item.value === value.value) {
           return Promise.resolve(key);
         }
       }
     } else if (origin instanceof CustomList) {
       for (let index = after.toInt(); index < origin.value.length; index++) {
-        if (compare(origin.value[index], value)) {
+        if (origin.value[index].value === value.value) {
           return Promise.resolve(new CustomNumber(index));
         }
       }
@@ -499,7 +499,7 @@ export const lastIndexOf = CustomFunction.createExternalWithSelf(
     if (origin instanceof CustomMap) {
       const reversedMap = Array.from(origin.value.entries()).reverse();
       for (const [key, item] of reversedMap) {
-        if (compare(item, value)) {
+        if (item.value === value.value) {
           return Promise.resolve(key);
         }
       }
@@ -512,7 +512,7 @@ export const lastIndexOf = CustomFunction.createExternalWithSelf(
         index >= 0;
         index--
       ) {
-        if (compare(origin.value[index], value)) {
+        if (origin.value[index].value === value.value) {
           return Promise.resolve(new CustomNumber(index));
         }
       }
