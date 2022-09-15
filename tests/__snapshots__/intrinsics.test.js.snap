@@ -360,6 +360,53 @@ CustomString {
 }
 `;
 
+exports[`interpreter default scripts list.src 24`] = `
+CustomList {
+  "value": Array [
+    CustomMap {
+      "isInstance": false,
+      "value": Map {
+        CustomString {
+          "value": "foo",
+        } => CustomNumber {
+          "value": 2,
+        },
+      },
+    },
+    CustomMap {
+      "isInstance": false,
+      "value": Map {
+        CustomString {
+          "value": "foo",
+        } => CustomNumber {
+          "value": 4,
+        },
+      },
+    },
+    CustomMap {
+      "isInstance": false,
+      "value": Map {
+        CustomString {
+          "value": "foo",
+        } => CustomNumber {
+          "value": 5,
+        },
+      },
+    },
+    CustomMap {
+      "isInstance": false,
+      "value": Map {
+        CustomString {
+          "value": "foo",
+        } => CustomNumber {
+          "value": 9,
+        },
+      },
+    },
+  ],
+}
+`;
+
 exports[`interpreter default scripts manipulation.src 1`] = `
 CustomBoolean {
   "value": true,

@@ -49,3 +49,15 @@ test = [][0:]
 for i in test.indexes
 	print(i)
 end for
+
+
+
+print([{
+	"foo": 5
+},{
+	"foo": 2
+},{
+	"foo": 4
+},{
+	"foo": 9
+}].sort("foo"))

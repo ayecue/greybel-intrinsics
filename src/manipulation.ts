@@ -7,6 +7,7 @@ import {
   CustomNumber,
   CustomString,
   CustomValue,
+  CustomValueWithIntrinsics,
   Defaults,
   OperationContext
 } from 'greybel-interpreter';
@@ -223,10 +224,19 @@ export const sort = CustomFunction.createExternalWithSelf(
       return null;
     }
 
-    const orderBy = key instanceof CustomNil ? null : key.toString();
+    const isOrderByKey = !(key instanceof CustomNil);
     const sorted = origin.value.sort((a: CustomValue, b: CustomValue) => {
-      if (orderBy) {
-        throw new Error('order key is not yet supported');
+      if (isOrderByKey) {
+        if (a instanceof CustomValueWithIntrinsics) {
+          a = a.get(key);
+        } else {
+          a = Defaults.Void;
+        }
+        if (b instanceof CustomValueWithIntrinsics) {
+          b = b.get(key);
+        } else {
+          b = Defaults.Void;
+        }
       }
 
       if (a instanceof CustomString && b instanceof CustomString) {
