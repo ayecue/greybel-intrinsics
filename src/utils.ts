@@ -29,3 +29,10 @@ export function getStringHashCode(value: string): number {
 
   return hash;
 }
+
+export function isValidUnicodeChar(value: number): boolean {
+  if (value <= 1114111 && (value < 55296 || value > 57343)) {
+    return value < 65536;
+  }
+  return false;
+}

@@ -64,25 +64,25 @@ exports[`interpreter default scripts generics.src 11`] = `
 CustomList {
   "value": Array [
     CustomNumber {
-      "value": 0,
-    },
-    CustomNumber {
-      "value": 1,
-    },
-    CustomNumber {
-      "value": 2,
-    },
-    CustomNumber {
-      "value": 3,
-    },
-    CustomNumber {
-      "value": 4,
+      "value": 6,
     },
     CustomNumber {
       "value": 5,
     },
     CustomNumber {
-      "value": 6,
+      "value": 4,
+    },
+    CustomNumber {
+      "value": 3,
+    },
+    CustomNumber {
+      "value": 2,
+    },
+    CustomNumber {
+      "value": 1,
+    },
+    CustomNumber {
+      "value": 0,
     },
   ],
 }
@@ -1049,73 +1049,73 @@ CustomNumber {
 
 exports[`interpreter default scripts math.src 5`] = `
 CustomNumber {
-  "value": 1337,
+  "value": -3.878660859970253,
 }
 `;
 
 exports[`interpreter default scripts math.src 6`] = `
 CustomNumber {
-  "value": 0.2496568790410366,
+  "value": 1337,
 }
 `;
 
 exports[`interpreter default scripts math.src 7`] = `
 CustomNumber {
-  "value": 1337,
+  "value": 0.2496568790410366,
 }
 `;
 
 exports[`interpreter default scripts math.src 8`] = `
 CustomNumber {
-  "value": -0.9683343651587963,
+  "value": 1337,
 }
 `;
 
 exports[`interpreter default scripts math.src 9`] = `
 CustomNumber {
-  "value": 1337,
+  "value": -0.9683343651587963,
 }
 `;
 
 exports[`interpreter default scripts math.src 10`] = `
 CustomNumber {
-  "value": 36.565010597564445,
+  "value": 1337,
 }
 `;
 
 exports[`interpreter default scripts math.src 11`] = `
 CustomNumber {
-  "value": 3.141592653589793,
+  "value": 36.565010597564445,
 }
 `;
 
 exports[`interpreter default scripts math.src 12`] = `
 CustomNumber {
-  "value": 281,
+  "value": 3.141592653589793,
 }
 `;
 
 exports[`interpreter default scripts math.src 13`] = `
 CustomNumber {
-  "value": 1403,
+  "value": 281,
 }
 `;
 
 exports[`interpreter default scripts math.src 14`] = `
 CustomNumber {
-  "value": 1122,
+  "value": 1403,
 }
 `;
 
 exports[`interpreter default scripts math.src 15`] = `
 CustomNumber {
-  "value": -939524096,
+  "value": 1122,
 }
 `;
 
 exports[`interpreter default scripts math.src 16`] = `
 CustomNumber {
-  "value": 0,
+  "value": -939524096,
 }
 `;
 
@@ -1126,6 +1126,12 @@ CustomNumber {
 `;
 
 exports[`interpreter default scripts math.src 18`] = `
+CustomNumber {
+  "value": 0,
+}
+`;
+
+exports[`interpreter default scripts math.src 19`] = `
 CustomNumber {
   "value": -1338,
 }

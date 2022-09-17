@@ -26,6 +26,7 @@ export function getAPI(): Map<string, CustomFunction> {
   apiInterface.set('acos', math.acos);
   apiInterface.set('asin', math.asin);
   apiInterface.set('atan', math.atan);
+  apiInterface.set('tan', math.tan);
   apiInterface.set('ceil', math.ceil);
   apiInterface.set('cos', math.cos);
   apiInterface.set('floor', math.floor);
