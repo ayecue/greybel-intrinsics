@@ -24,6 +24,10 @@ export const hasIndex = CustomFunction.createExternalWithSelf(
     const origin = args.get('self');
     const index = args.get('index');
 
+    if (index instanceof CustomNil) {
+      throw new Error('hasIndex requires an index argument');
+    }
+
     if (origin instanceof CustomMap) {
       return Promise.resolve(new CustomBoolean(origin.has(index)));
     } else if (origin instanceof CustomList) {
@@ -207,7 +211,7 @@ export const slice = CustomFunction.createExternalWithSelf(
     return Promise.resolve(Defaults.Void);
   }
 )
-  .addArgument('from')
+  .addArgument('from', Defaults.Zero)
   .addArgument('to');
 
 export const sort = CustomFunction.createExternalWithSelf(
@@ -281,12 +285,22 @@ export const shuffle = CustomFunction.createExternalWithSelf(
 
     if (origin instanceof CustomList) {
       const value = origin.value;
+
+      if (value.length > 10000) {
+        throw new Error('shuffle: list too large');
+      }
+
       for (let i = value.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [value[i], value[j]] = [value[j], value[i]];
       }
     } else if (origin instanceof CustomMap) {
       const value = origin.value;
+
+      if (value.size > 10000) {
+        throw new Error('shuffle: map too large');
+      }
+
       const keys = Array.from(value.keys());
 
       for (let i = keys.length - 1; i > 0; i--) {
@@ -352,6 +366,10 @@ export const push = CustomFunction.createExternalWithSelf(
     const value = args.get('value');
 
     if (origin instanceof CustomMap) {
+      if (origin.value === value.value) {
+        throw new Error('(push) Unable to stack to itself');
+      }
+
       if (value instanceof CustomNil) {
         throw new Error('Key map cannot be null.');
       }
@@ -363,6 +381,10 @@ export const push = CustomFunction.createExternalWithSelf(
       origin.set(value, new CustomNumber(1));
       return Promise.resolve(origin);
     } else if (origin instanceof CustomList) {
+      if (origin.value === value.value) {
+        throw new Error('(push) Unable to stack to itself');
+      }
+
       origin.value.push(value);
       return Promise.resolve(origin);
     }
@@ -380,6 +402,10 @@ export const remove = CustomFunction.createExternalWithSelf(
   ): Promise<CustomValue> => {
     const origin = args.get('self');
     const keyValue = args.get('keyValue');
+
+    if (origin instanceof CustomNil || keyValue instanceof CustomNil) {
+      throw new Error('argument to \'remove\' must not be null');
+    }
 
     if (origin instanceof CustomMap) {
       if (origin.has(keyValue)) {
@@ -400,7 +426,7 @@ export const remove = CustomFunction.createExternalWithSelf(
       return Promise.resolve(replaced);
     }
 
-    return Promise.resolve(Defaults.Void);
+    throw new Error('Type Error: \'remove\' requires map, list, or string');
   }
 ).addArgument('keyValue');
 
@@ -431,13 +457,19 @@ export const join = CustomFunction.createExternalWithSelf(
     const origin = args.get('self');
 
     if (origin instanceof CustomList) {
-      const str = origin.value.join(args.get('seperator').toString());
+      const seperator = args.get('seperator').toString();
+
+      if (seperator.length > 128) {
+        throw new Error('join: delimiter too large');
+      }
+
+      const str = origin.value.join(seperator);
       return Promise.resolve(new CustomString(str));
     }
 
     return Promise.resolve(Defaults.Void);
   }
-).addArgument('seperator', new CustomString(','));
+).addArgument('seperator', new CustomString(' '));
 
 export const split = CustomFunction.createExternalWithSelf(
   'split',
@@ -449,15 +481,21 @@ export const split = CustomFunction.createExternalWithSelf(
     const origin = args.get('self');
 
     if (origin instanceof CustomString) {
+      const delimiter = args.get('delimiter');
+
+      if (delimiter instanceof CustomNil || delimiter.toString() === '') {
+        throw new Error('split: Invalid arguments');
+      }
+
       const list = origin.value
-        .split(args.get('delimiter').toString())
+        .split(delimiter.toString())
         .map((item) => new CustomString(item));
       return Promise.resolve(new CustomList(list));
     }
 
     return Promise.resolve(Defaults.Void);
   }
-).addArgument('delimiter', new CustomString(','));
+).addArgument('delimiter');
 
 export const replace = CustomFunction.createExternalWithSelf(
   'replace',
@@ -467,11 +505,25 @@ export const replace = CustomFunction.createExternalWithSelf(
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
     const origin = args.get('self');
-    const toReplace = args.get('toReplace').toString();
-    const replaceWith = args.get('replaceWith').toString();
-    const replaced = origin.toString().replace(toReplace, replaceWith);
 
-    return Promise.resolve(new CustomString(replaced));
+    if (origin instanceof CustomString) {
+      const toReplace = args.get('toReplace');
+      const replaceWith = args.get('replaceWith');
+
+      if (toReplace instanceof CustomNil || replaceWith instanceof CustomNil) {
+        throw new Error('replace: Invalid arguments');
+      }
+
+      if (toReplace.toString() === '') {
+        throw new Error('Type Error: \'replace\' oldVal can\'t be empty or null');
+      }
+
+      const replaced = origin.toString().replace(toReplace.toString(), replaceWith.toString());
+
+      return Promise.resolve(new CustomString(replaced));
+    }
+
+    throw new Error('Type Error: \'replace\' requires string');
   }
 )
   .addArgument('toReplace')

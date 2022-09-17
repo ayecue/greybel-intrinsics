@@ -11,7 +11,7 @@ import {
   OperationContext
 } from 'greybel-interpreter';
 
-import { getHashCode, getStringHashCode } from './utils';
+import { getHashCode, getStringHashCode, isValidUnicodeChar } from './utils';
 
 export const print = CustomFunction.createExternal(
   'print',
@@ -23,7 +23,7 @@ export const print = CustomFunction.createExternal(
     console.log(args.get('value').toString());
     return Promise.resolve(Defaults.Void);
   }
-).addArgument('value');
+).addArgument('value', new CustomString('')).addArgument('replaceText', Defaults.False);
 
 export const wait = CustomFunction.createExternal(
   'wait',
@@ -32,14 +32,25 @@ export const wait = CustomFunction.createExternal(
     self: CustomValue,
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
-    const seconds = args.get('delay').toNumber();
+    const delay = args.get('delay');
+
+    if (delay instanceof CustomNil) {
+      throw new Error('wait: Invalid arguments');
+    }
+
+    const seconds = delay.toNumber();
+    
+    if (seconds < 0.01 || seconds > 300) {
+      throw new Error('wait: time must have a value between 0.01 and 300');
+    }
+    
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve(Defaults.Void);
       }, seconds);
     });
   }
-).addArgument('delay', new CustomNumber(1));
+).addArgument('delay', new CustomNumber(1.));
 
 export const char = CustomFunction.createExternal(
   'char',
@@ -49,11 +60,19 @@ export const char = CustomFunction.createExternal(
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
     const code = args.get('code');
-    if (code instanceof CustomNil) return Promise.resolve(Defaults.Void);
+
+    if (code instanceof CustomNil) {
+      return Promise.resolve(Defaults.Void);
+    }
+
+    if (!isValidUnicodeChar(code.toInt())) {
+      throw new Error('char: invalid char code.');
+    }
+
     const str = String.fromCharCode(code.toInt());
     return Promise.resolve(new CustomString(str));
   }
-).addArgument('code');
+).addArgument('code', new CustomNumber(65.));
 
 export const code = CustomFunction.createExternal(
   'code',
@@ -63,10 +82,18 @@ export const code = CustomFunction.createExternal(
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
     const value = args.get('value');
-    if (value instanceof CustomNil)
-      return Promise.reject(new Error('code: invalid char code.'));
+
+    if (value instanceof CustomNil) {
+      throw new Error('code: invalid char code.');
+    }
+
     const str = value.toString();
     const strCode = str.charCodeAt(0);
+
+    if (!isValidUnicodeChar(strCode)) {
+      throw new Error('code: invalid char code.');
+    }
+
     return Promise.resolve(new CustomNumber(strCode));
   }
 )
@@ -82,7 +109,7 @@ export const str = CustomFunction.createExternal(
   ): Promise<CustomValue> => {
     return Promise.resolve(new CustomString(args.get('value').toString()));
   }
-).addArgument('value');
+).addArgument('value', new CustomString(''));
 
 export const val = CustomFunction.createExternal(
   'val',
@@ -102,7 +129,7 @@ export const val = CustomFunction.createExternal(
     return Promise.resolve(Defaults.Void);
   }
 )
-  .addArgument('value')
+  .addArgument('value', Defaults.Zero)
   .setInjectSelf(true);
 
 const hashEx = (value: CustomValue, recursionDepth: number): number => {
@@ -160,13 +187,8 @@ export const range = CustomFunction.createExternal(
     let to = args.get('to');
     const step = args.get('step');
 
-    if (!(from instanceof CustomNumber)) {
-      return Promise.reject(new Error('from not a number'));
-    }
-
     if (!(to instanceof CustomNumber)) {
-      to = from;
-      from = Defaults.Zero;
+      throw new Error('range() "to" parameter not a number');
     }
 
     const start = from.toNumber();
@@ -174,13 +196,13 @@ export const range = CustomFunction.createExternal(
     const inc = step?.toInt() || (end >= start ? 1 : -1);
 
     if (inc === 0) {
-      return Promise.reject(new Error('range() error (step==0)'));
+      throw new Error('range() error (step==0)');
     }
 
     const check =
-      end >= start
-        ? (i: number) => i >= start && i <= end
-        : (i: number) => i >= end && i <= start;
+      inc > 0
+        ? (i: number) => i <= end
+        : (i: number) => i >= end;
     const result: Array<CustomValue> = [];
 
     for (let index = start; check(index); index += inc) {
@@ -190,6 +212,6 @@ export const range = CustomFunction.createExternal(
     return Promise.resolve(new CustomList(result));
   }
 )
-  .addArgument('from')
-  .addArgument('to')
+  .addArgument('from', Defaults.Zero)
+  .addArgument('to', Defaults.Zero)
   .addArgument('step');

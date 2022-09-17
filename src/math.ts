@@ -18,7 +18,7 @@ export const abs = CustomFunction.createExternal(
     if (value instanceof CustomNil) return Promise.resolve(Defaults.Void);
     return Promise.resolve(new CustomNumber(Math.abs(value.toNumber())));
   }
-).addArgument('value');
+).addArgument('value', Defaults.Zero);
 
 export const acos = CustomFunction.createExternal(
   'acos',
@@ -31,7 +31,7 @@ export const acos = CustomFunction.createExternal(
     if (value instanceof CustomNil) return Promise.resolve(Defaults.Void);
     return Promise.resolve(new CustomNumber(Math.acos(value.toNumber())));
   }
-).addArgument('value');
+).addArgument('value', Defaults.Zero);
 
 export const asin = CustomFunction.createExternal(
   'asin',
@@ -44,7 +44,7 @@ export const asin = CustomFunction.createExternal(
     if (value instanceof CustomNil) return Promise.resolve(Defaults.Void);
     return Promise.resolve(new CustomNumber(Math.asin(value.toNumber())));
   }
-).addArgument('value');
+).addArgument('value', Defaults.Zero);
 
 export const atan = CustomFunction.createExternal(
   'atan',
@@ -57,7 +57,20 @@ export const atan = CustomFunction.createExternal(
     if (value instanceof CustomNil) return Promise.resolve(Defaults.Void);
     return Promise.resolve(new CustomNumber(Math.atan(value.toNumber())));
   }
-).addArgument('value');
+).addArgument('value', Defaults.Zero);
+
+export const tan = CustomFunction.createExternal(
+  'tan',
+  (
+    _ctx: OperationContext,
+    _self: CustomValue,
+    args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    const value = args.get('value');
+    if (value instanceof CustomNil) return Promise.resolve(Defaults.Void);
+    return Promise.resolve(new CustomNumber(Math.tan(value.toNumber())));
+  }
+).addArgument('value', Defaults.Zero);
 
 export const ceil = CustomFunction.createExternal(
   'ceil',
@@ -70,7 +83,7 @@ export const ceil = CustomFunction.createExternal(
     if (value instanceof CustomNil) return Promise.resolve(Defaults.Void);
     return Promise.resolve(new CustomNumber(Math.ceil(value.toNumber())));
   }
-).addArgument('value');
+).addArgument('value', Defaults.Zero);
 
 export const cos = CustomFunction.createExternal(
   'cos',
@@ -83,7 +96,7 @@ export const cos = CustomFunction.createExternal(
     if (value instanceof CustomNil) return Promise.resolve(Defaults.Void);
     return Promise.resolve(new CustomNumber(Math.cos(value.toNumber())));
   }
-).addArgument('value');
+).addArgument('value', Defaults.Zero);
 
 export const floor = CustomFunction.createExternal(
   'floor',
@@ -96,7 +109,7 @@ export const floor = CustomFunction.createExternal(
     if (value instanceof CustomNil) return Promise.resolve(Defaults.Void);
     return Promise.resolve(new CustomNumber(Math.floor(value.toNumber())));
   }
-).addArgument('value');
+).addArgument('value', Defaults.Zero);
 
 export const sin = CustomFunction.createExternal(
   'sin',
@@ -109,7 +122,7 @@ export const sin = CustomFunction.createExternal(
     if (value instanceof CustomNil) return Promise.resolve(Defaults.Void);
     return Promise.resolve(new CustomNumber(Math.sin(value.toNumber())));
   }
-).addArgument('value');
+).addArgument('value', Defaults.Zero);
 
 export const sign = CustomFunction.createExternal(
   'sign',
@@ -122,7 +135,7 @@ export const sign = CustomFunction.createExternal(
     if (value instanceof CustomNil) return Promise.resolve(Defaults.Void);
     return Promise.resolve(new CustomNumber(Math.sign(value.toNumber())));
   }
-).addArgument('value');
+).addArgument('value', Defaults.Zero);
 
 export const round = CustomFunction.createExternal(
   'round',
@@ -132,16 +145,26 @@ export const round = CustomFunction.createExternal(
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
     const value = args.get('value');
-    if (value instanceof CustomNil) return Promise.resolve(Defaults.Void);
     const decimalPlaces = args.get('decimalPlaces');
-    const decPlaces = Math.max(Math.round(decimalPlaces.toNumber()) * 10, 1);
+
+    if (value instanceof CustomNil || decimalPlaces instanceof CustomNil) {
+      return Promise.resolve(Defaults.Void);
+    }
+
+    const max = decimalPlaces.toNumber();
+
+    if (max < 0 || max > 15) {
+      throw new Error('Rounding digits must be between 0 and 15, inclusive.');
+    }
+
+    const decPlaces = Math.max(Math.round(max) * 10, 1);
     const result =
       Math.round((value.toNumber() + Number.EPSILON) * decPlaces) / decPlaces;
     return Promise.resolve(new CustomNumber(result));
   }
 )
-  .addArgument('value')
-  .addArgument('decimalPlaces', new CustomNumber(0));
+  .addArgument('value', Defaults.Zero)
+  .addArgument('decimalPlaces', Defaults.Zero);
 
 export const sqrt = CustomFunction.createExternal(
   'sqrt',
@@ -154,7 +177,7 @@ export const sqrt = CustomFunction.createExternal(
     if (value instanceof CustomNil) return Promise.resolve(Defaults.Void);
     return Promise.resolve(new CustomNumber(Math.sqrt(value.toNumber())));
   }
-).addArgument('value');
+).addArgument('value', Defaults.Zero);
 
 export const pi = CustomFunction.createExternal(
   'pi',
