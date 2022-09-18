@@ -21,3 +21,5 @@ print(range(0, 10, 2))
 print(hash({
     {"myTest": 0, 1: 2}: true
 }))
+
+exit("test")

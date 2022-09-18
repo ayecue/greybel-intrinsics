@@ -23,7 +23,22 @@ export const print = CustomFunction.createExternal(
     ctx.handler.outputHandler.print(args.get('value').toString());
     return Promise.resolve(Defaults.Void);
   }
-).addArgument('value', new CustomString('')).addArgument('replaceText', Defaults.False);
+)
+  .addArgument('value', new CustomString(''))
+  .addArgument('replaceText', Defaults.False);
+
+export const exit = CustomFunction.createExternal(
+  'exit',
+  (
+    ctx: OperationContext,
+    _self: CustomValue,
+    args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    ctx.handler.outputHandler.print(args.get('value').toString());
+    ctx.exit();
+    return Promise.resolve(Defaults.Void);
+  }
+).addArgument('value');
 
 export const wait = CustomFunction.createExternal(
   'wait',
@@ -39,18 +54,18 @@ export const wait = CustomFunction.createExternal(
     }
 
     const seconds = delay.toNumber();
-    
+
     if (seconds < 0.01 || seconds > 300) {
       throw new Error('wait: time must have a value between 0.01 and 300');
     }
-    
+
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve(Defaults.Void);
       }, seconds);
     });
   }
-).addArgument('delay', new CustomNumber(1.));
+).addArgument('delay', new CustomNumber(1));
 
 export const char = CustomFunction.createExternal(
   'char',
@@ -72,7 +87,7 @@ export const char = CustomFunction.createExternal(
     const str = String.fromCharCode(code.toInt());
     return Promise.resolve(new CustomString(str));
   }
-).addArgument('code', new CustomNumber(65.));
+).addArgument('code', new CustomNumber(65));
 
 export const code = CustomFunction.createExternal(
   'code',
@@ -183,8 +198,8 @@ export const range = CustomFunction.createExternal(
     self: CustomValue,
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
-    let from = args.get('from');
-    let to = args.get('to');
+    const from = args.get('from');
+    const to = args.get('to');
     const step = args.get('step');
 
     if (!(to instanceof CustomNumber)) {
@@ -199,10 +214,7 @@ export const range = CustomFunction.createExternal(
       throw new Error('range() error (step==0)');
     }
 
-    const check =
-      inc > 0
-        ? (i: number) => i <= end
-        : (i: number) => i >= end;
+    const check = inc > 0 ? (i: number) => i <= end : (i: number) => i >= end;
     const result: Array<CustomValue> = [];
 
     for (let index = start; check(index); index += inc) {

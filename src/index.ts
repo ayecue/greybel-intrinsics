@@ -14,6 +14,7 @@ export function getAPI(): Map<string, CustomFunction> {
   const apiInterface = new Map();
 
   apiInterface.set('print', generics.print);
+  apiInterface.set('exit', generics.exit);
   apiInterface.set('wait', generics.wait);
   apiInterface.set('char', generics.char);
   apiInterface.set('code', generics.code);

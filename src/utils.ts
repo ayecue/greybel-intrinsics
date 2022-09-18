@@ -1,4 +1,4 @@
-import { CustomList, CustomMap, CustomValue } from 'greybel-interpreter';
+import { CustomValue } from 'greybel-interpreter';
 
 export function itemAtIndex(
   list: Array<CustomValue> | string,

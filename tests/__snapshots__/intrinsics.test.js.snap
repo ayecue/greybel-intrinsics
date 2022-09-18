@@ -163,6 +163,8 @@ CustomNumber {
 }
 `;
 
+exports[`interpreter default scripts generics.src 16`] = `"test"`;
+
 exports[`interpreter default scripts list.src 1`] = `
 CustomBoolean {
   "value": true,

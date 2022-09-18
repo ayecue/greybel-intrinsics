@@ -404,7 +404,7 @@ export const remove = CustomFunction.createExternalWithSelf(
     const keyValue = args.get('keyValue');
 
     if (origin instanceof CustomNil || keyValue instanceof CustomNil) {
-      throw new Error('argument to \'remove\' must not be null');
+      throw new Error("argument to 'remove' must not be null");
     }
 
     if (origin instanceof CustomMap) {
@@ -426,7 +426,7 @@ export const remove = CustomFunction.createExternalWithSelf(
       return Promise.resolve(replaced);
     }
 
-    throw new Error('Type Error: \'remove\' requires map, list, or string');
+    throw new Error("Type Error: 'remove' requires map, list, or string");
   }
 ).addArgument('keyValue');
 
@@ -515,15 +515,17 @@ export const replace = CustomFunction.createExternalWithSelf(
       }
 
       if (toReplace.toString() === '') {
-        throw new Error('Type Error: \'replace\' oldVal can\'t be empty or null');
+        throw new Error("Type Error: 'replace' oldVal can't be empty or null");
       }
 
-      const replaced = origin.toString().replace(toReplace.toString(), replaceWith.toString());
+      const replaced = origin
+        .toString()
+        .replace(toReplace.toString(), replaceWith.toString());
 
       return Promise.resolve(new CustomString(replaced));
     }
 
-    throw new Error('Type Error: \'replace\' requires string');
+    throw new Error("Type Error: 'replace' requires string");
   }
 )
   .addArgument('toReplace')
