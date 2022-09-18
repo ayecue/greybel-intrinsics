@@ -20,7 +20,7 @@ export const print = CustomFunction.createExternal(
     self: CustomValue,
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
-    console.log(args.get('value').toString());
+    ctx.handler.outputHandler.print(args.get('value').toString());
     return Promise.resolve(Defaults.Void);
   }
 ).addArgument('value', new CustomString('')).addArgument('replaceText', Defaults.False);

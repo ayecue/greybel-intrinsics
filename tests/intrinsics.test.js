@@ -1,7 +1,9 @@
 const {
   Interpreter,
   Debugger,
-  CustomFunction
+  CustomFunction,
+  OutputHandler,
+  HandlerContainer
 } = require('greybel-interpreter');
 const { init } = require('../dist');
 const fs = require('fs');
@@ -12,12 +14,20 @@ let printMock;
 const pseudoAPI = new Map();
 
 pseudoAPI.set(
-  'print',
-  CustomFunction.createExternal('print', (fnCtx, self, args) => {
-    // console.log(args);
-    printMock(args.get('value'));
-  }).addArgument('value')
+  'print', 
+  CustomFunction.createExternal(
+    'print',
+    (ctx, self, args) => {
+      ctx.handler.outputHandler.print(args.get('value'));
+    }
+  ).addArgument('value')
 );
+
+class TestOutputHandler extends OutputHandler {
+  print(message) {
+    printMock(message);
+  }
+}
 
 class TestDebugger extends Debugger {
   debug() {}
@@ -36,6 +46,9 @@ describe('interpreter', function () {
         const interpreter = new Interpreter({
           target: filepath,
           api: init(pseudoAPI),
+          handler: new HandlerContainer({
+            outputHandler: new TestOutputHandler()
+          }),
           debugger: new TestDebugger()
         });
         let success = false;
