@@ -52,6 +52,6 @@
         "greyhack"
     ],
     "dependencies": {
-        "greybel-interpreter": "^1.2.3"
+        "greybel-interpreter": "^1.2.4"
     }
 }
