@@ -367,6 +367,7 @@ CustomList {
   "value": Array [
     CustomMap {
       "isInstance": false,
+      "isa": Map {},
       "value": Map {
         CustomString {
           "value": "foo",
@@ -377,6 +378,7 @@ CustomList {
     },
     CustomMap {
       "isInstance": false,
+      "isa": Map {},
       "value": Map {
         CustomString {
           "value": "foo",
@@ -387,6 +389,7 @@ CustomList {
     },
     CustomMap {
       "isInstance": false,
+      "isa": Map {},
       "value": Map {
         CustomString {
           "value": "foo",
@@ -397,6 +400,7 @@ CustomList {
     },
     CustomMap {
       "isInstance": false,
+      "isa": Map {},
       "value": Map {
         CustomString {
           "value": "foo",
@@ -738,6 +742,7 @@ CustomNumber {
 exports[`interpreter default scripts manipulation.src 34`] = `
 CustomMap {
   "isInstance": false,
+  "isa": Map {},
   "value": Map {
     CustomString {
       "value": "bar",
@@ -775,6 +780,7 @@ CustomString {
 exports[`interpreter default scripts manipulation.src 37`] = `
 CustomMap {
   "isInstance": false,
+  "isa": Map {},
   "value": Map {
     CustomString {
       "value": "bar",
@@ -806,6 +812,7 @@ CustomList {
 exports[`interpreter default scripts manipulation.src 39`] = `
 CustomMap {
   "isInstance": false,
+  "isa": Map {},
   "value": Map {
     CustomString {
       "value": "foo",
@@ -853,6 +860,7 @@ CustomList {
 exports[`interpreter default scripts manipulation.src 41`] = `
 CustomMap {
   "isInstance": false,
+  "isa": Map {},
   "value": Map {
     CustomString {
       "value": "foo",
@@ -957,6 +965,7 @@ CustomNumber {
 exports[`interpreter default scripts map.src 9`] = `
 CustomMap {
   "isInstance": false,
+  "isa": Map {},
   "value": Map {
     CustomString {
       "value": "bar",
@@ -970,6 +979,7 @@ CustomMap {
 exports[`interpreter default scripts map.src 10`] = `
 CustomMap {
   "isInstance": false,
+  "isa": Map {},
   "value": Map {
     CustomString {
       "value": "foo",
@@ -999,6 +1009,7 @@ CustomNumber {
 exports[`interpreter default scripts map.src 12`] = `
 CustomMap {
   "isInstance": false,
+  "isa": Map {},
   "value": Map {
     CustomString {
       "value": "foo",
