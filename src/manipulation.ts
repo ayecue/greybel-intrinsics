@@ -329,9 +329,9 @@ export const pop = CustomFunction.createExternalWithSelf(
       const keys = Array.from(origin.value.keys());
       const item = origin.value.get(keys[0]);
       origin.value.delete(keys[0]);
-      return Promise.resolve(item);
+      return Promise.resolve(item || Defaults.Void);
     } else if (origin instanceof CustomList) {
-      return Promise.resolve(origin.value.pop());
+      return Promise.resolve(origin.value.pop() || Defaults.Void);
     }
 
     return Promise.resolve(Defaults.Void);
@@ -348,7 +348,7 @@ export const pull = CustomFunction.createExternalWithSelf(
     const origin = args.get('self');
 
     if (origin instanceof CustomList) {
-      return Promise.resolve(origin.value.shift());
+      return Promise.resolve(origin.value.shift() || Defaults.Void);
     }
 
     return Promise.resolve(Defaults.Void);
