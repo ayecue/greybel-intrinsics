@@ -83,3 +83,12 @@ remove(tempList, 1)
 print(tempMap)
 print(tempList)
 print(remove(myString, "ipsum"))
+
+tempMap = {} + myMap
+tempList = [] + myList
+
+tempMap.shuffle()
+tempList.shuffle()
+
+print(tempMap != myMap)
+print(tempList != myList)
