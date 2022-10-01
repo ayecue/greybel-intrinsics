@@ -901,18 +901,6 @@ CustomString {
 `;
 
 exports[`interpreter default scripts manipulation.src 44`] = `
-CustomBoolean {
-  "value": true,
-}
-`;
-
-exports[`interpreter default scripts manipulation.src 45`] = `
-CustomBoolean {
-  "value": true,
-}
-`;
-
-exports[`interpreter default scripts manipulation.src 46`] = `
 CustomMap {
   "isInstance": false,
   "isa": Map {},
@@ -933,6 +921,22 @@ CustomMap {
       "value": true,
     },
   },
+}
+`;
+
+exports[`interpreter default scripts manipulation.src 45`] = `
+CustomList {
+  "value": Array [
+    CustomString {
+      "value": "foo",
+    },
+    CustomNumber {
+      "value": 123,
+    },
+    CustomString {
+      "value": "xxx",
+    },
+  ],
 }
 `;
 

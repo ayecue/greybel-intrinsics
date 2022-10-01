@@ -90,5 +90,5 @@ tempList = [] + myList
 tempMap.shuffle()
 tempList.shuffle()
 
-print(tempMap != myMap)
-print(tempList != myList)
+print(tempMap)
+print(tempList)

@@ -13,6 +13,8 @@ const testFolder = path.resolve(__dirname, 'scripts');
 let printMock;
 const pseudoAPI = new Map();
 
+global.Math.random = () => .5;
+
 pseudoAPI.set(
   'print', 
   CustomFunction.createExternal(
