@@ -900,6 +900,46 @@ CustomString {
 }
 `;
 
+exports[`interpreter default scripts manipulation.src 44`] = `
+CustomMap {
+  "isInstance": false,
+  "isa": Map {},
+  "value": Map {
+    CustomString {
+      "value": "foo",
+    } => CustomNumber {
+      "value": 123,
+    },
+    CustomString {
+      "value": "bar",
+    } => CustomString {
+      "value": "moo",
+    },
+    CustomString {
+      "value": "lore",
+    } => CustomBoolean {
+      "value": true,
+    },
+  },
+}
+`;
+
+exports[`interpreter default scripts manipulation.src 45`] = `
+CustomList {
+  "value": Array [
+    CustomString {
+      "value": "foo",
+    },
+    CustomNumber {
+      "value": 123,
+    },
+    CustomString {
+      "value": "xxx",
+    },
+  ],
+}
+`;
+
 exports[`interpreter default scripts map.src 1`] = `
 CustomBoolean {
   "value": true,

@@ -290,7 +290,7 @@ export const shuffle = CustomFunction.createExternalWithSelf(
         throw new Error('shuffle: list too large');
       }
 
-      for (let i = value.length - 1; i > 0; i--) {
+      for (let i = value.length - 1; i >= 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [value[i], value[j]] = [value[j], value[i]];
       }
@@ -303,12 +303,15 @@ export const shuffle = CustomFunction.createExternalWithSelf(
 
       const keys = Array.from(value.keys());
 
-      for (let i = keys.length - 1; i > 0; i--) {
+      for (let i = keys.length - 1; i >= 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-        const a: any = value.get(keys[j]);
-        const b: any = value.get(keys[i]);
-        value.set(keys[i], b);
-        value.set(keys[j], a);
+        [keys[i], keys[j]] = [keys[j], keys[i]];
+      }
+
+      const values = Array.from(value.values());
+
+      for (let i = values.length - 1; i >= 0; i--) {
+        origin.set(keys[i], values[i]);
       }
     }
 
