@@ -81,6 +81,7 @@ export function init(customAPI: Map<string, CustomFunction> = new Map()) {
   listIntrinsics.add('sum', apiInterface.get('sum'));
   listIntrinsics.add('remove', apiInterface.get('remove'));
   listIntrinsics.add('values', apiInterface.get('values'));
+  listIntrinsics.add('insert', manipulation.insert);
   listIntrinsics.add('reverse', manipulation.reverse);
   listIntrinsics.add('join', manipulation.join);
 
@@ -111,6 +112,7 @@ export function init(customAPI: Map<string, CustomFunction> = new Map()) {
   stringIntrinsics.add('remove', apiInterface.get('remove'));
   stringIntrinsics.add('upper', apiInterface.get('upper'));
   stringIntrinsics.add('values', apiInterface.get('values'));
+  stringIntrinsics.add('insert', manipulation.insert);
   stringIntrinsics.add('split', manipulation.split);
   stringIntrinsics.add('replace', manipulation.replace);
   stringIntrinsics.add('trim', manipulation.trim);
