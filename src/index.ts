@@ -40,6 +40,7 @@ export function getAPI(): Map<string, CustomFunction> {
   apiInterface.set('bitAnd', math.bitAnd);
   apiInterface.set('bitOr', math.bitOr);
   apiInterface.set('bitXor', math.bitXor);
+  apiInterface.set('log', math.log);
 
   apiInterface.set('rnd', rnd);
 

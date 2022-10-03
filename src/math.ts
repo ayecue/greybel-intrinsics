@@ -273,3 +273,19 @@ export const bitXor = CustomFunction.createExternal(
 )
   .addArgument('numA')
   .addArgument('numB');
+
+export const log = CustomFunction.createExternal(
+  'log',
+  (
+    _ctx: OperationContext,
+    _self: CustomValue,
+    args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    const value = args.get('value').toNumber();
+    const base = args.get('base').toNumber();
+
+    return Promise.resolve(new CustomNumber(Math.log(value) / Math.log(base)));
+  }
+)
+  .addArgument('value')
+  .addArgument('base', new CustomNumber(10));
