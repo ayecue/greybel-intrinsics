@@ -225,3 +225,51 @@ export const bitwise = CustomFunction.createExternal(
   .addArgument('operator')
   .addArgument('numA')
   .addArgument('numB');
+
+export const bitAnd = CustomFunction.createExternal(
+  'bitAnd',
+  (
+    _ctx: OperationContext,
+    _self: CustomValue,
+    args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    const a = args.get('numA').toNumber();
+    const b = args.get('numB').toNumber();
+
+    return Promise.resolve(new CustomNumber(a & b));
+  }
+)
+  .addArgument('numA')
+  .addArgument('numB');
+
+export const bitOr = CustomFunction.createExternal(
+  'bitOr',
+  (
+    _ctx: OperationContext,
+    _self: CustomValue,
+    args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    const a = args.get('numA').toNumber();
+    const b = args.get('numB').toNumber();
+
+    return Promise.resolve(new CustomNumber(a | b));
+  }
+)
+  .addArgument('numA')
+  .addArgument('numB');
+
+export const bitXor = CustomFunction.createExternal(
+  'bitOr',
+  (
+    _ctx: OperationContext,
+    _self: CustomValue,
+    args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    const a = args.get('numA').toNumber();
+    const b = args.get('numB').toNumber();
+
+    return Promise.resolve(new CustomNumber(a ^ b));
+  }
+)
+  .addArgument('numA')
+  .addArgument('numB');

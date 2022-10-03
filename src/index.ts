@@ -37,6 +37,9 @@ export function getAPI(): Map<string, CustomFunction> {
   apiInterface.set('sqrt', math.sqrt);
   apiInterface.set('pi', math.pi);
   apiInterface.set('bitwise', math.bitwise);
+  apiInterface.set('bitAnd', math.bitAnd);
+  apiInterface.set('bitOr', math.bitOr);
+  apiInterface.set('bitXor', math.bitXor);
 
   apiInterface.set('rnd', rnd);
 
