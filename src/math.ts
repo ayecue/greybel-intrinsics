@@ -259,7 +259,7 @@ export const bitOr = CustomFunction.createExternal(
   .addArgument('numB');
 
 export const bitXor = CustomFunction.createExternal(
-  'bitOr',
+  'bitXor',
   (
     _ctx: OperationContext,
     _self: CustomValue,
