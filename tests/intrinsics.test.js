@@ -3,7 +3,8 @@ const {
   Debugger,
   CustomFunction,
   OutputHandler,
-  HandlerContainer
+  HandlerContainer,
+  CustomString
 } = require('greybel-interpreter');
 const { init } = require('../dist');
 const fs = require('fs');
@@ -16,7 +17,7 @@ const pseudoAPI = new Map();
 global.Math.random = () => .5;
 
 pseudoAPI.set(
-  'print', 
+  new CustomString('print'), 
   CustomFunction.createExternal(
     'print',
     (ctx, self, args) => {
