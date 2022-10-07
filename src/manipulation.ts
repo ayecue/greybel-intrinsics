@@ -214,6 +214,45 @@ export const slice = CustomFunction.createExternalWithSelf(
   .addArgument('from', Defaults.Zero)
   .addArgument('to');
 
+export const insert = CustomFunction.createExternalWithSelf(
+  'insert',
+  (
+    _ctx: OperationContext,
+    _self: CustomValue,
+    args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    const origin = args.get('self');
+    const index = args.get('index');
+    const value = args.get('value');
+
+    if (index instanceof CustomNil) {
+      throw new Error('insert: index argument required');
+    }
+
+    if (!(index instanceof CustomNumber)) {
+      throw new Error('insert: number required for index argument');
+    }
+
+    if (origin instanceof CustomList) {
+      const listIndex = itemAtIndex(origin.value, index.toInt());
+      if (Object.prototype.hasOwnProperty.call(origin.value, listIndex)) {
+        origin.value.splice(listIndex, 0, value);
+      }
+      return Promise.resolve(Defaults.Void);
+    } else if (origin instanceof CustomString) {
+      const left = origin.value.slice(0, index.toInt());
+      const right = origin.value.slice(index.toInt());
+      return Promise.resolve(
+        new CustomString(`${left}${value.toString()}${right}`)
+      );
+    }
+
+    throw new Error('insert called on invalid type');
+  }
+)
+  .addArgument('index')
+  .addArgument('value');
+
 export const sort = CustomFunction.createExternalWithSelf(
   'sort',
   (

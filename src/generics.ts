@@ -227,3 +227,16 @@ export const range = CustomFunction.createExternal(
   .addArgument('from', Defaults.Zero)
   .addArgument('to', Defaults.Zero)
   .addArgument('step');
+
+export const customYield = CustomFunction.createExternal(
+  'yield',
+  (
+    _ctx: OperationContext,
+    _self: CustomValue,
+    _args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    return new Promise((resolve) => {
+      process.nextTick(() => resolve(Defaults.Void));
+    });
+  }
+);

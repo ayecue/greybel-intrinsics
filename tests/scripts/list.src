@@ -61,3 +61,8 @@ print([{
 },{
 	"foo": 9
 }].sort("foo"))
+
+tempList = [1, 2, 3, 4]
+
+tempList.insert(2, 1337)
+print(tempList)

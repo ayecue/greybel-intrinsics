@@ -225,3 +225,67 @@ export const bitwise = CustomFunction.createExternal(
   .addArgument('operator')
   .addArgument('numA')
   .addArgument('numB');
+
+export const bitAnd = CustomFunction.createExternal(
+  'bitAnd',
+  (
+    _ctx: OperationContext,
+    _self: CustomValue,
+    args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    const a = args.get('numA').toNumber();
+    const b = args.get('numB').toNumber();
+
+    return Promise.resolve(new CustomNumber(a & b));
+  }
+)
+  .addArgument('numA')
+  .addArgument('numB');
+
+export const bitOr = CustomFunction.createExternal(
+  'bitOr',
+  (
+    _ctx: OperationContext,
+    _self: CustomValue,
+    args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    const a = args.get('numA').toNumber();
+    const b = args.get('numB').toNumber();
+
+    return Promise.resolve(new CustomNumber(a | b));
+  }
+)
+  .addArgument('numA')
+  .addArgument('numB');
+
+export const bitXor = CustomFunction.createExternal(
+  'bitXor',
+  (
+    _ctx: OperationContext,
+    _self: CustomValue,
+    args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    const a = args.get('numA').toNumber();
+    const b = args.get('numB').toNumber();
+
+    return Promise.resolve(new CustomNumber(a ^ b));
+  }
+)
+  .addArgument('numA')
+  .addArgument('numB');
+
+export const log = CustomFunction.createExternal(
+  'log',
+  (
+    _ctx: OperationContext,
+    _self: CustomValue,
+    args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    const value = args.get('value').toNumber();
+    const base = args.get('base').toNumber();
+
+    return Promise.resolve(new CustomNumber(Math.log(value) / Math.log(base)));
+  }
+)
+  .addArgument('value')
+  .addArgument('base', new CustomNumber(10));
