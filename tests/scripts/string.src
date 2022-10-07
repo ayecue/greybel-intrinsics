@@ -30,3 +30,5 @@ print("bar bar bar bar".lastIndexOf("bar"))
 
 print("1.23".to_int)
 print("nonumber".to_int)
+
+print("123456".insert(2, "1337"))

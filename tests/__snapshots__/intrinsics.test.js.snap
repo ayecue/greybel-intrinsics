@@ -163,7 +163,37 @@ CustomNumber {
 }
 `;
 
-exports[`interpreter default scripts generics.src 16`] = `"test"`;
+exports[`interpreter default scripts generics.src 16`] = `
+CustomNumber {
+  "value": 1.2055713536802566,
+}
+`;
+
+exports[`interpreter default scripts generics.src 17`] = `
+CustomNumber {
+  "value": 0,
+}
+`;
+
+exports[`interpreter default scripts generics.src 18`] = `
+CustomNumber {
+  "value": 1,
+}
+`;
+
+exports[`interpreter default scripts generics.src 19`] = `
+CustomNumber {
+  "value": 1,
+}
+`;
+
+exports[`interpreter default scripts generics.src 20`] = `
+CustomNil {
+  "value": null,
+}
+`;
+
+exports[`interpreter default scripts generics.src 21`] = `"test"`;
 
 exports[`interpreter default scripts list.src 1`] = `
 CustomBoolean {
@@ -408,6 +438,28 @@ CustomList {
           "value": 9,
         },
       },
+    },
+  ],
+}
+`;
+
+exports[`interpreter default scripts list.src 25`] = `
+CustomList {
+  "value": Array [
+    CustomNumber {
+      "value": 1,
+    },
+    CustomNumber {
+      "value": 2,
+    },
+    CustomNumber {
+      "value": 1337,
+    },
+    CustomNumber {
+      "value": 3,
+    },
+    CustomNumber {
+      "value": 4,
     },
   ],
 }
@@ -1487,5 +1539,11 @@ CustomNumber {
 exports[`interpreter default scripts string.src 19`] = `
 CustomString {
   "value": "nonumber",
+}
+`;
+
+exports[`interpreter default scripts string.src 20`] = `
+CustomString {
+  "value": "1213373456",
 }
 `;

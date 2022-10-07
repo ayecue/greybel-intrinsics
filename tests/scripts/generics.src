@@ -22,4 +22,11 @@ print(hash({
     {"myTest": 0, 1: 2}: true
 }))
 
+print(log(20, 12))
+print(bitAnd(1, 0))
+print(bitXor(0, 1))
+print(bitOr(1, 1))
+
+print(yield)
+
 exit("test")
