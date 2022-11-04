@@ -1547,3 +1547,41 @@ CustomString {
   "value": "1213373456",
 }
 `;
+
+exports[`interpreter default scripts string.src 21`] = `
+CustomList {
+  "value": Array [
+    CustomString {
+      "value": "a",
+    },
+    CustomString {
+      "value": "b",
+    },
+    CustomString {
+      "value": "c",
+    },
+    CustomString {
+      "value": "e",
+    },
+    CustomString {
+      "value": "d",
+    },
+  ],
+}
+`;
+
+exports[`interpreter default scripts string.src 22`] = `
+CustomList {
+  "value": Array [
+    CustomString {
+      "value": "abced",
+    },
+    CustomString {
+      "value": "ca",
+    },
+    CustomString {
+      "value": "xa",
+    },
+  ],
+}
+`;

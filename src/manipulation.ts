@@ -525,12 +525,12 @@ export const split = CustomFunction.createExternalWithSelf(
     if (origin instanceof CustomString) {
       const delimiter = args.get('delimiter');
 
-      if (delimiter instanceof CustomNil || delimiter.toString() === '') {
+      if (delimiter instanceof CustomNil) {
         throw new Error('split: Invalid arguments');
       }
 
       const list = origin.value
-        .split(delimiter.toString())
+        .split(new RegExp(delimiter.toString()))
         .map((item) => new CustomString(item));
       return Promise.resolve(new CustomList(list));
     }
