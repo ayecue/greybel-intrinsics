@@ -1574,12 +1574,10 @@ exports[`interpreter default scripts string.src 22`] = `
 CustomList {
   "value": Array [
     CustomString {
-      "value": "abced
-",
+      "value": "abced",
     },
     CustomString {
-      "value": "ca
-",
+      "value": "ca",
     },
     CustomString {
       "value": "xa",
