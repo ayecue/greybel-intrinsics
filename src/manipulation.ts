@@ -525,7 +525,7 @@ export const split = CustomFunction.createExternalWithSelf(
     if (origin instanceof CustomString) {
       const delimiter = args.get('delimiter');
 
-      if (delimiter instanceof CustomNil || delimiter.toString() === '') {
+      if (delimiter instanceof CustomNil) {
         throw new Error('split: Invalid arguments');
       }
 
