@@ -1569,3 +1569,21 @@ CustomList {
   ],
 }
 `;
+
+exports[`interpreter default scripts string.src 22`] = `
+CustomList {
+  "value": Array [
+    CustomString {
+      "value": "abced
+",
+    },
+    CustomString {
+      "value": "ca
+",
+    },
+    CustomString {
+      "value": "xa",
+    },
+  ],
+}
+`;
