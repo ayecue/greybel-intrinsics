@@ -36,4 +36,4 @@ print("123456".insert(2, "1337"))
 print("abced".split(""))
 print("abced
 ca
-xa".split("\n"))
+xa".split(char(10)))

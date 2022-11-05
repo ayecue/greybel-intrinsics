@@ -530,7 +530,7 @@ export const split = CustomFunction.createExternalWithSelf(
       }
 
       const list = origin.value
-        .split(new RegExp(delimiter.toString()))
+        .split(delimiter.toString())
         .map((item) => new CustomString(item));
       return Promise.resolve(new CustomList(list));
     }
