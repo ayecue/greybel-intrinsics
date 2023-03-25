@@ -1,1587 +1,303 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`interpreter default scripts generics.src 1`] = `
-CustomString {
-  "value": "{",
-}
-`;
+exports[`interpreter default scripts generics.src 1`] = `"\\"{\\""`;
 
-exports[`interpreter default scripts generics.src 2`] = `
-CustomNumber {
-  "value": 123,
-}
-`;
+exports[`interpreter default scripts generics.src 2`] = `"123"`;
 
-exports[`interpreter default scripts generics.src 3`] = `
-CustomString {
-  "value": "false",
-}
-`;
+exports[`interpreter default scripts generics.src 3`] = `"\\"false\\""`;
 
-exports[`interpreter default scripts generics.src 4`] = `
-CustomNumber {
-  "value": 1.23,
-}
-`;
+exports[`interpreter default scripts generics.src 4`] = `"1.23"`;
 
-exports[`interpreter default scripts generics.src 5`] = `
-CustomNumber {
-  "value": 0,
-}
-`;
+exports[`interpreter default scripts generics.src 5`] = `"0"`;
 
-exports[`interpreter default scripts generics.src 6`] = `
-CustomNumber {
-  "value": 101574,
-}
-`;
+exports[`interpreter default scripts generics.src 6`] = `"101574"`;
 
-exports[`interpreter default scripts generics.src 7`] = `
-CustomNumber {
-  "value": 61655,
-}
-`;
+exports[`interpreter default scripts generics.src 7`] = `"61655"`;
 
-exports[`interpreter default scripts generics.src 8`] = `
-CustomNumber {
-  "value": 61653,
-}
-`;
+exports[`interpreter default scripts generics.src 8`] = `"61653"`;
 
-exports[`interpreter default scripts generics.src 9`] = `
-CustomNumber {
-  "value": 1,
-}
-`;
+exports[`interpreter default scripts generics.src 9`] = `"1"`;
 
-exports[`interpreter default scripts generics.src 10`] = `
-CustomNumber {
-  "value": 1345,
-}
-`;
+exports[`interpreter default scripts generics.src 10`] = `"1345"`;
 
-exports[`interpreter default scripts generics.src 11`] = `
-CustomList {
-  "value": Array [
-    CustomNumber {
-      "value": 6,
-    },
-    CustomNumber {
-      "value": 5,
-    },
-    CustomNumber {
-      "value": 4,
-    },
-    CustomNumber {
-      "value": 3,
-    },
-    CustomNumber {
-      "value": 2,
-    },
-    CustomNumber {
-      "value": 1,
-    },
-    CustomNumber {
-      "value": 0,
-    },
-  ],
-}
-`;
+exports[`interpreter default scripts generics.src 11`] = `"[6, 5, 4, 3, 2, 1, 0]"`;
 
-exports[`interpreter default scripts generics.src 12`] = `
-CustomList {
-  "value": Array [
-    CustomNumber {
-      "value": 1,
-    },
-    CustomNumber {
-      "value": 2,
-    },
-    CustomNumber {
-      "value": 3,
-    },
-    CustomNumber {
-      "value": 4,
-    },
-    CustomNumber {
-      "value": 5,
-    },
-  ],
-}
-`;
+exports[`interpreter default scripts generics.src 12`] = `"[1, 2, 3, 4, 5]"`;
 
-exports[`interpreter default scripts generics.src 13`] = `
-CustomList {
-  "value": Array [
-    CustomNumber {
-      "value": 5,
-    },
-    CustomNumber {
-      "value": 4,
-    },
-    CustomNumber {
-      "value": 3,
-    },
-    CustomNumber {
-      "value": 2,
-    },
-    CustomNumber {
-      "value": 1,
-    },
-  ],
-}
-`;
+exports[`interpreter default scripts generics.src 13`] = `"[5, 4, 3, 2, 1]"`;
 
-exports[`interpreter default scripts generics.src 14`] = `
-CustomList {
-  "value": Array [
-    CustomNumber {
-      "value": 0,
-    },
-    CustomNumber {
-      "value": 2,
-    },
-    CustomNumber {
-      "value": 4,
-    },
-    CustomNumber {
-      "value": 6,
-    },
-    CustomNumber {
-      "value": 8,
-    },
-    CustomNumber {
-      "value": 10,
-    },
-  ],
-}
-`;
+exports[`interpreter default scripts generics.src 14`] = `"[0, 2, 4, 6, 8, 10]"`;
 
-exports[`interpreter default scripts generics.src 15`] = `
-CustomNumber {
-  "value": -1060040609,
-}
-`;
+exports[`interpreter default scripts generics.src 15`] = `"-1060040609"`;
 
-exports[`interpreter default scripts generics.src 16`] = `
-CustomNumber {
-  "value": 1.2055713536802566,
-}
-`;
+exports[`interpreter default scripts generics.src 16`] = `"1.2055713536802566"`;
 
-exports[`interpreter default scripts generics.src 17`] = `
-CustomNumber {
-  "value": 0,
-}
-`;
+exports[`interpreter default scripts generics.src 17`] = `"0"`;
 
-exports[`interpreter default scripts generics.src 18`] = `
-CustomNumber {
-  "value": 1,
-}
-`;
+exports[`interpreter default scripts generics.src 18`] = `"1"`;
 
-exports[`interpreter default scripts generics.src 19`] = `
-CustomNumber {
-  "value": 1,
-}
-`;
+exports[`interpreter default scripts generics.src 19`] = `"1"`;
 
-exports[`interpreter default scripts generics.src 20`] = `
-CustomNil {
-  "value": null,
-}
-`;
+exports[`interpreter default scripts generics.src 20`] = `"null"`;
 
 exports[`interpreter default scripts generics.src 21`] = `"test"`;
 
-exports[`interpreter default scripts list.src 1`] = `
-CustomBoolean {
-  "value": true,
-}
-`;
-
-exports[`interpreter default scripts list.src 2`] = `
-CustomBoolean {
-  "value": false,
-}
-`;
-
-exports[`interpreter default scripts list.src 3`] = `
-CustomList {
-  "value": Array [
-    CustomNumber {
-      "value": 0,
-    },
-    CustomNumber {
-      "value": 1,
-    },
-  ],
-}
-`;
-
-exports[`interpreter default scripts list.src 4`] = `
-CustomNumber {
-  "value": 1,
-}
-`;
-
-exports[`interpreter default scripts list.src 5`] = `
-CustomNil {
-  "value": null,
-}
-`;
-
-exports[`interpreter default scripts list.src 6`] = `
-CustomNumber {
-  "value": 2,
-}
-`;
-
-exports[`interpreter default scripts list.src 7`] = `
-CustomString {
-  "value": "bar",
-}
-`;
-
-exports[`interpreter default scripts list.src 8`] = `
-CustomList {
-  "value": Array [
-    CustomString {
-      "value": "foo",
-    },
-  ],
-}
-`;
-
-exports[`interpreter default scripts list.src 9`] = `
-CustomString {
-  "value": "foo",
-}
-`;
-
-exports[`interpreter default scripts list.src 10`] = `
-CustomList {
-  "value": Array [
-    CustomString {
-      "value": "bar",
-    },
-  ],
-}
-`;
-
-exports[`interpreter default scripts list.src 11`] = `
-CustomList {
-  "value": Array [
-    CustomString {
-      "value": "foo",
-    },
-    CustomString {
-      "value": "bar",
-    },
-    CustomString {
-      "value": "xxx",
-    },
-  ],
-}
-`;
-
-exports[`interpreter default scripts list.src 12`] = `
-CustomList {
-  "value": Array [
-    CustomNumber {
-      "value": 1,
-    },
-    CustomNumber {
-      "value": 2,
-    },
-    CustomNumber {
-      "value": 4,
-    },
-    CustomNumber {
-      "value": 6,
-    },
-  ],
-}
-`;
-
-exports[`interpreter default scripts list.src 13`] = `
-CustomNumber {
-  "value": 16,
-}
-`;
-
-exports[`interpreter default scripts list.src 14`] = `
-CustomNil {
-  "value": null,
-}
-`;
-
-exports[`interpreter default scripts list.src 15`] = `
-CustomList {
-  "value": Array [
-    CustomString {
-      "value": "bar",
-    },
-  ],
-}
-`;
-
-exports[`interpreter default scripts list.src 16`] = `
-CustomList {
-  "value": Array [
-    CustomString {
-      "value": "foo",
-    },
-    CustomString {
-      "value": "bar",
-    },
-  ],
-}
-`;
-
-exports[`interpreter default scripts list.src 17`] = `
-CustomList {
-  "value": Array [
-    CustomString {
-      "value": "xxx",
-    },
-    CustomString {
-      "value": "bar",
-    },
-    CustomString {
-      "value": "foo",
-    },
-  ],
-}
-`;
-
-exports[`interpreter default scripts list.src 18`] = `
-CustomString {
-  "value": "foo;bar;xxx",
-}
-`;
-
-exports[`interpreter default scripts list.src 19`] = `
-CustomNumber {
-  "value": 0,
-}
-`;
-
-exports[`interpreter default scripts list.src 20`] = `
-CustomBoolean {
-  "value": false,
-}
-`;
-
-exports[`interpreter default scripts list.src 21`] = `
-CustomBoolean {
-  "value": true,
-}
-`;
-
-exports[`interpreter default scripts list.src 22`] = `
-CustomBoolean {
-  "value": true,
-}
-`;
-
-exports[`interpreter default scripts list.src 23`] = `
-CustomString {
-  "value": "true",
-}
-`;
-
-exports[`interpreter default scripts list.src 24`] = `
-CustomList {
-  "value": Array [
-    CustomMap {
-      "isInstance": false,
-      "isa": null,
-      "value": Map {
-        CustomString {
-          "value": "foo",
-        } => CustomNumber {
-          "value": 2,
-        },
-      },
-    },
-    CustomMap {
-      "isInstance": false,
-      "isa": null,
-      "value": Map {
-        CustomString {
-          "value": "foo",
-        } => CustomNumber {
-          "value": 4,
-        },
-      },
-    },
-    CustomMap {
-      "isInstance": false,
-      "isa": null,
-      "value": Map {
-        CustomString {
-          "value": "foo",
-        } => CustomNumber {
-          "value": 5,
-        },
-      },
-    },
-    CustomMap {
-      "isInstance": false,
-      "isa": null,
-      "value": Map {
-        CustomString {
-          "value": "foo",
-        } => CustomNumber {
-          "value": 9,
-        },
-      },
-    },
-  ],
-}
-`;
-
-exports[`interpreter default scripts list.src 25`] = `
-CustomList {
-  "value": Array [
-    CustomNumber {
-      "value": 1,
-    },
-    CustomNumber {
-      "value": 2,
-    },
-    CustomNumber {
-      "value": 1337,
-    },
-    CustomNumber {
-      "value": 3,
-    },
-    CustomNumber {
-      "value": 4,
-    },
-  ],
-}
-`;
-
-exports[`interpreter default scripts manipulation.src 1`] = `
-CustomBoolean {
-  "value": true,
-}
-`;
-
-exports[`interpreter default scripts manipulation.src 2`] = `
-CustomBoolean {
-  "value": false,
-}
-`;
-
-exports[`interpreter default scripts manipulation.src 3`] = `
-CustomBoolean {
-  "value": true,
-}
-`;
-
-exports[`interpreter default scripts manipulation.src 4`] = `
-CustomBoolean {
-  "value": false,
-}
-`;
-
-exports[`interpreter default scripts manipulation.src 5`] = `
-CustomBoolean {
-  "value": true,
-}
-`;
-
-exports[`interpreter default scripts manipulation.src 6`] = `
-CustomBoolean {
-  "value": false,
-}
-`;
-
-exports[`interpreter default scripts manipulation.src 7`] = `
-CustomString {
-  "value": "lore",
-}
-`;
-
-exports[`interpreter default scripts manipulation.src 8`] = `
-CustomNil {
-  "value": null,
-}
-`;
-
-exports[`interpreter default scripts manipulation.src 9`] = `
-CustomNumber {
-  "value": 1,
-}
-`;
-
-exports[`interpreter default scripts manipulation.src 10`] = `
-CustomNil {
-  "value": null,
-}
-`;
-
-exports[`interpreter default scripts manipulation.src 11`] = `
-CustomNumber {
-  "value": 4,
-}
-`;
-
-exports[`interpreter default scripts manipulation.src 12`] = `
-CustomNil {
-  "value": null,
-}
-`;
-
-exports[`interpreter default scripts manipulation.src 13`] = `
-CustomList {
-  "value": Array [
-    CustomString {
-      "value": "foo",
-    },
-    CustomString {
-      "value": "bar",
-    },
-    CustomString {
-      "value": "lore",
-    },
-  ],
-}
-`;
-
-exports[`interpreter default scripts manipulation.src 14`] = `
-CustomList {
-  "value": Array [
-    CustomNumber {
-      "value": 0,
-    },
-    CustomNumber {
-      "value": 1,
-    },
-    CustomNumber {
-      "value": 2,
-    },
-  ],
-}
-`;
-
-exports[`interpreter default scripts manipulation.src 15`] = `
-CustomList {
-  "value": Array [
-    CustomNumber {
-      "value": 0,
-    },
-    CustomNumber {
-      "value": 1,
-    },
-    CustomNumber {
-      "value": 2,
-    },
-    CustomNumber {
-      "value": 3,
-    },
-    CustomNumber {
-      "value": 4,
-    },
-    CustomNumber {
-      "value": 5,
-    },
-    CustomNumber {
-      "value": 6,
-    },
-    CustomNumber {
-      "value": 7,
-    },
-    CustomNumber {
-      "value": 8,
-    },
-    CustomNumber {
-      "value": 9,
-    },
-    CustomNumber {
-      "value": 10,
-    },
-    CustomNumber {
-      "value": 11,
-    },
-    CustomNumber {
-      "value": 12,
-    },
-    CustomNumber {
-      "value": 13,
-    },
-    CustomNumber {
-      "value": 14,
-    },
-    CustomNumber {
-      "value": 15,
-    },
-    CustomNumber {
-      "value": 16,
-    },
-    CustomNumber {
-      "value": 17,
-    },
-    CustomNumber {
-      "value": 18,
-    },
-    CustomNumber {
-      "value": 19,
-    },
-    CustomNumber {
-      "value": 20,
-    },
-  ],
-}
-`;
-
-exports[`interpreter default scripts manipulation.src 16`] = `
-CustomList {
-  "value": Array [
-    CustomNumber {
-      "value": 123,
-    },
-    CustomBoolean {
-      "value": true,
-    },
-    CustomString {
-      "value": "moo",
-    },
-  ],
-}
-`;
-
-exports[`interpreter default scripts manipulation.src 17`] = `
-CustomList {
-  "value": Array [
-    CustomString {
-      "value": "xxx",
-    },
-    CustomNumber {
-      "value": 123,
-    },
-    CustomString {
-      "value": "foo",
-    },
-  ],
-}
-`;
-
-exports[`interpreter default scripts manipulation.src 18`] = `
-CustomNumber {
-  "value": 3,
-}
-`;
-
-exports[`interpreter default scripts manipulation.src 19`] = `
-CustomNumber {
-  "value": 3,
-}
-`;
-
-exports[`interpreter default scripts manipulation.src 20`] = `
-CustomNumber {
-  "value": 21,
-}
-`;
-
-exports[`interpreter default scripts manipulation.src 21`] = `
-CustomString {
-  "value": "abc lorem ipsum xxxav",
-}
-`;
-
-exports[`interpreter default scripts manipulation.src 22`] = `
-CustomString {
-  "value": "ABC LOREM IPSUM XXXAV",
-}
-`;
-
-exports[`interpreter default scripts manipulation.src 23`] = `
-CustomList {
-  "value": Array [
-    CustomNumber {
-      "value": 123,
-    },
-    CustomString {
-      "value": "foo",
-    },
-  ],
-}
-`;
-
-exports[`interpreter default scripts manipulation.src 24`] = `
-CustomList {
-  "value": Array [
-    CustomString {
-      "value": "xxx",
-    },
-    CustomNumber {
-      "value": 123,
-    },
-  ],
-}
-`;
-
-exports[`interpreter default scripts manipulation.src 25`] = `
-CustomString {
-  "value": " lorem ipsum XxXaV",
-}
-`;
-
-exports[`interpreter default scripts manipulation.src 26`] = `
-CustomString {
-  "value": "abc",
-}
-`;
-
-exports[`interpreter default scripts manipulation.src 27`] = `
-CustomNil {
-  "value": null,
-}
-`;
-
-exports[`interpreter default scripts manipulation.src 28`] = `
-CustomList {
-  "value": Array [
-    CustomString {
-      "value": "foo",
-    },
-    CustomString {
-      "value": "xxx",
-    },
-    CustomNumber {
-      "value": 123,
-    },
-  ],
-}
-`;
-
-exports[`interpreter default scripts manipulation.src 29`] = `
-CustomNumber {
-  "value": 124,
-}
-`;
-
-exports[`interpreter default scripts manipulation.src 30`] = `
-CustomNumber {
-  "value": 123,
-}
-`;
-
-exports[`interpreter default scripts manipulation.src 31`] = `
-CustomNumber {
-  "value": 0,
-}
-`;
-
-exports[`interpreter default scripts manipulation.src 32`] = `
-CustomNumber {
-  "value": 123,
-}
-`;
-
-exports[`interpreter default scripts manipulation.src 33`] = `
-CustomNumber {
-  "value": 123,
-}
-`;
-
-exports[`interpreter default scripts manipulation.src 34`] = `
-CustomMap {
-  "isInstance": false,
-  "isa": null,
-  "value": Map {
-    CustomString {
-      "value": "bar",
-    } => CustomBoolean {
-      "value": true,
-    },
-    CustomString {
-      "value": "lore",
-    } => CustomString {
-      "value": "moo",
-    },
-  },
-}
-`;
-
-exports[`interpreter default scripts manipulation.src 35`] = `
-CustomList {
-  "value": Array [
-    CustomString {
-      "value": "foo",
-    },
-    CustomString {
-      "value": "xxx",
-    },
-  ],
-}
-`;
-
-exports[`interpreter default scripts manipulation.src 36`] = `
-CustomString {
-  "value": "foo",
-}
-`;
-
-exports[`interpreter default scripts manipulation.src 37`] = `
-CustomMap {
-  "isInstance": false,
-  "isa": null,
-  "value": Map {
-    CustomString {
-      "value": "bar",
-    } => CustomBoolean {
-      "value": true,
-    },
-    CustomString {
-      "value": "lore",
-    } => CustomString {
-      "value": "moo",
-    },
-  },
-}
-`;
-
-exports[`interpreter default scripts manipulation.src 38`] = `
-CustomList {
-  "value": Array [
-    CustomString {
-      "value": "xxx",
-    },
-    CustomNumber {
-      "value": 123,
-    },
-  ],
-}
-`;
-
-exports[`interpreter default scripts manipulation.src 39`] = `
-CustomMap {
-  "isInstance": false,
-  "isa": null,
-  "value": Map {
-    CustomString {
-      "value": "foo",
-    } => CustomNumber {
-      "value": 123,
-    },
-    CustomString {
-      "value": "bar",
-    } => CustomBoolean {
-      "value": true,
-    },
-    CustomString {
-      "value": "lore",
-    } => CustomString {
-      "value": "moo",
-    },
-    CustomString {
-      "value": "addition",
-    } => CustomNumber {
-      "value": 1,
-    },
-  },
-}
-`;
-
-exports[`interpreter default scripts manipulation.src 40`] = `
-CustomList {
-  "value": Array [
-    CustomString {
-      "value": "foo",
-    },
-    CustomString {
-      "value": "xxx",
-    },
-    CustomNumber {
-      "value": 123,
-    },
-    CustomString {
-      "value": "addition",
-    },
-  ],
-}
-`;
-
-exports[`interpreter default scripts manipulation.src 41`] = `
-CustomMap {
-  "isInstance": false,
-  "isa": null,
-  "value": Map {
-    CustomString {
-      "value": "foo",
-    } => CustomNumber {
-      "value": 123,
-    },
-    CustomString {
-      "value": "bar",
-    } => CustomBoolean {
-      "value": true,
-    },
-    CustomString {
-      "value": "lore",
-    } => CustomString {
-      "value": "moo",
-    },
-  },
-}
-`;
-
-exports[`interpreter default scripts manipulation.src 42`] = `
-CustomList {
-  "value": Array [
-    CustomString {
-      "value": "foo",
-    },
-    CustomNumber {
-      "value": 123,
-    },
-  ],
-}
-`;
-
-exports[`interpreter default scripts manipulation.src 43`] = `
-CustomString {
-  "value": "abc lorem  XxXaV",
-}
-`;
-
-exports[`interpreter default scripts manipulation.src 44`] = `
-CustomMap {
-  "isInstance": false,
-  "isa": null,
-  "value": Map {
-    CustomString {
-      "value": "foo",
-    } => CustomNumber {
-      "value": 123,
-    },
-    CustomString {
-      "value": "bar",
-    } => CustomString {
-      "value": "moo",
-    },
-    CustomString {
-      "value": "lore",
-    } => CustomBoolean {
-      "value": true,
-    },
-  },
-}
-`;
-
-exports[`interpreter default scripts manipulation.src 45`] = `
-CustomList {
-  "value": Array [
-    CustomString {
-      "value": "foo",
-    },
-    CustomNumber {
-      "value": 123,
-    },
-    CustomString {
-      "value": "xxx",
-    },
-  ],
-}
-`;
-
-exports[`interpreter default scripts map.src 1`] = `
-CustomBoolean {
-  "value": true,
-}
-`;
-
-exports[`interpreter default scripts map.src 2`] = `
-CustomBoolean {
-  "value": false,
-}
-`;
-
-exports[`interpreter default scripts map.src 3`] = `
-CustomList {
-  "value": Array [
-    CustomString {
-      "value": "foo",
-    },
-    CustomString {
-      "value": "bar",
-    },
-  ],
-}
-`;
-
-exports[`interpreter default scripts map.src 4`] = `
-CustomList {
-  "value": Array [
-    CustomNumber {
-      "value": 9064,
-    },
-    CustomString {
-      "value": "ipsum",
-    },
-  ],
-}
-`;
-
-exports[`interpreter default scripts map.src 5`] = `
-CustomString {
-  "value": "bar",
-}
-`;
-
-exports[`interpreter default scripts map.src 6`] = `
-CustomNil {
-  "value": null,
-}
-`;
-
-exports[`interpreter default scripts map.src 7`] = `
-CustomNumber {
-  "value": 2,
-}
-`;
-
-exports[`interpreter default scripts map.src 8`] = `
-CustomNumber {
-  "value": 123,
-}
-`;
-
-exports[`interpreter default scripts map.src 9`] = `
-CustomMap {
-  "isInstance": false,
-  "isa": null,
-  "value": Map {
-    CustomString {
-      "value": "bar",
-    } => CustomString {
-      "value": "ipsum",
-    },
-  },
-}
-`;
-
-exports[`interpreter default scripts map.src 10`] = `
-CustomMap {
-  "isInstance": false,
-  "isa": null,
-  "value": Map {
-    CustomString {
-      "value": "foo",
-    } => CustomNumber {
-      "value": 123,
-    },
-    CustomString {
-      "value": "bar",
-    } => CustomString {
-      "value": "ipsum",
-    },
-    CustomString {
-      "value": "moo",
-    } => CustomNumber {
-      "value": 1,
-    },
-  },
-}
-`;
-
-exports[`interpreter default scripts map.src 11`] = `
-CustomNumber {
-  "value": 323,
-}
-`;
-
-exports[`interpreter default scripts map.src 12`] = `
-CustomMap {
-  "isInstance": false,
-  "isa": null,
-  "value": Map {
-    CustomString {
-      "value": "foo",
-    } => CustomNumber {
-      "value": 123,
-    },
-    CustomString {
-      "value": "bar",
-    } => CustomString {
-      "value": "ipsum",
-    },
-    CustomString {
-      "value": "xxx",
-    } => CustomNumber {
-      "value": 200,
-    },
-  },
-}
-`;
-
-exports[`interpreter default scripts map.src 13`] = `
-CustomBoolean {
-  "value": true,
-}
-`;
-
-exports[`interpreter default scripts math.src 1`] = `
-CustomNumber {
-  "value": 1337,
-}
-`;
-
-exports[`interpreter default scripts math.src 2`] = `
-CustomNumber {
-  "value": NaN,
-}
-`;
-
-exports[`interpreter default scripts math.src 3`] = `
-CustomNumber {
-  "value": NaN,
-}
-`;
-
-exports[`interpreter default scripts math.src 4`] = `
-CustomNumber {
-  "value": 1.5700483837780477,
-}
-`;
-
-exports[`interpreter default scripts math.src 5`] = `
-CustomNumber {
-  "value": -3.878660859970253,
-}
-`;
-
-exports[`interpreter default scripts math.src 6`] = `
-CustomNumber {
-  "value": 1337,
-}
-`;
-
-exports[`interpreter default scripts math.src 7`] = `
-CustomNumber {
-  "value": 0.2496568790410366,
-}
-`;
-
-exports[`interpreter default scripts math.src 8`] = `
-CustomNumber {
-  "value": 1337,
-}
-`;
-
-exports[`interpreter default scripts math.src 9`] = `
-CustomNumber {
-  "value": -0.9683343651587963,
-}
-`;
-
-exports[`interpreter default scripts math.src 10`] = `
-CustomNumber {
-  "value": 1337,
-}
-`;
-
-exports[`interpreter default scripts math.src 11`] = `
-CustomNumber {
-  "value": 36.565010597564445,
-}
-`;
-
-exports[`interpreter default scripts math.src 12`] = `
-CustomNumber {
-  "value": 3.141592653589793,
-}
-`;
-
-exports[`interpreter default scripts math.src 13`] = `
-CustomNumber {
-  "value": 281,
-}
-`;
-
-exports[`interpreter default scripts math.src 14`] = `
-CustomNumber {
-  "value": 1403,
-}
-`;
-
-exports[`interpreter default scripts math.src 15`] = `
-CustomNumber {
-  "value": 1122,
-}
-`;
-
-exports[`interpreter default scripts math.src 16`] = `
-CustomNumber {
-  "value": -939524096,
-}
-`;
-
-exports[`interpreter default scripts math.src 17`] = `
-CustomNumber {
-  "value": 0,
-}
-`;
-
-exports[`interpreter default scripts math.src 18`] = `
-CustomNumber {
-  "value": 0,
-}
-`;
-
-exports[`interpreter default scripts math.src 19`] = `
-CustomNumber {
-  "value": -1338,
-}
-`;
-
-exports[`interpreter default scripts rnd.src 1`] = `
-CustomNumber {
-  "value": 0.4985665436834097,
-}
-`;
-
-exports[`interpreter default scripts rnd.src 2`] = `
-CustomNumber {
-  "value": 0.04626259859651327,
-}
-`;
-
-exports[`interpreter default scripts rnd.src 3`] = `
-CustomNumber {
-  "value": 0.04173178947530687,
-}
-`;
-
-exports[`interpreter default scripts rnd.src 4`] = `
-CustomNumber {
-  "value": 0.22427810914814472,
-}
-`;
-
-exports[`interpreter default scripts rnd.src 5`] = `
-CustomNumber {
-  "value": 0.2948848782107234,
-}
-`;
-
-exports[`interpreter default scripts rnd.src 6`] = `
-CustomNumber {
-  "value": 0.8563546116929501,
-}
-`;
-
-exports[`interpreter default scripts string.src 1`] = `
-CustomBoolean {
-  "value": true,
-}
-`;
-
-exports[`interpreter default scripts string.src 2`] = `
-CustomBoolean {
-  "value": false,
-}
-`;
-
-exports[`interpreter default scripts string.src 3`] = `
-CustomList {
-  "value": Array [
-    CustomNumber {
-      "value": 0,
-    },
-    CustomNumber {
-      "value": 1,
-    },
-    CustomNumber {
-      "value": 2,
-    },
-    CustomNumber {
-      "value": 3,
-    },
-    CustomNumber {
-      "value": 4,
-    },
-    CustomNumber {
-      "value": 5,
-    },
-    CustomNumber {
-      "value": 6,
-    },
-    CustomNumber {
-      "value": 7,
-    },
-    CustomNumber {
-      "value": 8,
-    },
-    CustomNumber {
-      "value": 9,
-    },
-    CustomNumber {
-      "value": 10,
-    },
-    CustomNumber {
-      "value": 11,
-    },
-    CustomNumber {
-      "value": 12,
-    },
-    CustomNumber {
-      "value": 13,
-    },
-    CustomNumber {
-      "value": 14,
-    },
-    CustomNumber {
-      "value": 15,
-    },
-    CustomNumber {
-      "value": 16,
-    },
-    CustomNumber {
-      "value": 17,
-    },
-    CustomNumber {
-      "value": 18,
-    },
-    CustomNumber {
-      "value": 19,
-    },
-    CustomNumber {
-      "value": 20,
-    },
-    CustomNumber {
-      "value": 21,
-    },
-    CustomNumber {
-      "value": 22,
-    },
-  ],
-}
-`;
-
-exports[`interpreter default scripts string.src 4`] = `
-CustomList {
-  "value": Array [
-    CustomString {
-      "value": "x",
-    },
-    CustomString {
-      "value": "x",
-    },
-    CustomString {
-      "value": "x",
-    },
-    CustomString {
-      "value": " ",
-    },
-    CustomString {
-      "value": "l",
-    },
-    CustomString {
-      "value": "o",
-    },
-    CustomString {
-      "value": "r",
-    },
-    CustomString {
-      "value": "e",
-    },
-    CustomString {
-      "value": "m",
-    },
-    CustomString {
-      "value": " ",
-    },
-    CustomString {
-      "value": "i",
-    },
-    CustomString {
-      "value": "p",
-    },
-    CustomString {
-      "value": "s",
-    },
-    CustomString {
-      "value": "u",
-    },
-    CustomString {
-      "value": "m",
-    },
-    CustomString {
-      "value": " ",
-    },
-    CustomString {
-      "value": "b",
-    },
-    CustomString {
-      "value": "a",
-    },
-    CustomString {
-      "value": "r",
-    },
-    CustomString {
-      "value": " ",
-    },
-    CustomString {
-      "value": "f",
-    },
-    CustomString {
-      "value": "o",
-    },
-    CustomString {
-      "value": "r",
-    },
-  ],
-}
-`;
-
-exports[`interpreter default scripts string.src 5`] = `
-CustomNumber {
-  "value": 16,
-}
-`;
-
-exports[`interpreter default scripts string.src 6`] = `
-CustomNil {
-  "value": null,
-}
-`;
-
-exports[`interpreter default scripts string.src 7`] = `
-CustomNumber {
-  "value": 120,
-}
-`;
-
-exports[`interpreter default scripts string.src 8`] = `
-CustomNumber {
-  "value": 23,
-}
-`;
-
-exports[`interpreter default scripts string.src 9`] = `
-CustomString {
-  "value": "xxx was ccccccc",
-}
-`;
-
-exports[`interpreter default scripts string.src 10`] = `
-CustomNumber {
-  "value": 1.23,
-}
-`;
-
-exports[`interpreter default scripts string.src 11`] = `
-CustomNumber {
-  "value": 0,
-}
-`;
-
-exports[`interpreter default scripts string.src 12`] = `
-CustomString {
-  "value": "XXX  CCCCCCC",
-}
-`;
-
-exports[`interpreter default scripts string.src 13`] = `
-CustomString {
-  "value": "XXX WAS CCCCCCC",
-}
-`;
-
-exports[`interpreter default scripts string.src 14`] = `
-CustomList {
-  "value": Array [
-    CustomString {
-      "value": "123",
-    },
-    CustomString {
-      "value": "was",
-    },
-    CustomString {
-      "value": "false",
-    },
-  ],
-}
-`;
-
-exports[`interpreter default scripts string.src 15`] = `
-CustomString {
-  "value": "xxx replaced ipsum bar for",
-}
-`;
-
-exports[`interpreter default scripts string.src 16`] = `
-CustomString {
-  "value": "was      xx",
-}
-`;
-
-exports[`interpreter default scripts string.src 17`] = `
-CustomNumber {
-  "value": 12,
-}
-`;
-
-exports[`interpreter default scripts string.src 18`] = `
-CustomNumber {
-  "value": 1,
-}
-`;
-
-exports[`interpreter default scripts string.src 19`] = `
-CustomString {
-  "value": "nonumber",
-}
-`;
-
-exports[`interpreter default scripts string.src 20`] = `
-CustomString {
-  "value": "1213373456",
-}
-`;
-
-exports[`interpreter default scripts string.src 21`] = `
-CustomList {
-  "value": Array [
-    CustomString {
-      "value": "a",
-    },
-    CustomString {
-      "value": "b",
-    },
-    CustomString {
-      "value": "c",
-    },
-    CustomString {
-      "value": "e",
-    },
-    CustomString {
-      "value": "d",
-    },
-  ],
-}
-`;
-
-exports[`interpreter default scripts string.src 22`] = `
-CustomList {
-  "value": Array [
-    CustomString {
-      "value": "abced",
-    },
-    CustomString {
-      "value": "ca",
-    },
-    CustomString {
-      "value": "xa",
-    },
-  ],
-}
-`;
+exports[`interpreter default scripts list.src 1`] = `"1"`;
+
+exports[`interpreter default scripts list.src 2`] = `"0"`;
+
+exports[`interpreter default scripts list.src 3`] = `"[0, 1]"`;
+
+exports[`interpreter default scripts list.src 4`] = `"1"`;
+
+exports[`interpreter default scripts list.src 5`] = `"null"`;
+
+exports[`interpreter default scripts list.src 6`] = `"2"`;
+
+exports[`interpreter default scripts list.src 7`] = `"\\"bar\\""`;
+
+exports[`interpreter default scripts list.src 8`] = `"[\\"foo\\"]"`;
+
+exports[`interpreter default scripts list.src 9`] = `"\\"foo\\""`;
+
+exports[`interpreter default scripts list.src 10`] = `"[\\"bar\\"]"`;
+
+exports[`interpreter default scripts list.src 11`] = `"[\\"foo\\", \\"bar\\", \\"xxx\\"]"`;
+
+exports[`interpreter default scripts list.src 12`] = `"[1, 2, 4, 6]"`;
+
+exports[`interpreter default scripts list.src 13`] = `"16"`;
+
+exports[`interpreter default scripts list.src 14`] = `"null"`;
+
+exports[`interpreter default scripts list.src 15`] = `"[\\"bar\\"]"`;
+
+exports[`interpreter default scripts list.src 16`] = `"[\\"foo\\", \\"bar\\"]"`;
+
+exports[`interpreter default scripts list.src 17`] = `"[\\"xxx\\", \\"bar\\", \\"foo\\"]"`;
+
+exports[`interpreter default scripts list.src 18`] = `"\\"foo;bar;xxx\\""`;
+
+exports[`interpreter default scripts list.src 19`] = `"0"`;
+
+exports[`interpreter default scripts list.src 20`] = `"0"`;
+
+exports[`interpreter default scripts list.src 21`] = `"1"`;
+
+exports[`interpreter default scripts list.src 22`] = `"1"`;
+
+exports[`interpreter default scripts list.src 23`] = `"\\"true\\""`;
+
+exports[`interpreter default scripts list.src 24`] = `"[{\\"foo\\":2}, {\\"foo\\":4}, {\\"foo\\":5}, {\\"foo\\":9}]"`;
+
+exports[`interpreter default scripts list.src 25`] = `"[1, 2, 1337, 3, 4]"`;
+
+exports[`interpreter default scripts manipulation.src 1`] = `"1"`;
+
+exports[`interpreter default scripts manipulation.src 2`] = `"0"`;
+
+exports[`interpreter default scripts manipulation.src 3`] = `"1"`;
+
+exports[`interpreter default scripts manipulation.src 4`] = `"0"`;
+
+exports[`interpreter default scripts manipulation.src 5`] = `"1"`;
+
+exports[`interpreter default scripts manipulation.src 6`] = `"0"`;
+
+exports[`interpreter default scripts manipulation.src 7`] = `"\\"lore\\""`;
+
+exports[`interpreter default scripts manipulation.src 8`] = `"null"`;
+
+exports[`interpreter default scripts manipulation.src 9`] = `"1"`;
+
+exports[`interpreter default scripts manipulation.src 10`] = `"null"`;
+
+exports[`interpreter default scripts manipulation.src 11`] = `"4"`;
+
+exports[`interpreter default scripts manipulation.src 12`] = `"null"`;
+
+exports[`interpreter default scripts manipulation.src 13`] = `"[\\"foo\\", \\"bar\\", \\"lore\\"]"`;
+
+exports[`interpreter default scripts manipulation.src 14`] = `"[0, 1, 2]"`;
+
+exports[`interpreter default scripts manipulation.src 15`] = `"[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]"`;
+
+exports[`interpreter default scripts manipulation.src 16`] = `"[123, 1, \\"moo\\"]"`;
+
+exports[`interpreter default scripts manipulation.src 17`] = `"[\\"xxx\\", 123, \\"foo\\"]"`;
+
+exports[`interpreter default scripts manipulation.src 18`] = `"3"`;
+
+exports[`interpreter default scripts manipulation.src 19`] = `"3"`;
+
+exports[`interpreter default scripts manipulation.src 20`] = `"21"`;
+
+exports[`interpreter default scripts manipulation.src 21`] = `"\\"abc lorem ipsum xxxav\\""`;
+
+exports[`interpreter default scripts manipulation.src 22`] = `"\\"ABC LOREM IPSUM XXXAV\\""`;
+
+exports[`interpreter default scripts manipulation.src 23`] = `"[123, \\"foo\\"]"`;
+
+exports[`interpreter default scripts manipulation.src 24`] = `"[\\"xxx\\", 123]"`;
+
+exports[`interpreter default scripts manipulation.src 25`] = `"\\" lorem ipsum XxXaV\\""`;
+
+exports[`interpreter default scripts manipulation.src 26`] = `"\\"abc\\""`;
+
+exports[`interpreter default scripts manipulation.src 27`] = `"null"`;
+
+exports[`interpreter default scripts manipulation.src 28`] = `"[\\"foo\\", \\"xxx\\", 123]"`;
+
+exports[`interpreter default scripts manipulation.src 29`] = `"124"`;
+
+exports[`interpreter default scripts manipulation.src 30`] = `"123"`;
+
+exports[`interpreter default scripts manipulation.src 31`] = `"0"`;
+
+exports[`interpreter default scripts manipulation.src 32`] = `"123"`;
+
+exports[`interpreter default scripts manipulation.src 33`] = `"123"`;
+
+exports[`interpreter default scripts manipulation.src 34`] = `"{\\"bar\\":1,\\"lore\\":\\"moo\\"}"`;
+
+exports[`interpreter default scripts manipulation.src 35`] = `"[\\"foo\\", \\"xxx\\"]"`;
+
+exports[`interpreter default scripts manipulation.src 36`] = `"\\"foo\\""`;
+
+exports[`interpreter default scripts manipulation.src 37`] = `"{\\"bar\\":1,\\"lore\\":\\"moo\\"}"`;
+
+exports[`interpreter default scripts manipulation.src 38`] = `"[\\"xxx\\", 123]"`;
+
+exports[`interpreter default scripts manipulation.src 39`] = `"{\\"foo\\":123,\\"bar\\":1,\\"lore\\":\\"moo\\",\\"addition\\":1}"`;
+
+exports[`interpreter default scripts manipulation.src 40`] = `"[\\"foo\\", \\"xxx\\", 123, \\"addition\\"]"`;
+
+exports[`interpreter default scripts manipulation.src 41`] = `"{\\"foo\\":123,\\"bar\\":1,\\"lore\\":\\"moo\\"}"`;
+
+exports[`interpreter default scripts manipulation.src 42`] = `"[\\"foo\\", 123]"`;
+
+exports[`interpreter default scripts manipulation.src 43`] = `"\\"abc lorem  XxXaV\\""`;
+
+exports[`interpreter default scripts manipulation.src 44`] = `"{\\"foo\\":123,\\"bar\\":\\"moo\\",\\"lore\\":1}"`;
+
+exports[`interpreter default scripts manipulation.src 45`] = `"[\\"foo\\", 123, \\"xxx\\"]"`;
+
+exports[`interpreter default scripts map.src 1`] = `"1"`;
+
+exports[`interpreter default scripts map.src 2`] = `"0"`;
+
+exports[`interpreter default scripts map.src 3`] = `"[\\"foo\\", \\"bar\\"]"`;
+
+exports[`interpreter default scripts map.src 4`] = `"[9064, \\"ipsum\\"]"`;
+
+exports[`interpreter default scripts map.src 5`] = `"\\"bar\\""`;
+
+exports[`interpreter default scripts map.src 6`] = `"null"`;
+
+exports[`interpreter default scripts map.src 7`] = `"2"`;
+
+exports[`interpreter default scripts map.src 8`] = `"123"`;
+
+exports[`interpreter default scripts map.src 9`] = `"{\\"bar\\":\\"ipsum\\"}"`;
+
+exports[`interpreter default scripts map.src 10`] = `"{\\"foo\\":123,\\"bar\\":\\"ipsum\\",\\"moo\\":1}"`;
+
+exports[`interpreter default scripts map.src 11`] = `"323"`;
+
+exports[`interpreter default scripts map.src 12`] = `"{\\"foo\\":123,\\"bar\\":\\"ipsum\\",\\"xxx\\":200}"`;
+
+exports[`interpreter default scripts map.src 13`] = `"1"`;
+
+exports[`interpreter default scripts math.src 1`] = `"1337"`;
+
+exports[`interpreter default scripts math.src 2`] = `"NaN"`;
+
+exports[`interpreter default scripts math.src 3`] = `"NaN"`;
+
+exports[`interpreter default scripts math.src 4`] = `"1.5700483837780477"`;
+
+exports[`interpreter default scripts math.src 5`] = `"-3.878660859970253"`;
+
+exports[`interpreter default scripts math.src 6`] = `"1337"`;
+
+exports[`interpreter default scripts math.src 7`] = `"0.2496568790410366"`;
+
+exports[`interpreter default scripts math.src 8`] = `"1337"`;
+
+exports[`interpreter default scripts math.src 9`] = `"-0.9683343651587963"`;
+
+exports[`interpreter default scripts math.src 10`] = `"1337"`;
+
+exports[`interpreter default scripts math.src 11`] = `"36.565010597564445"`;
+
+exports[`interpreter default scripts math.src 12`] = `"3.141592653589793"`;
+
+exports[`interpreter default scripts math.src 13`] = `"281"`;
+
+exports[`interpreter default scripts math.src 14`] = `"1403"`;
+
+exports[`interpreter default scripts math.src 15`] = `"1122"`;
+
+exports[`interpreter default scripts math.src 16`] = `"-939524096"`;
+
+exports[`interpreter default scripts math.src 17`] = `"0"`;
+
+exports[`interpreter default scripts math.src 18`] = `"0"`;
+
+exports[`interpreter default scripts math.src 19`] = `"-1338"`;
+
+exports[`interpreter default scripts rnd.src 1`] = `"0.4985665436834097"`;
+
+exports[`interpreter default scripts rnd.src 2`] = `"0.04626259859651327"`;
+
+exports[`interpreter default scripts rnd.src 3`] = `"0.04173178947530687"`;
+
+exports[`interpreter default scripts rnd.src 4`] = `"0.22427810914814472"`;
+
+exports[`interpreter default scripts rnd.src 5`] = `"0.2948848782107234"`;
+
+exports[`interpreter default scripts rnd.src 6`] = `"0.8563546116929501"`;
+
+exports[`interpreter default scripts string.src 1`] = `"1"`;
+
+exports[`interpreter default scripts string.src 2`] = `"0"`;
+
+exports[`interpreter default scripts string.src 3`] = `"[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]"`;
+
+exports[`interpreter default scripts string.src 4`] = `"[\\"x\\", \\"x\\", \\"x\\", \\" \\", \\"l\\", \\"o\\", \\"r\\", \\"e\\", \\"m\\", \\" \\", \\"i\\", \\"p\\", \\"s\\", \\"u\\", \\"m\\", \\" \\", \\"b\\", \\"a\\", \\"r\\", \\" \\", \\"f\\", \\"o\\", \\"r\\"]"`;
+
+exports[`interpreter default scripts string.src 5`] = `"16"`;
+
+exports[`interpreter default scripts string.src 6`] = `"null"`;
+
+exports[`interpreter default scripts string.src 7`] = `"120"`;
+
+exports[`interpreter default scripts string.src 8`] = `"23"`;
+
+exports[`interpreter default scripts string.src 9`] = `"\\"xxx was ccccccc\\""`;
+
+exports[`interpreter default scripts string.src 10`] = `"1.23"`;
+
+exports[`interpreter default scripts string.src 11`] = `"0"`;
+
+exports[`interpreter default scripts string.src 12`] = `"\\"XXX  CCCCCCC\\""`;
+
+exports[`interpreter default scripts string.src 13`] = `"\\"XXX WAS CCCCCCC\\""`;
+
+exports[`interpreter default scripts string.src 14`] = `"[\\"123\\", \\"was\\", \\"false\\"]"`;
+
+exports[`interpreter default scripts string.src 15`] = `"\\"xxx replaced ipsum bar for\\""`;
+
+exports[`interpreter default scripts string.src 16`] = `"\\"was      xx\\""`;
+
+exports[`interpreter default scripts string.src 17`] = `"12"`;
+
+exports[`interpreter default scripts string.src 18`] = `"1"`;
+
+exports[`interpreter default scripts string.src 19`] = `"\\"nonumber\\""`;
+
+exports[`interpreter default scripts string.src 20`] = `"\\"1213373456\\""`;
+
+exports[`interpreter default scripts string.src 21`] = `"[\\"a\\", \\"b\\", \\"c\\", \\"e\\", \\"d\\"]"`;
+
+exports[`interpreter default scripts string.src 22`] = `"[\\"abced\\", \\"ca\\", \\"xa\\"]"`;
