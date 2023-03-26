@@ -301,3 +301,7 @@ exports[`interpreter default scripts string.src 20`] = `"\\"1213373456\\""`;
 exports[`interpreter default scripts string.src 21`] = `"[\\"a\\", \\"b\\", \\"c\\", \\"e\\", \\"d\\"]"`;
 
 exports[`interpreter default scripts string.src 22`] = `"[\\"abced\\", \\"ca\\", \\"xa\\"]"`;
+
+exports[`interpreter default scripts string.src 23`] = `"\\"foo \\\\\\"bar\\\\\\" foo\\""`;
+
+exports[`interpreter default scripts string.src 24`] = `"\\"foo \\"bar\\" foo\\""`;

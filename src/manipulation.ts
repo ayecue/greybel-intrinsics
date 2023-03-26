@@ -562,7 +562,7 @@ export const replace = CustomFunction.createExternalWithSelf(
 
       const replaced = origin
         .toString()
-        .replace(new RegExp(toReplace.toString(), 'g'), replaceWith.toString());
+        .replaceAll(toReplace.toString(), replaceWith.toString());
 
       return Promise.resolve(new CustomString(replaced));
     }

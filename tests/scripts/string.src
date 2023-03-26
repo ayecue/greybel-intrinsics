@@ -37,3 +37,6 @@ print("abced".split(""))
 print("abced
 ca
 xa".split(char(10)))
+
+print("foo \""bar\"" foo")
+print("foo \""bar\"" foo".replace("\""", """"))
