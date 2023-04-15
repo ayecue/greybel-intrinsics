@@ -40,3 +40,5 @@ xa".split(char(10)))
 
 print("foo \""bar\"" foo")
 print("foo \""bar\"" foo".replace("\""", """"))
+
+print("ab.ce.d".split("."))
