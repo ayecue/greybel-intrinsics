@@ -238,7 +238,7 @@ export const insert = CustomFunction.createExternalWithSelf(
       if (Object.prototype.hasOwnProperty.call(origin.value, listIndex)) {
         origin.value.splice(listIndex, 0, value);
       }
-      return Promise.resolve(Defaults.Void);
+      return Promise.resolve(origin);
     } else if (origin instanceof CustomString) {
       const left = origin.value.slice(0, index.toInt());
       const right = origin.value.slice(index.toInt());
