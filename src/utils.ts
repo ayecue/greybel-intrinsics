@@ -6,7 +6,6 @@ export function itemAtIndex(
 ): number {
   n = Math.trunc(n) || 0;
   if (n < 0) n += list.length;
-  if (n < 0 || n >= list.length) return -1;
   return n;
 }
 

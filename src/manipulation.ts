@@ -235,10 +235,10 @@ export const insert = CustomFunction.createExternalWithSelf(
 
     if (origin instanceof CustomList) {
       const listIndex = itemAtIndex(origin.value, index.toInt());
-      if (Object.prototype.hasOwnProperty.call(origin.value, listIndex)) {
+      if (listIndex >= 0 && listIndex <= origin.value.length) {
         origin.value.splice(listIndex, 0, value);
       }
-      return Promise.resolve(Defaults.Void);
+      return Promise.resolve(origin);
     } else if (origin instanceof CustomString) {
       const left = origin.value.slice(0, index.toInt());
       const right = origin.value.slice(index.toInt());
@@ -530,7 +530,7 @@ export const split = CustomFunction.createExternalWithSelf(
       }
 
       const list = origin.value
-        .split(delimiter.toString())
+        .split(new RegExp(delimiter.toString()))
         .map((item) => new CustomString(item));
       return Promise.resolve(new CustomList(list));
     }
