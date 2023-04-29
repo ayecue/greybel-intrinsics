@@ -8,7 +8,7 @@ import {
   CustomString,
   CustomValue,
   CustomValueWithIntrinsics,
-  Defaults,
+  DefaultType,
   OperationContext
 } from 'greybel-interpreter';
 
@@ -32,7 +32,7 @@ export const hasIndex = CustomFunction.createExternalWithSelf(
       return Promise.resolve(new CustomBoolean(origin.has(index)));
     } else if (origin instanceof CustomList) {
       if (!(index instanceof CustomNumber)) {
-        return Promise.resolve(Defaults.False);
+        return Promise.resolve(DefaultType.False);
       }
       const listIndex = index.toInt();
       return Promise.resolve(
@@ -45,7 +45,7 @@ export const hasIndex = CustomFunction.createExternalWithSelf(
       return Promise.resolve(new CustomBoolean(!!origin.value[strIndex]));
     }
 
-    return Promise.resolve(Defaults.False);
+    return Promise.resolve(DefaultType.False);
   }
 ).addArgument('index');
 
@@ -83,7 +83,7 @@ export const indexOf = CustomFunction.createExternalWithSelf(
       }
     }
 
-    return Promise.resolve(Defaults.Void);
+    return Promise.resolve(DefaultType.Void);
   }
 )
   .addArgument('value')
@@ -108,7 +108,7 @@ export const indexes = CustomFunction.createExternalWithSelf(
       return Promise.resolve(new CustomList(keys));
     }
 
-    return Promise.resolve(Defaults.Void);
+    return Promise.resolve(DefaultType.Void);
   }
 );
 
@@ -134,7 +134,7 @@ export const values = CustomFunction.createExternalWithSelf(
       return Promise.resolve(new CustomList(values));
     }
 
-    return Promise.resolve(Defaults.Void);
+    return Promise.resolve(DefaultType.Void);
   }
 );
 
@@ -153,7 +153,7 @@ export const len = CustomFunction.createExternalWithSelf(
       return Promise.resolve(new CustomNumber(origin.value.length));
     }
 
-    return Promise.resolve(Defaults.Void);
+    return Promise.resolve(DefaultType.Void);
   }
 );
 
@@ -201,17 +201,17 @@ export const slice = CustomFunction.createExternalWithSelf(
     const to = args.get('to');
 
     if (from instanceof CustomNil) {
-      return Promise.resolve(Defaults.Void);
+      return Promise.resolve(DefaultType.Void);
     }
 
     if (origin instanceof CustomList || origin instanceof CustomString) {
       return Promise.resolve(origin.slice(from, to));
     }
 
-    return Promise.resolve(Defaults.Void);
+    return Promise.resolve(DefaultType.Void);
   }
 )
-  .addArgument('from', Defaults.Zero)
+  .addArgument('from', DefaultType.Zero)
   .addArgument('to');
 
 export const insert = CustomFunction.createExternalWithSelf(
@@ -273,12 +273,12 @@ export const sort = CustomFunction.createExternalWithSelf(
         if (a instanceof CustomValueWithIntrinsics) {
           a = a.get(key);
         } else {
-          a = Defaults.Void;
+          a = DefaultType.Void;
         }
         if (b instanceof CustomValueWithIntrinsics) {
           b = b.get(key);
         } else {
-          b = Defaults.Void;
+          b = DefaultType.Void;
         }
       }
 
@@ -354,7 +354,7 @@ export const shuffle = CustomFunction.createExternalWithSelf(
       }
     }
 
-    return Promise.resolve(Defaults.Void);
+    return Promise.resolve(DefaultType.Void);
   }
 );
 
@@ -371,12 +371,12 @@ export const pop = CustomFunction.createExternalWithSelf(
       const keys = Array.from(origin.value.keys());
       const item = origin.value.get(keys[0]);
       origin.value.delete(keys[0]);
-      return Promise.resolve(item || Defaults.Void);
+      return Promise.resolve(item || DefaultType.Void);
     } else if (origin instanceof CustomList) {
-      return Promise.resolve(origin.value.pop() || Defaults.Void);
+      return Promise.resolve(origin.value.pop() || DefaultType.Void);
     }
 
-    return Promise.resolve(Defaults.Void);
+    return Promise.resolve(DefaultType.Void);
   }
 );
 
@@ -390,10 +390,10 @@ export const pull = CustomFunction.createExternalWithSelf(
     const origin = args.get('self');
 
     if (origin instanceof CustomList) {
-      return Promise.resolve(origin.value.shift() || Defaults.Void);
+      return Promise.resolve(origin.value.shift() || DefaultType.Void);
     }
 
-    return Promise.resolve(Defaults.Void);
+    return Promise.resolve(DefaultType.Void);
   }
 );
 
@@ -431,7 +431,7 @@ export const push = CustomFunction.createExternalWithSelf(
       return Promise.resolve(origin);
     }
 
-    return Promise.resolve(Defaults.Void);
+    return Promise.resolve(DefaultType.Void);
   }
 ).addArgument('value');
 
@@ -452,15 +452,15 @@ export const remove = CustomFunction.createExternalWithSelf(
     if (origin instanceof CustomMap) {
       if (origin.has(keyValue)) {
         origin.value.delete(keyValue.value);
-        return Promise.resolve(Defaults.True);
+        return Promise.resolve(DefaultType.True);
       }
-      return Promise.resolve(Defaults.False);
+      return Promise.resolve(DefaultType.False);
     } else if (origin instanceof CustomList) {
       const listIndex = itemAtIndex(origin.value, keyValue.toInt());
       if (Object.prototype.hasOwnProperty.call(origin.value, listIndex)) {
         origin.value.splice(listIndex, 1);
       }
-      return Promise.resolve(Defaults.Void);
+      return Promise.resolve(DefaultType.Void);
     } else if (origin instanceof CustomString) {
       const replaced = new CustomString(
         origin.value.replace(keyValue.toString(), '')
@@ -485,7 +485,7 @@ export const reverse = CustomFunction.createExternalWithSelf(
       origin.value.reverse();
     }
 
-    return Promise.resolve(Defaults.Void);
+    return Promise.resolve(DefaultType.Void);
   }
 );
 
@@ -509,7 +509,7 @@ export const join = CustomFunction.createExternalWithSelf(
       return Promise.resolve(new CustomString(str));
     }
 
-    return Promise.resolve(Defaults.Void);
+    return Promise.resolve(DefaultType.Void);
   }
 ).addArgument('seperator', new CustomString(' '));
 
@@ -535,7 +535,7 @@ export const split = CustomFunction.createExternalWithSelf(
       return Promise.resolve(new CustomList(list));
     }
 
-    return Promise.resolve(Defaults.Void);
+    return Promise.resolve(DefaultType.Void);
   }
 ).addArgument('delimiter');
 
@@ -632,7 +632,7 @@ export const lastIndexOf = CustomFunction.createExternalWithSelf(
       }
     }
 
-    return Promise.resolve(Defaults.Void);
+    return Promise.resolve(DefaultType.Void);
   }
 )
   .addArgument('value')
@@ -651,6 +651,6 @@ export const to_int = CustomFunction.createExternalWithSelf(
         origin.isNumber() ? new CustomNumber(origin.parseInt()) : origin
       );
     }
-    return Promise.resolve(Defaults.Void);
+    return Promise.resolve(DefaultType.Void);
   }
 );

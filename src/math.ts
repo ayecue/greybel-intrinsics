@@ -3,7 +3,7 @@ import {
   CustomNil,
   CustomNumber,
   CustomValue,
-  Defaults,
+  DefaultType,
   OperationContext
 } from 'greybel-interpreter';
 
@@ -15,10 +15,10 @@ export const abs = CustomFunction.createExternal(
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
     const value = args.get('value');
-    if (value instanceof CustomNil) return Promise.resolve(Defaults.Void);
+    if (value instanceof CustomNil) return Promise.resolve(DefaultType.Void);
     return Promise.resolve(new CustomNumber(Math.abs(value.toNumber())));
   }
-).addArgument('value', Defaults.Zero);
+).addArgument('value', DefaultType.Zero);
 
 export const acos = CustomFunction.createExternal(
   'acos',
@@ -28,10 +28,10 @@ export const acos = CustomFunction.createExternal(
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
     const value = args.get('value');
-    if (value instanceof CustomNil) return Promise.resolve(Defaults.Void);
+    if (value instanceof CustomNil) return Promise.resolve(DefaultType.Void);
     return Promise.resolve(new CustomNumber(Math.acos(value.toNumber())));
   }
-).addArgument('value', Defaults.Zero);
+).addArgument('value', DefaultType.Zero);
 
 export const asin = CustomFunction.createExternal(
   'asin',
@@ -41,10 +41,10 @@ export const asin = CustomFunction.createExternal(
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
     const value = args.get('value');
-    if (value instanceof CustomNil) return Promise.resolve(Defaults.Void);
+    if (value instanceof CustomNil) return Promise.resolve(DefaultType.Void);
     return Promise.resolve(new CustomNumber(Math.asin(value.toNumber())));
   }
-).addArgument('value', Defaults.Zero);
+).addArgument('value', DefaultType.Zero);
 
 export const atan = CustomFunction.createExternal(
   'atan',
@@ -54,10 +54,10 @@ export const atan = CustomFunction.createExternal(
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
     const value = args.get('value');
-    if (value instanceof CustomNil) return Promise.resolve(Defaults.Void);
+    if (value instanceof CustomNil) return Promise.resolve(DefaultType.Void);
     return Promise.resolve(new CustomNumber(Math.atan(value.toNumber())));
   }
-).addArgument('value', Defaults.Zero);
+).addArgument('value', DefaultType.Zero);
 
 export const tan = CustomFunction.createExternal(
   'tan',
@@ -67,10 +67,10 @@ export const tan = CustomFunction.createExternal(
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
     const value = args.get('value');
-    if (value instanceof CustomNil) return Promise.resolve(Defaults.Void);
+    if (value instanceof CustomNil) return Promise.resolve(DefaultType.Void);
     return Promise.resolve(new CustomNumber(Math.tan(value.toNumber())));
   }
-).addArgument('value', Defaults.Zero);
+).addArgument('value', DefaultType.Zero);
 
 export const ceil = CustomFunction.createExternal(
   'ceil',
@@ -80,10 +80,10 @@ export const ceil = CustomFunction.createExternal(
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
     const value = args.get('value');
-    if (value instanceof CustomNil) return Promise.resolve(Defaults.Void);
+    if (value instanceof CustomNil) return Promise.resolve(DefaultType.Void);
     return Promise.resolve(new CustomNumber(Math.ceil(value.toNumber())));
   }
-).addArgument('value', Defaults.Zero);
+).addArgument('value', DefaultType.Zero);
 
 export const cos = CustomFunction.createExternal(
   'cos',
@@ -93,10 +93,10 @@ export const cos = CustomFunction.createExternal(
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
     const value = args.get('value');
-    if (value instanceof CustomNil) return Promise.resolve(Defaults.Void);
+    if (value instanceof CustomNil) return Promise.resolve(DefaultType.Void);
     return Promise.resolve(new CustomNumber(Math.cos(value.toNumber())));
   }
-).addArgument('value', Defaults.Zero);
+).addArgument('value', DefaultType.Zero);
 
 export const floor = CustomFunction.createExternal(
   'floor',
@@ -106,10 +106,10 @@ export const floor = CustomFunction.createExternal(
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
     const value = args.get('value');
-    if (value instanceof CustomNil) return Promise.resolve(Defaults.Void);
+    if (value instanceof CustomNil) return Promise.resolve(DefaultType.Void);
     return Promise.resolve(new CustomNumber(Math.floor(value.toNumber())));
   }
-).addArgument('value', Defaults.Zero);
+).addArgument('value', DefaultType.Zero);
 
 export const sin = CustomFunction.createExternal(
   'sin',
@@ -119,10 +119,10 @@ export const sin = CustomFunction.createExternal(
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
     const value = args.get('value');
-    if (value instanceof CustomNil) return Promise.resolve(Defaults.Void);
+    if (value instanceof CustomNil) return Promise.resolve(DefaultType.Void);
     return Promise.resolve(new CustomNumber(Math.sin(value.toNumber())));
   }
-).addArgument('value', Defaults.Zero);
+).addArgument('value', DefaultType.Zero);
 
 export const sign = CustomFunction.createExternal(
   'sign',
@@ -132,10 +132,10 @@ export const sign = CustomFunction.createExternal(
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
     const value = args.get('value');
-    if (value instanceof CustomNil) return Promise.resolve(Defaults.Void);
+    if (value instanceof CustomNil) return Promise.resolve(DefaultType.Void);
     return Promise.resolve(new CustomNumber(Math.sign(value.toNumber())));
   }
-).addArgument('value', Defaults.Zero);
+).addArgument('value', DefaultType.Zero);
 
 export const round = CustomFunction.createExternal(
   'round',
@@ -148,7 +148,7 @@ export const round = CustomFunction.createExternal(
     const decimalPlaces = args.get('decimalPlaces');
 
     if (value instanceof CustomNil || decimalPlaces instanceof CustomNil) {
-      return Promise.resolve(Defaults.Void);
+      return Promise.resolve(DefaultType.Void);
     }
 
     const max = decimalPlaces.toNumber();
@@ -163,8 +163,8 @@ export const round = CustomFunction.createExternal(
     return Promise.resolve(new CustomNumber(result));
   }
 )
-  .addArgument('value', Defaults.Zero)
-  .addArgument('decimalPlaces', Defaults.Zero);
+  .addArgument('value', DefaultType.Zero)
+  .addArgument('decimalPlaces', DefaultType.Zero);
 
 export const sqrt = CustomFunction.createExternal(
   'sqrt',
@@ -174,10 +174,10 @@ export const sqrt = CustomFunction.createExternal(
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
     const value = args.get('value');
-    if (value instanceof CustomNil) return Promise.resolve(Defaults.Void);
+    if (value instanceof CustomNil) return Promise.resolve(DefaultType.Void);
     return Promise.resolve(new CustomNumber(Math.sqrt(value.toNumber())));
   }
-).addArgument('value', Defaults.Zero);
+).addArgument('value', DefaultType.Zero);
 
 export const pi = CustomFunction.createExternal(
   'pi',
@@ -219,7 +219,7 @@ export const bitwise = CustomFunction.createExternal(
       default:
     }
 
-    return Promise.resolve(Defaults.Void);
+    return Promise.resolve(DefaultType.Void);
   }
 )
   .addArgument('operator')

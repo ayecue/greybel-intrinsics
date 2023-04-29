@@ -7,7 +7,7 @@ import {
   CustomNumber,
   CustomString,
   CustomValue,
-  Defaults,
+  DefaultType,
   OperationContext
 } from 'greybel-interpreter';
 
@@ -21,11 +21,11 @@ export const print = CustomFunction.createExternal(
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
     ctx.handler.outputHandler.print(args.get('value').toString());
-    return Promise.resolve(Defaults.Void);
+    return Promise.resolve(DefaultType.Void);
   }
 )
   .addArgument('value', new CustomString(''))
-  .addArgument('replaceText', Defaults.False);
+  .addArgument('replaceText', DefaultType.False);
 
 export const exit = CustomFunction.createExternal(
   'exit',
@@ -36,7 +36,7 @@ export const exit = CustomFunction.createExternal(
   ): Promise<CustomValue> => {
     ctx.handler.outputHandler.print(args.get('value').toString());
     ctx.exit();
-    return Promise.resolve(Defaults.Void);
+    return Promise.resolve(DefaultType.Void);
   }
 ).addArgument('value');
 
@@ -61,7 +61,7 @@ export const wait = CustomFunction.createExternal(
 
     return new Promise((resolve) => {
       setTimeout(() => {
-        resolve(Defaults.Void);
+        resolve(DefaultType.Void);
       }, seconds);
     });
   }
@@ -77,7 +77,7 @@ export const char = CustomFunction.createExternal(
     const code = args.get('code');
 
     if (code instanceof CustomNil) {
-      return Promise.resolve(Defaults.Void);
+      return Promise.resolve(DefaultType.Void);
     }
 
     if (!isValidUnicodeChar(code.toInt())) {
@@ -138,13 +138,13 @@ export const val = CustomFunction.createExternal(
       return Promise.resolve(value);
     } else if (value instanceof CustomString) {
       return Promise.resolve(
-        value.isNumber() ? new CustomNumber(value.parseFloat()) : Defaults.Zero
+        value.isNumber() ? new CustomNumber(value.parseFloat()) : DefaultType.Zero
       );
     }
-    return Promise.resolve(Defaults.Void);
+    return Promise.resolve(DefaultType.Void);
   }
 )
-  .addArgument('value', Defaults.Zero)
+  .addArgument('value', DefaultType.Zero)
   .setInjectSelf(true);
 
 const hashEx = (value: CustomValue, recursionDepth: number): number => {
@@ -224,8 +224,8 @@ export const range = CustomFunction.createExternal(
     return Promise.resolve(new CustomList(result));
   }
 )
-  .addArgument('from', Defaults.Zero)
-  .addArgument('to', Defaults.Zero)
+  .addArgument('from', DefaultType.Zero)
+  .addArgument('to', DefaultType.Zero)
   .addArgument('step');
 
 export const customYield = CustomFunction.createExternal(
@@ -236,7 +236,7 @@ export const customYield = CustomFunction.createExternal(
     _args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
     return new Promise((resolve) => {
-      process.nextTick(() => resolve(Defaults.Void));
+      process.nextTick(() => resolve(DefaultType.Void));
     });
   }
 );
