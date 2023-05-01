@@ -17,7 +17,7 @@ export const print = CustomFunction.createExternal(
   'print',
   (
     ctx: OperationContext,
-    self: CustomValue,
+    _self: CustomValue,
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
     ctx.handler.outputHandler.print(args.get('value').toString());
@@ -43,8 +43,8 @@ export const exit = CustomFunction.createExternal(
 export const wait = CustomFunction.createExternal(
   'wait',
   (
-    ctx: OperationContext,
-    self: CustomValue,
+    _ctx: OperationContext,
+    _self: CustomValue,
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
     const delay = args.get('delay');
@@ -70,8 +70,8 @@ export const wait = CustomFunction.createExternal(
 export const char = CustomFunction.createExternal(
   'char',
   (
-    ctx: OperationContext,
-    self: CustomValue,
+    _ctx: OperationContext,
+    _self: CustomValue,
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
     const code = args.get('code');
@@ -89,14 +89,14 @@ export const char = CustomFunction.createExternal(
   }
 ).addArgument('code', new CustomNumber(65));
 
-export const code = CustomFunction.createExternal(
+export const code = CustomFunction.createExternalWithSelf(
   'code',
   (
-    ctx: OperationContext,
-    self: CustomValue,
+    _ctx: OperationContext,
+    _self: CustomValue,
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
-    const value = args.get('value');
+    const value = args.get('self');
 
     if (value instanceof CustomNil) {
       throw new Error('code: invalid char code.');
@@ -111,41 +111,39 @@ export const code = CustomFunction.createExternal(
 
     return Promise.resolve(new CustomNumber(strCode));
   }
-)
-  .addArgument('value')
-  .setInjectSelf(true);
+);
 
 export const str = CustomFunction.createExternal(
   'str',
   (
-    ctx: OperationContext,
-    self: CustomValue,
+    _ctx: OperationContext,
+    _self: CustomValue,
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
     return Promise.resolve(new CustomString(args.get('value').toString()));
   }
 ).addArgument('value', new CustomString(''));
 
-export const val = CustomFunction.createExternal(
+export const val = CustomFunction.createExternalWithSelf(
   'val',
   (
-    ctx: OperationContext,
-    self: CustomValue,
+    _ctx: OperationContext,
+    _self: CustomValue,
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
-    const value = args.get('value');
+    const value = args.get('self');
     if (value instanceof CustomNumber) {
       return Promise.resolve(value);
     } else if (value instanceof CustomString) {
       return Promise.resolve(
-        value.isNumber() ? new CustomNumber(value.parseFloat()) : DefaultType.Zero
+        value.isNumber()
+          ? new CustomNumber(value.parseFloat())
+          : DefaultType.Zero
       );
     }
     return Promise.resolve(DefaultType.Void);
   }
-)
-  .addArgument('value', DefaultType.Zero)
-  .setInjectSelf(true);
+);
 
 const hashEx = (value: CustomValue, recursionDepth: number): number => {
   let result: number;
@@ -178,8 +176,8 @@ const hashEx = (value: CustomValue, recursionDepth: number): number => {
 export const hash = CustomFunction.createExternal(
   'hash',
   (
-    ctx: OperationContext,
-    self: CustomValue,
+    _ctx: OperationContext,
+    _self: CustomValue,
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
     const value = args.get('value');
@@ -194,8 +192,8 @@ export const hash = CustomFunction.createExternal(
 export const range = CustomFunction.createExternal(
   'range',
   (
-    ctx: OperationContext,
-    self: CustomValue,
+    _ctx: OperationContext,
+    _self: CustomValue,
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
     const from = args.get('from');

@@ -64,6 +64,10 @@ export function getAPI(): ObjectValue {
   apiInterface.set(s('push'), manipulation.push);
   apiInterface.set(s('remove'), manipulation.remove);
   apiInterface.set(s('insert'), manipulation.insert);
+  apiInterface.set(s('to_int'), manipulation.to_int);
+  apiInterface.set(s('join'), manipulation.join);
+  apiInterface.set(s('split'), manipulation.split);
+  apiInterface.set(s('replace'), manipulation.replace);
 
   return apiInterface;
 }
