@@ -92,6 +92,8 @@ exports[`interpreter default scripts list.src 24`] = `"[{\\"foo\\":2}, {\\"foo\\
 
 exports[`interpreter default scripts list.src 25`] = `"[1, 2, 1337, 3, 4]"`;
 
+exports[`interpreter default scripts list.src 26`] = `"[1, 3, 3, 7]"`;
+
 exports[`interpreter default scripts manipulation.src 1`] = `"1"`;
 
 exports[`interpreter default scripts manipulation.src 2`] = `"0"`;
@@ -207,6 +209,8 @@ exports[`interpreter default scripts map.src 11`] = `"323"`;
 exports[`interpreter default scripts map.src 12`] = `"{\\"foo\\":123,\\"bar\\":\\"ipsum\\",\\"xxx\\":200}"`;
 
 exports[`interpreter default scripts map.src 13`] = `"1"`;
+
+exports[`interpreter default scripts map.src 14`] = `"{\\"test\\":3,\\"bar\\":3,\\"foo\\":1}"`;
 
 exports[`interpreter default scripts math.src 1`] = `"1337"`;
 

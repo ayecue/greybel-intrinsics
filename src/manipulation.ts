@@ -9,7 +9,8 @@ import {
   CustomValue,
   CustomValueWithIntrinsics,
   DefaultType,
-  OperationContext
+  OperationContext,
+  deepEqual
 } from 'greybel-interpreter';
 
 import { itemAtIndex } from './utils';
@@ -565,9 +566,39 @@ export const replace = CustomFunction.createExternalWithSelf(
         .replaceAll(toReplace.toString(), replaceWith.toString());
 
       return Promise.resolve(new CustomString(replaced));
+    } else if (origin instanceof CustomList) {
+      const toReplace = args.get('toReplace');
+      const replaceWith = args.get('replaceWith');
+
+      if (toReplace instanceof CustomNil || replaceWith instanceof CustomNil) {
+        throw new Error('replace: Invalid arguments');
+      }
+
+      for (let index = 0; index < origin.value.length; index++) {
+        if (deepEqual(origin.value[index], toReplace)) {
+          origin.value[index] = replaceWith;
+        }
+      }
+
+      return Promise.resolve(origin);
+    } else if (origin instanceof CustomMap) {
+      const toReplace = args.get('toReplace');
+      const replaceWith = args.get('replaceWith');
+
+      if (toReplace instanceof CustomNil || replaceWith instanceof CustomNil) {
+        throw new Error('replace: Invalid arguments');
+      }
+
+      for (const [key, item] of origin.value) {
+        if (deepEqual(item, toReplace)) {
+          origin.value.set(key, replaceWith);
+        }
+      }
+
+      return Promise.resolve(origin);
     }
 
-    throw new Error("Type Error: 'replace' requires string");
+    throw new Error("Type Error: 'replace' requires map, list, or string");
   }
 )
   .addArgument('toReplace')

@@ -66,3 +66,10 @@ tempList = [1, 2, 3, 4]
 
 tempList.insert(2, 1337)
 print(tempList)
+
+print([
+	1,
+	5,
+	5,
+	7
+].replace(5, 3))

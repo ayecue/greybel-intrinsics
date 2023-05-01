@@ -31,3 +31,9 @@ test2 = {
 }
 
 print(hasIndex(test2, test))
+
+print({
+    "test": 5,
+    "bar": 5,
+    "foo": 1
+}.replace(5, 3))

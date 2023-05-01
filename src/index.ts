@@ -133,6 +133,10 @@ export function init(customAPI: ObjectValue = new ObjectValue()) {
   );
   CustomList.addIntrinsic(s('reverse'), manipulation.reverse);
   CustomList.addIntrinsic(s('join'), manipulation.join);
+  CustomList.addIntrinsic(
+    s('replace'),
+    apiInterface.get(s('replace')) as CustomFunction
+  );
 
   // setup map
   CustomMap.addIntrinsic(
@@ -174,6 +178,10 @@ export function init(customAPI: ObjectValue = new ObjectValue()) {
   CustomMap.addIntrinsic(
     s('values'),
     apiInterface.get(s('values')) as CustomFunction
+  );
+  CustomMap.addIntrinsic(
+    s('replace'),
+    apiInterface.get(s('replace')) as CustomFunction
   );
 
   // setup string
