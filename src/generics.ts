@@ -56,16 +56,16 @@ export const wait = CustomFunction.createExternal(
       throw new Error('wait: Invalid arguments');
     }
 
-    const seconds = delay.toNumber() * 1000;
+    const ms = delay.toNumber() * 1000;
 
-    if (seconds < 0.01 || seconds > 300) {
+    if (ms < 10 || ms > 300000) {
       throw new Error('wait: time must have a value between 0.01 and 300');
     }
 
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve(DefaultType.Void);
-      }, seconds);
+      }, ms);
     });
   }
 ).addArgument('delay', new CustomNumber(1));
