@@ -4,7 +4,7 @@ exports[`interpreter default scripts generics.src 1`] = `"\\"{\\""`;
 
 exports[`interpreter default scripts generics.src 2`] = `"123"`;
 
-exports[`interpreter default scripts generics.src 3`] = `"\\"false\\""`;
+exports[`interpreter default scripts generics.src 3`] = `"\\"0\\""`;
 
 exports[`interpreter default scripts generics.src 4`] = `"1.23"`;
 
