@@ -8,9 +8,9 @@ import {
   CustomString,
   CustomValue,
   CustomValueWithIntrinsics,
+  deepEqual,
   DefaultType,
-  OperationContext,
-  deepEqual
+  OperationContext
 } from 'greybel-interpreter';
 
 import { itemAtIndex } from './utils';
