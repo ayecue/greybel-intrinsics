@@ -46,7 +46,7 @@ export const exit = CustomFunction.createExternal(
 export const wait = CustomFunction.createExternal(
   'wait',
   (
-    _ctx: OperationContext,
+    ctx: OperationContext,
     _self: CustomValue,
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
@@ -63,9 +63,16 @@ export const wait = CustomFunction.createExternal(
     }
 
     return new Promise((resolve) => {
-      setTimeout(() => {
+      const onExit = () => {
+        clearTimeout(timeout);
+        resolve(DefaultType.Void);
+      };
+      const timeout = setTimeout(() => {
+        ctx.processState.removeListener('exit', onExit);
         resolve(DefaultType.Void);
       }, ms);
+
+      ctx.processState.once('exit', onExit);
     });
   }
 ).addArgument('delay', new CustomNumber(1));
