@@ -21,13 +21,13 @@ pseudoAPI.set(
   CustomFunction.createExternal(
     'print',
     (ctx, self, args) => {
-      ctx.handler.outputHandler.print(args.get('value'));
+      ctx.handler.outputHandler.print(ctx, args.get('value'));
     }
   ).addArgument('value')
 );
 
 class TestOutputHandler extends OutputHandler {
-  print(message) {
+  print(_ctx, message) {
     printMock(message);
   }
 }
