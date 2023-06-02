@@ -311,3 +311,5 @@ exports[`interpreter default scripts string.src 23`] = `"\\"foo \\\\\\"bar\\\\\\
 exports[`interpreter default scripts string.src 24`] = `"\\"foo \\"bar\\" foo\\""`;
 
 exports[`interpreter default scripts string.src 25`] = `"[\\"ab\\", \\"ce\\", \\"d\\"]"`;
+
+exports[`interpreter default scripts string.src 26`] = `"-1"`;

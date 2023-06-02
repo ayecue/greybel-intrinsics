@@ -627,47 +627,19 @@ export const lastIndexOf = CustomFunction.createExternalWithSelf(
   ): Promise<CustomValue> => {
     const origin = args.get('self');
     const value = args.get('value');
-    const before = args.get('before');
 
     if (value instanceof CustomNil) {
-      throw new Error('lastIndexOf requires a value argument');
+      return Promise.resolve(DefaultType.Void);
     }
 
-    if (origin instanceof CustomMap) {
-      const reversedMap = Array.from(origin.value.entries()).reverse();
-      for (const [key, item] of reversedMap) {
-        if (item.value === value.value) {
-          return Promise.resolve(key);
-        }
-      }
-    } else if (origin instanceof CustomList) {
-      for (
-        let index =
-          before instanceof CustomNil
-            ? origin.value.length - 1
-            : before.toInt();
-        index >= 0;
-        index--
-      ) {
-        if (origin.value[index].value === value.value) {
-          return Promise.resolve(new CustomNumber(index));
-        }
-      }
-    } else if (origin instanceof CustomString) {
-      const strIndex = origin.value.lastIndexOf(
-        value.toString(),
-        before.toInt()
-      );
-      if (strIndex !== -1) {
-        return Promise.resolve(new CustomNumber(strIndex));
-      }
+    if (origin instanceof CustomString) {
+      const strIndex = origin.value.lastIndexOf(value.toString());
+      return Promise.resolve(new CustomNumber(strIndex));
     }
 
     return Promise.resolve(DefaultType.Void);
   }
-)
-  .addArgument('value')
-  .addArgument('before');
+).addArgument('value');
 
 export const to_int = CustomFunction.createExternalWithSelf(
   'to_int',

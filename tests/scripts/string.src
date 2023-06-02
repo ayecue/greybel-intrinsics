@@ -42,3 +42,5 @@ print("foo \""bar\"" foo")
 print("foo \""bar\"" foo".replace("\""", """"))
 
 print("ab.ce.d".split("."))
+
+print("bar bar bar bar".lastIndexOf("unknown"))
