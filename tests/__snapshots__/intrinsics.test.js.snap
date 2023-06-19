@@ -38,7 +38,7 @@ exports[`interpreter default scripts generics.src 18`] = `"1"`;
 
 exports[`interpreter default scripts generics.src 19`] = `"1"`;
 
-exports[`interpreter default scripts generics.src 20`] = `"null"`;
+exports[`interpreter default scripts generics.src 20`] = `""`;
 
 exports[`interpreter default scripts generics.src 21`] = `"test"`;
 
@@ -50,7 +50,7 @@ exports[`interpreter default scripts list.src 3`] = `"[0, 1]"`;
 
 exports[`interpreter default scripts list.src 4`] = `"1"`;
 
-exports[`interpreter default scripts list.src 5`] = `"null"`;
+exports[`interpreter default scripts list.src 5`] = `""`;
 
 exports[`interpreter default scripts list.src 6`] = `"2"`;
 
@@ -68,7 +68,7 @@ exports[`interpreter default scripts list.src 12`] = `"[1, 2, 4, 6]"`;
 
 exports[`interpreter default scripts list.src 13`] = `"16"`;
 
-exports[`interpreter default scripts list.src 14`] = `"null"`;
+exports[`interpreter default scripts list.src 14`] = `""`;
 
 exports[`interpreter default scripts list.src 15`] = `"[\\"bar\\"]"`;
 
@@ -108,15 +108,15 @@ exports[`interpreter default scripts manipulation.src 6`] = `"0"`;
 
 exports[`interpreter default scripts manipulation.src 7`] = `"\\"lore\\""`;
 
-exports[`interpreter default scripts manipulation.src 8`] = `"null"`;
+exports[`interpreter default scripts manipulation.src 8`] = `""`;
 
 exports[`interpreter default scripts manipulation.src 9`] = `"1"`;
 
-exports[`interpreter default scripts manipulation.src 10`] = `"null"`;
+exports[`interpreter default scripts manipulation.src 10`] = `""`;
 
 exports[`interpreter default scripts manipulation.src 11`] = `"4"`;
 
-exports[`interpreter default scripts manipulation.src 12`] = `"null"`;
+exports[`interpreter default scripts manipulation.src 12`] = `""`;
 
 exports[`interpreter default scripts manipulation.src 13`] = `"[\\"foo\\", \\"bar\\", \\"lore\\"]"`;
 
@@ -146,7 +146,7 @@ exports[`interpreter default scripts manipulation.src 25`] = `"\\" lorem ipsum X
 
 exports[`interpreter default scripts manipulation.src 26`] = `"\\"abc\\""`;
 
-exports[`interpreter default scripts manipulation.src 27`] = `"null"`;
+exports[`interpreter default scripts manipulation.src 27`] = `""`;
 
 exports[`interpreter default scripts manipulation.src 28`] = `"[\\"foo\\", \\"xxx\\", 123]"`;
 
@@ -194,7 +194,7 @@ exports[`interpreter default scripts map.src 4`] = `"[9064, \\"ipsum\\"]"`;
 
 exports[`interpreter default scripts map.src 5`] = `"\\"bar\\""`;
 
-exports[`interpreter default scripts map.src 6`] = `"null"`;
+exports[`interpreter default scripts map.src 6`] = `""`;
 
 exports[`interpreter default scripts map.src 7`] = `"2"`;
 
@@ -272,7 +272,7 @@ exports[`interpreter default scripts string.src 4`] = `"[\\"x\\", \\"x\\", \\"x\
 
 exports[`interpreter default scripts string.src 5`] = `"16"`;
 
-exports[`interpreter default scripts string.src 6`] = `"null"`;
+exports[`interpreter default scripts string.src 6`] = `""`;
 
 exports[`interpreter default scripts string.src 7`] = `"120"`;
 
