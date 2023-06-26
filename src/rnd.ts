@@ -33,31 +33,33 @@ const mulberry32 = function (a: number): Function {
   };
 };
 
-const generators: Map<string, Function> = new Map();
+export default function rndFunctionFactory(): CustomFunction {
+  const generators: Map<string, Function> = new Map();
 
-export default CustomFunction.createExternal(
-  'rnd',
-  (
-    _ctx: OperationContext,
-    _self: CustomValue,
-    args: Map<string, CustomValue>
-  ): Promise<CustomValue> => {
-    const seedId = args.get('seedId');
+  return CustomFunction.createExternal(
+    'rnd',
+    (
+      _ctx: OperationContext,
+      _self: CustomValue,
+      args: Map<string, CustomValue>
+    ): Promise<CustomValue> => {
+      const seedId = args.get('seedId');
 
-    if (!(seedId instanceof CustomNil)) {
-      const seedStr = seedId.toString();
-      let generator;
+      if (!(seedId instanceof CustomNil)) {
+        const seedStr = seedId.toString();
+        let generator;
 
-      if (!generators.has(seedStr)) {
-        generator = mulberry32(xmur3(seedStr)());
-        generators.set(seedStr, generator);
-      } else {
-        generator = generators.get(seedStr);
+        if (!generators.has(seedStr)) {
+          generator = mulberry32(xmur3(seedStr)());
+          generators.set(seedStr, generator);
+        } else {
+          generator = generators.get(seedStr);
+        }
+
+        return Promise.resolve(new CustomNumber(generator()));
       }
 
-      return Promise.resolve(new CustomNumber(generator()));
+      return Promise.resolve(new CustomNumber(Math.random()));
     }
-
-    return Promise.resolve(new CustomNumber(Math.random()));
-  }
-).addArgument('seedId');
+  ).addArgument('seedId');
+}

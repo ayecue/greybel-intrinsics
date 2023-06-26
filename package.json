@@ -1,6 +1,6 @@
 {
     "name": "greybel-intrinsics",
-    "version": "2.2.8",
+    "version": "2.2.9",
     "description": "Interpreter intrinsics",
     "main": "dist/index",
     "typings": "dist/index",

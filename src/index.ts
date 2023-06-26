@@ -9,7 +9,7 @@ import {
 import * as generics from './generics';
 import * as manipulation from './manipulation';
 import * as math from './math';
-import rnd from './rnd';
+import rndFunctionFactory from './rnd';
 
 const s = (v: string) => new CustomString(v);
 
@@ -46,7 +46,7 @@ export function getAPI(): ObjectValue {
   apiInterface.set(s('bitXor'), math.bitXor);
   apiInterface.set(s('log'), math.log);
 
-  apiInterface.set(s('rnd'), rnd);
+  apiInterface.set(s('rnd'), rndFunctionFactory());
 
   apiInterface.set(s('hasIndex'), manipulation.hasIndex);
   apiInterface.set(s('indexOf'), manipulation.indexOf);
