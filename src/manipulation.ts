@@ -452,7 +452,7 @@ export const remove = CustomFunction.createExternalWithSelf(
 
     if (origin instanceof CustomMap) {
       if (origin.has(keyValue)) {
-        origin.value.delete(keyValue.value);
+        origin.value.delete(keyValue);
         return Promise.resolve(DefaultType.True);
       }
       return Promise.resolve(DefaultType.False);

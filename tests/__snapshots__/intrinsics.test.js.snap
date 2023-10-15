@@ -174,7 +174,7 @@ exports[`interpreter default scripts manipulation.src 39`] = `"{\\"foo\\":123,\\
 
 exports[`interpreter default scripts manipulation.src 40`] = `"[\\"foo\\", \\"xxx\\", 123, \\"addition\\"]"`;
 
-exports[`interpreter default scripts manipulation.src 41`] = `"{\\"foo\\":123,\\"bar\\":1,\\"lore\\":\\"moo\\"}"`;
+exports[`interpreter default scripts manipulation.src 41`] = `"{\\"foo\\":123,\\"lore\\":\\"moo\\"}"`;
 
 exports[`interpreter default scripts manipulation.src 42`] = `"[\\"foo\\", 123]"`;
 
@@ -206,7 +206,7 @@ exports[`interpreter default scripts map.src 10`] = `"{\\"foo\\":123,\\"bar\\":\
 
 exports[`interpreter default scripts map.src 11`] = `"323"`;
 
-exports[`interpreter default scripts map.src 12`] = `"{\\"foo\\":123,\\"bar\\":\\"ipsum\\",\\"xxx\\":200}"`;
+exports[`interpreter default scripts map.src 12`] = `"{\\"foo\\":123,\\"bar\\":\\"ipsum\\"}"`;
 
 exports[`interpreter default scripts map.src 13`] = `"1"`;
 
