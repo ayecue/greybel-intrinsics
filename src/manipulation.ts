@@ -8,7 +8,6 @@ import {
   CustomString,
   CustomValue,
   CustomValueWithIntrinsics,
-  deepEqual,
   DefaultType,
   OperationContext
 } from 'greybel-interpreter';
@@ -30,7 +29,7 @@ export const hasIndex = CustomFunction.createExternalWithSelf(
     }
 
     if (origin instanceof CustomMap) {
-      return Promise.resolve(new CustomBoolean(origin.has(index)));
+      return Promise.resolve(new CustomBoolean(origin.value.has(index)));
     } else if (origin instanceof CustomList) {
       if (!(index instanceof CustomNumber)) {
         return Promise.resolve(DefaultType.False);
@@ -66,8 +65,9 @@ export const indexOf = CustomFunction.createExternalWithSelf(
     }
 
     if (origin instanceof CustomMap) {
-      for (const [key, item] of origin.value) {
-        if (item.value === value.value) {
+      const hash = value.hash();
+      for (const [key, item] of origin.value.entries()) {
+        if (item.hash() === hash) {
           return Promise.resolve(key);
         }
       }
@@ -574,8 +574,10 @@ export const replace = CustomFunction.createExternalWithSelf(
         throw new Error('replace: Invalid arguments');
       }
 
+      const hash = toReplace.hash();
+
       for (let index = 0; index < origin.value.length; index++) {
-        if (deepEqual(origin.value[index], toReplace)) {
+        if (origin.value[index].hash() === hash) {
           origin.value[index] = replaceWith;
         }
       }
@@ -589,8 +591,10 @@ export const replace = CustomFunction.createExternalWithSelf(
         throw new Error('replace: Invalid arguments');
       }
 
-      for (const [key, item] of origin.value) {
-        if (deepEqual(item, toReplace)) {
+      const hash = toReplace.hash();
+
+      for (const [key, item] of origin.value.entries()) {
+        if (item.hash() === hash) {
           origin.value.set(key, replaceWith);
         }
       }
