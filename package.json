@@ -1,6 +1,6 @@
 {
     "name": "greybel-intrinsics",
-    "version": "2.7.7",
+    "version": "2.7.8",
     "description": "Interpreter intrinsics",
     "main": "dist/index",
     "typings": "dist/index",
@@ -52,7 +52,7 @@
         "greyhack"
     ],
     "dependencies": {
-        "greybel-interpreter": "^2.6.6",
+        "greybel-interpreter": "^2.6.7",
         "xregexp": "^5.1.1"
     }
 }
