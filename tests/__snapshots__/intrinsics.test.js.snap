@@ -308,8 +308,14 @@ exports[`interpreter default scripts string.src 22`] = `"[\\"abced\\", \\"ca\\",
 
 exports[`interpreter default scripts string.src 23`] = `"\\"foo \\\\\\"bar\\\\\\" foo\\""`;
 
-exports[`interpreter default scripts string.src 24`] = `"\\"foo \\"bar\\" foo\\""`;
+exports[`interpreter default scripts string.src 24`] = `"\\"foo \\\\\\"bar\\\\\\" foo\\""`;
 
 exports[`interpreter default scripts string.src 25`] = `"[\\"ab\\", \\"ce\\", \\"d\\"]"`;
 
 exports[`interpreter default scripts string.src 26`] = `"-1"`;
+
+exports[`interpreter default scripts string.src 27`] = `"1"`;
+
+exports[`interpreter default scripts string.src 28`] = `"{0:\\"xxx lorem\\",10:\\"ipsum bar\\"}"`;
+
+exports[`interpreter default scripts string.src 29`] = `"\\"xxx lrem ipsum bar fr\\""`;

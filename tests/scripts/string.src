@@ -33,7 +33,7 @@ print("nonumber".to_int)
 
 print("123456".insert(2, "1337"))
 
-print("abced".split(""))
+print("a b c e d".split(" "))
 print("abced
 ca
 xa".split(char(10)))
@@ -41,6 +41,12 @@ xa".split(char(10)))
 print("foo \""bar\"" foo")
 print("foo \""bar\"" foo".replace("\""", """"))
 
-print("ab.ce.d".split("."))
+print("ab.ce.d".split("\."))
 
 print("bar bar bar bar".lastIndexOf("unknown"))
+
+print("xxx lorem ipsum bar for".is_match("^xxx"))
+
+print("xxx lorem ipsum bar for".matches("(?<first>\w+) (?<second>\w+)"))
+
+print("xxx lorem ipsum bar for".replace("o", ""))

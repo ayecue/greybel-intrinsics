@@ -11,6 +11,7 @@ import {
   DefaultType,
   OperationContext
 } from 'greybel-interpreter';
+import XRegExp, { ExecArray } from 'xregexp';
 
 import { itemAtIndex } from './utils';
 
@@ -522,23 +523,190 @@ export const split = CustomFunction.createExternalWithSelf(
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
     const origin = args.get('self');
+    const pattern = args.get('pattern');
+    const regexOptions = args.get('regexOptions');
 
-    if (origin instanceof CustomString) {
-      const delimiter = args.get('delimiter');
-
-      if (delimiter instanceof CustomNil) {
+    if (
+      origin instanceof CustomString &&
+      pattern instanceof CustomString &&
+      regexOptions instanceof CustomString
+    ) {
+      if (pattern.value === '') {
         throw new Error('split: Invalid arguments');
       }
 
+      if (!['none', 'i', 'm', 's', 'n', 'x'].includes(regexOptions.value)) {
+        throw new Error('split: Invalid regex option');
+      }
+
+      let options = regexOptions.value;
+
+      if (options === 'none') {
+        options = undefined;
+      }
+
       const list = origin.value
-        .split(new RegExp(delimiter.toString().replace('.', '\\.')))
+        .split(XRegExp(pattern.value, options))
         .map((item) => new CustomString(item));
       return Promise.resolve(new CustomList(list));
     }
 
     return Promise.resolve(DefaultType.Void);
   }
-).addArgument('delimiter');
+)
+  .addArgument('pattern')
+  .addArgument('regexOptions', new CustomString('none'));
+
+export const replaceRegex = CustomFunction.createExternalWithSelf(
+  'replace_regex',
+  (
+    _ctx: OperationContext,
+    _self: CustomValue,
+    args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    const origin = args.get('self');
+    const pattern = args.get('pattern');
+    const newVal = args.get('newVal');
+    const regexOptions = args.get('regexOptions');
+
+    if (
+      origin instanceof CustomString &&
+      pattern instanceof CustomString &&
+      newVal instanceof CustomString &&
+      regexOptions instanceof CustomString
+    ) {
+      if (pattern.value === '') {
+        throw new Error("Type Error: 'replace' pattern can't be empty or null");
+      }
+
+      if (!['none', 'i', 'm', 's', 'n', 'x'].includes(regexOptions.value)) {
+        throw new Error('replace: Invalid regex option');
+      }
+
+      if (origin.value === '') {
+        return Promise.resolve(origin);
+      }
+
+      let options = regexOptions.value;
+
+      if (options === 'none') {
+        options = undefined;
+      }
+
+      const replaced = XRegExp.replace(
+        origin.value,
+        XRegExp(pattern.value, options),
+        newVal.value,
+        'all'
+      );
+      return Promise.resolve(new CustomString(replaced));
+    }
+
+    throw new Error("Type Error: 'replace' requires string");
+  }
+)
+  .addArgument('pattern')
+  .addArgument('newVal')
+  .addArgument('regexOptions', new CustomString('none'));
+
+export const isMatch = CustomFunction.createExternalWithSelf(
+  'is_match',
+  (
+    _ctx: OperationContext,
+    _self: CustomValue,
+    args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    const origin = args.get('self');
+    const pattern = args.get('pattern');
+    const regexOptions = args.get('regexOptions');
+
+    if (
+      origin instanceof CustomString &&
+      pattern instanceof CustomString &&
+      regexOptions instanceof CustomString
+    ) {
+      if (pattern.value === '') {
+        throw new Error(
+          "Type Error: 'is_match' pattern can't be empty or null"
+        );
+      }
+
+      if (!['none', 'i', 'm', 's', 'n', 'x'].includes(regexOptions.value)) {
+        throw new Error('is_match: Invalid regex option');
+      }
+
+      let options = regexOptions.value;
+
+      if (options === 'none') {
+        options = undefined;
+      }
+
+      const isMatch = XRegExp.test(
+        origin.value,
+        XRegExp(pattern.value, options)
+      );
+      return Promise.resolve(new CustomBoolean(isMatch));
+    }
+
+    throw new Error("Type Error: 'is_match' requires string");
+  }
+)
+  .addArgument('pattern')
+  .addArgument('regexOptions', new CustomString('none'));
+
+export const matches = CustomFunction.createExternalWithSelf(
+  'matches',
+  (
+    _ctx: OperationContext,
+    _self: CustomValue,
+    args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    const origin = args.get('self');
+    const pattern = args.get('pattern');
+    const regexOptions = args.get('regexOptions');
+
+    if (
+      origin instanceof CustomString &&
+      pattern instanceof CustomString &&
+      regexOptions instanceof CustomString
+    ) {
+      if (pattern.value === '') {
+        throw new Error("Type Error: 'matches' pattern can't be empty or null");
+      }
+
+      if (!['none', 'i', 'm', 's', 'n', 'x'].includes(regexOptions.value)) {
+        throw new Error('matches: Invalid regex option');
+      }
+
+      let options = regexOptions.value;
+
+      if (options === 'none') {
+        options = undefined;
+      }
+
+      let offset = 0;
+      let match: ExecArray;
+      const result = new CustomMap();
+
+      while (
+        (match = XRegExp.exec(
+          origin.value,
+          XRegExp(pattern.value, options),
+          offset
+        ))
+      ) {
+        result.set(new CustomNumber(match.index), new CustomString(match[0]));
+        offset = match.index + match[0].length;
+      }
+
+      return Promise.resolve(result);
+    }
+
+    throw new Error("Type Error: 'is_match' requires string");
+  }
+)
+  .addArgument('pattern')
+  .addArgument('regexOptions', new CustomString('none'));
 
 export const replace = CustomFunction.createExternalWithSelf(
   'replace',
@@ -645,7 +813,7 @@ export const lastIndexOf = CustomFunction.createExternalWithSelf(
   }
 ).addArgument('value');
 
-export const to_int = CustomFunction.createExternalWithSelf(
+export const toInt = CustomFunction.createExternalWithSelf(
   'to_int',
   (
     _ctx: OperationContext,

@@ -1,5 +1,4 @@
 import {
-  CustomFunction,
   CustomList,
   CustomMap,
   CustomString,
@@ -64,10 +63,12 @@ export function getAPI(): ObjectValue {
   apiInterface.set(s('push'), manipulation.push);
   apiInterface.set(s('remove'), manipulation.remove);
   apiInterface.set(s('insert'), manipulation.insert);
-  apiInterface.set(s('to_int'), manipulation.to_int);
+  apiInterface.set(s('to_int'), manipulation.toInt);
   apiInterface.set(s('join'), manipulation.join);
   apiInterface.set(s('split'), manipulation.split);
-  apiInterface.set(s('replace'), manipulation.replace);
+  apiInterface.set(s('replace_regex'), manipulation.replaceRegex);
+  apiInterface.set(s('is_match'), manipulation.isMatch);
+  apiInterface.set(s('matches'), manipulation.matches);
 
   return apiInterface;
 }
@@ -79,161 +80,55 @@ export function init(customAPI: ObjectValue = new ObjectValue()) {
   api.extend(customAPI);
 
   // setup list
-  CustomList.addIntrinsic(
-    s('hasIndex'),
-    apiInterface.get(s('hasIndex')) as CustomFunction
-  );
-  CustomList.addIntrinsic(
-    s('indexes'),
-    apiInterface.get(s('indexes')) as CustomFunction
-  );
-  CustomList.addIntrinsic(
-    s('indexOf'),
-    apiInterface.get(s('indexOf')) as CustomFunction
-  );
-  CustomList.addIntrinsic(
-    s('len'),
-    apiInterface.get(s('len')) as CustomFunction
-  );
-  CustomList.addIntrinsic(
-    s('pop'),
-    apiInterface.get(s('pop')) as CustomFunction
-  );
-  CustomList.addIntrinsic(
-    s('pull'),
-    apiInterface.get(s('pull')) as CustomFunction
-  );
-  CustomList.addIntrinsic(
-    s('push'),
-    apiInterface.get(s('push')) as CustomFunction
-  );
-  CustomList.addIntrinsic(
-    s('shuffle'),
-    apiInterface.get(s('shuffle')) as CustomFunction
-  );
-  CustomList.addIntrinsic(
-    s('sort'),
-    apiInterface.get(s('sort')) as CustomFunction
-  );
-  CustomList.addIntrinsic(
-    s('sum'),
-    apiInterface.get(s('sum')) as CustomFunction
-  );
-  CustomList.addIntrinsic(
-    s('remove'),
-    apiInterface.get(s('remove')) as CustomFunction
-  );
-  CustomList.addIntrinsic(
-    s('values'),
-    apiInterface.get(s('values')) as CustomFunction
-  );
-  CustomList.addIntrinsic(
-    s('insert'),
-    apiInterface.get(s('insert')) as CustomFunction
-  );
+  CustomList.addIntrinsic(s('hasIndex'), manipulation.hasIndex);
+  CustomList.addIntrinsic(s('indexes'), manipulation.indexes);
+  CustomList.addIntrinsic(s('indexOf'), manipulation.indexOf);
+  CustomList.addIntrinsic(s('len'), manipulation.len);
+  CustomList.addIntrinsic(s('pop'), manipulation.pop);
+  CustomList.addIntrinsic(s('pull'), manipulation.pull);
+  CustomList.addIntrinsic(s('push'), manipulation.push);
+  CustomList.addIntrinsic(s('shuffle'), manipulation.shuffle);
+  CustomList.addIntrinsic(s('sort'), manipulation.sort);
+  CustomList.addIntrinsic(s('sum'), manipulation.sum);
+  CustomList.addIntrinsic(s('remove'), manipulation.remove);
+  CustomList.addIntrinsic(s('values'), manipulation.values);
+  CustomList.addIntrinsic(s('insert'), manipulation.insert);
   CustomList.addIntrinsic(s('reverse'), manipulation.reverse);
   CustomList.addIntrinsic(s('join'), manipulation.join);
-  CustomList.addIntrinsic(
-    s('replace'),
-    apiInterface.get(s('replace')) as CustomFunction
-  );
+  CustomList.addIntrinsic(s('replace'), manipulation.replace);
 
   // setup map
-  CustomMap.addIntrinsic(
-    s('hasIndex'),
-    apiInterface.get(s('hasIndex')) as CustomFunction
-  );
-  CustomMap.addIntrinsic(
-    s('indexes'),
-    apiInterface.get(s('indexes')) as CustomFunction
-  );
-  CustomMap.addIntrinsic(
-    s('indexOf'),
-    apiInterface.get(s('indexOf')) as CustomFunction
-  );
-  CustomMap.addIntrinsic(
-    s('len'),
-    apiInterface.get(s('len')) as CustomFunction
-  );
-  CustomMap.addIntrinsic(
-    s('pop'),
-    apiInterface.get(s('pop')) as CustomFunction
-  );
-  CustomMap.addIntrinsic(
-    s('push'),
-    apiInterface.get(s('push')) as CustomFunction
-  );
-  CustomMap.addIntrinsic(
-    s('shuffle'),
-    apiInterface.get(s('shuffle')) as CustomFunction
-  );
-  CustomMap.addIntrinsic(
-    s('sum'),
-    apiInterface.get(s('sum')) as CustomFunction
-  );
-  CustomMap.addIntrinsic(
-    s('remove'),
-    apiInterface.get(s('remove')) as CustomFunction
-  );
-  CustomMap.addIntrinsic(
-    s('values'),
-    apiInterface.get(s('values')) as CustomFunction
-  );
-  CustomMap.addIntrinsic(
-    s('replace'),
-    apiInterface.get(s('replace')) as CustomFunction
-  );
+  CustomMap.addIntrinsic(s('hasIndex'), manipulation.hasIndex);
+  CustomMap.addIntrinsic(s('indexes'), manipulation.indexes);
+  CustomMap.addIntrinsic(s('indexOf'), manipulation.indexOf);
+  CustomMap.addIntrinsic(s('len'), manipulation.len);
+  CustomMap.addIntrinsic(s('pop'), manipulation.pop);
+  CustomMap.addIntrinsic(s('push'), manipulation.push);
+  CustomMap.addIntrinsic(s('shuffle'), manipulation.shuffle);
+  CustomMap.addIntrinsic(s('sum'), manipulation.sum);
+  CustomMap.addIntrinsic(s('remove'), manipulation.remove);
+  CustomMap.addIntrinsic(s('values'), manipulation.values);
+  CustomMap.addIntrinsic(s('replace'), manipulation.replace);
 
   // setup string
-  CustomString.addIntrinsic(
-    s('hasIndex'),
-    apiInterface.get(s('hasIndex')) as CustomFunction
-  );
-  CustomString.addIntrinsic(
-    s('indexOf'),
-    apiInterface.get(s('indexOf')) as CustomFunction
-  );
-  CustomString.addIntrinsic(
-    s('indexes'),
-    apiInterface.get(s('indexes')) as CustomFunction
-  );
-  CustomString.addIntrinsic(
-    s('code'),
-    apiInterface.get(s('code')) as CustomFunction
-  );
-  CustomString.addIntrinsic(
-    s('len'),
-    apiInterface.get(s('len')) as CustomFunction
-  );
-  CustomString.addIntrinsic(
-    s('lower'),
-    apiInterface.get(s('lower')) as CustomFunction
-  );
-  CustomString.addIntrinsic(
-    s('val'),
-    apiInterface.get(s('val')) as CustomFunction
-  );
-  CustomString.addIntrinsic(
-    s('remove'),
-    apiInterface.get(s('remove')) as CustomFunction
-  );
-  CustomString.addIntrinsic(
-    s('upper'),
-    apiInterface.get(s('upper')) as CustomFunction
-  );
-  CustomString.addIntrinsic(
-    s('values'),
-    apiInterface.get(s('values')) as CustomFunction
-  );
-  CustomString.addIntrinsic(
-    s('insert'),
-    apiInterface.get(s('insert')) as CustomFunction
-  );
+  CustomString.addIntrinsic(s('hasIndex'), manipulation.hasIndex);
+  CustomString.addIntrinsic(s('indexOf'), manipulation.indexOf);
+  CustomString.addIntrinsic(s('indexes'), manipulation.indexes);
+  CustomString.addIntrinsic(s('code'), generics.code);
+  CustomString.addIntrinsic(s('len'), manipulation.len);
+  CustomString.addIntrinsic(s('lower'), manipulation.lower);
+  CustomString.addIntrinsic(s('val'), generics.val);
+  CustomString.addIntrinsic(s('remove'), manipulation.remove);
+  CustomString.addIntrinsic(s('upper'), manipulation.upper);
+  CustomString.addIntrinsic(s('values'), manipulation.values);
+  CustomString.addIntrinsic(s('insert'), manipulation.insert);
   CustomString.addIntrinsic(s('split'), manipulation.split);
-  CustomString.addIntrinsic(s('replace'), manipulation.replace);
+  CustomString.addIntrinsic(s('replace'), manipulation.replaceRegex);
   CustomString.addIntrinsic(s('trim'), manipulation.trim);
   CustomString.addIntrinsic(s('lastIndexOf'), manipulation.lastIndexOf);
-  CustomString.addIntrinsic(s('to_int'), manipulation.to_int);
+  CustomString.addIntrinsic(s('to_int'), manipulation.toInt);
+  CustomString.addIntrinsic(s('is_match'), manipulation.isMatch);
+  CustomString.addIntrinsic(s('matches'), manipulation.matches);
 
   return api;
 }
