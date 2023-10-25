@@ -716,24 +716,18 @@ export const replace = CustomFunction.createExternalWithSelf(
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
     const origin = args.get('self');
+    const maxCount = args.get('maxCount');
+    let actualMaxCount = -1;
+
+    if (!(maxCount instanceof CustomNil)) {
+      actualMaxCount = maxCount.toInt();
+      if (actualMaxCount < 1) {
+        return Promise.resolve(origin);
+      }
+    }
 
     if (origin instanceof CustomString) {
-      const toReplace = args.get('toReplace');
-      const replaceWith = args.get('replaceWith');
-
-      if (toReplace instanceof CustomNil || replaceWith instanceof CustomNil) {
-        throw new Error('replace: Invalid arguments');
-      }
-
-      if (toReplace.toString() === '') {
-        throw new Error("Type Error: 'replace' oldVal can't be empty or null");
-      }
-
-      const replaced = origin
-        .toString()
-        .replaceAll(toReplace.toString(), replaceWith.toString());
-
-      return Promise.resolve(new CustomString(replaced));
+      throw new Error(`invalid replace invocation: replace must be called from the string itself, for example: ${origin.toString()}.replace`);
     } else if (origin instanceof CustomList) {
       const toReplace = args.get('toReplace');
       const replaceWith = args.get('replaceWith');
@@ -748,6 +742,10 @@ export const replace = CustomFunction.createExternalWithSelf(
         if (origin.value[index].hash() === hash) {
           origin.value[index] = replaceWith;
         }
+
+        if (actualMaxCount > 0 && actualMaxCount === index) {
+          break;
+        }
       }
 
       return Promise.resolve(origin);
@@ -760,11 +758,18 @@ export const replace = CustomFunction.createExternalWithSelf(
       }
 
       const hash = toReplace.hash();
+      let index = 0;
 
       for (const [key, item] of origin.value.entries()) {
         if (item.hash() === hash) {
           origin.value.set(key, replaceWith);
         }
+
+        if (actualMaxCount > 0 && actualMaxCount === index) {
+          break;
+        }
+
+        index++;
       }
 
       return Promise.resolve(origin);
@@ -774,7 +779,8 @@ export const replace = CustomFunction.createExternalWithSelf(
   }
 )
   .addArgument('toReplace')
-  .addArgument('replaceWith');
+  .addArgument('replaceWith')
+  .addArgument('maxCount');
 
 export const trim = CustomFunction.createExternalWithSelf(
   'trim',
