@@ -45,9 +45,6 @@ print(slice(myList, 0, 2))
 print(slice(myString, 3))
 print(slice(myString, 0, 3))
 
-print(sort(myMap))
-print(sort(myList))
-
 print(sum(myMap))
 print(sum(myList))
 print(sum(myString))
@@ -92,3 +89,9 @@ tempList.shuffle()
 
 print(tempMap)
 print(tempList)
+
+print(sort(myMap))
+print(sort(myList))
+
+print(sort(myMap, null, 0))
+print(sort(myList, null, 0))

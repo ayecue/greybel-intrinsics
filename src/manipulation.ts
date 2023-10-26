@@ -264,11 +264,13 @@ export const sort = CustomFunction.createExternalWithSelf(
   ): Promise<CustomValue> => {
     const origin = args.get('self');
     const key = args.get('key');
+    const asc = args.get('asc');
 
     if (!(origin instanceof CustomList)) {
       return null;
     }
 
+    const isAscending = asc.toTruthy();
     const isOrderByKey = !(key instanceof CustomNil);
     const sorted = origin.value.sort((a: CustomValue, b: CustomValue) => {
       if (isOrderByKey) {
@@ -284,16 +286,26 @@ export const sort = CustomFunction.createExternalWithSelf(
         }
       }
 
-      if (a instanceof CustomString && b instanceof CustomString) {
-        return a.toString().localeCompare(b.toString());
+      if (isAscending) {
+        if (a instanceof CustomString && b instanceof CustomString) {
+          return a.toString().localeCompare(b.toString());
+        }
+
+        return a.toNumber() - b.toNumber();
       }
 
-      return a.toNumber() - b.toNumber();
+      if (a instanceof CustomString && b instanceof CustomString) {
+        return b.toString().localeCompare(a.toString());
+      }
+
+      return b.toNumber() - a.toNumber();
     });
 
     return Promise.resolve(new CustomList(sorted));
   }
-).addArgument('key');
+)
+  .addArgument('key')
+  .addArgument('asc', new CustomNumber(1));
 
 export const sum = CustomFunction.createExternalWithSelf(
   'sum',
@@ -727,7 +739,9 @@ export const replace = CustomFunction.createExternalWithSelf(
     }
 
     if (origin instanceof CustomString) {
-      throw new Error(`invalid replace invocation: replace must be called from the string itself, for example: ${origin.toString()}.replace`);
+      throw new Error(
+        `invalid replace invocation: replace must be called from the string itself, for example: ${origin.toString()}.replace`
+      );
     } else if (origin instanceof CustomList) {
       const toReplace = args.get('toReplace');
       const replaceWith = args.get('replaceWith');

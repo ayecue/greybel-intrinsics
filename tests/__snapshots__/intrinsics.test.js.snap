@@ -146,43 +146,47 @@ exports[`interpreter default scripts manipulation.src 25`] = `"\\" lorem ipsum X
 
 exports[`interpreter default scripts manipulation.src 26`] = `"\\"abc\\""`;
 
-exports[`interpreter default scripts manipulation.src 27`] = `"null"`;
+exports[`interpreter default scripts manipulation.src 27`] = `"124"`;
 
-exports[`interpreter default scripts manipulation.src 28`] = `"[\\"foo\\", \\"xxx\\", 123]"`;
+exports[`interpreter default scripts manipulation.src 28`] = `"123"`;
 
-exports[`interpreter default scripts manipulation.src 29`] = `"124"`;
+exports[`interpreter default scripts manipulation.src 29`] = `"0"`;
 
 exports[`interpreter default scripts manipulation.src 30`] = `"123"`;
 
-exports[`interpreter default scripts manipulation.src 31`] = `"0"`;
+exports[`interpreter default scripts manipulation.src 31`] = `"\\"foo\\""`;
 
-exports[`interpreter default scripts manipulation.src 32`] = `"123"`;
+exports[`interpreter default scripts manipulation.src 32`] = `"{\\"bar\\":1,\\"lore\\":\\"moo\\"}"`;
 
-exports[`interpreter default scripts manipulation.src 33`] = `"123"`;
+exports[`interpreter default scripts manipulation.src 33`] = `"[\\"xxx\\", 123]"`;
 
-exports[`interpreter default scripts manipulation.src 34`] = `"{\\"bar\\":1,\\"lore\\":\\"moo\\"}"`;
+exports[`interpreter default scripts manipulation.src 34`] = `"\\"xxx\\""`;
 
-exports[`interpreter default scripts manipulation.src 35`] = `"[\\"foo\\", \\"xxx\\"]"`;
+exports[`interpreter default scripts manipulation.src 35`] = `"{\\"bar\\":1,\\"lore\\":\\"moo\\"}"`;
 
-exports[`interpreter default scripts manipulation.src 36`] = `"\\"foo\\""`;
+exports[`interpreter default scripts manipulation.src 36`] = `"[123, \\"foo\\"]"`;
 
-exports[`interpreter default scripts manipulation.src 37`] = `"{\\"bar\\":1,\\"lore\\":\\"moo\\"}"`;
+exports[`interpreter default scripts manipulation.src 37`] = `"{\\"foo\\":123,\\"bar\\":1,\\"lore\\":\\"moo\\",\\"addition\\":1}"`;
 
-exports[`interpreter default scripts manipulation.src 38`] = `"[\\"xxx\\", 123]"`;
+exports[`interpreter default scripts manipulation.src 38`] = `"[\\"xxx\\", 123, \\"foo\\", \\"addition\\"]"`;
 
-exports[`interpreter default scripts manipulation.src 39`] = `"{\\"foo\\":123,\\"bar\\":1,\\"lore\\":\\"moo\\",\\"addition\\":1}"`;
+exports[`interpreter default scripts manipulation.src 39`] = `"{\\"foo\\":123,\\"lore\\":\\"moo\\"}"`;
 
-exports[`interpreter default scripts manipulation.src 40`] = `"[\\"foo\\", \\"xxx\\", 123, \\"addition\\"]"`;
+exports[`interpreter default scripts manipulation.src 40`] = `"[\\"xxx\\", \\"foo\\"]"`;
 
-exports[`interpreter default scripts manipulation.src 41`] = `"{\\"foo\\":123,\\"lore\\":\\"moo\\"}"`;
+exports[`interpreter default scripts manipulation.src 41`] = `"\\"abc lorem  XxXaV\\""`;
 
-exports[`interpreter default scripts manipulation.src 42`] = `"[\\"foo\\", 123]"`;
+exports[`interpreter default scripts manipulation.src 42`] = `"{\\"foo\\":123,\\"bar\\":\\"moo\\",\\"lore\\":1}"`;
 
-exports[`interpreter default scripts manipulation.src 43`] = `"\\"abc lorem  XxXaV\\""`;
+exports[`interpreter default scripts manipulation.src 43`] = `"[\\"xxx\\", \\"foo\\", 123]"`;
 
-exports[`interpreter default scripts manipulation.src 44`] = `"{\\"foo\\":123,\\"bar\\":\\"moo\\",\\"lore\\":1}"`;
+exports[`interpreter default scripts manipulation.src 44`] = `"null"`;
 
-exports[`interpreter default scripts manipulation.src 45`] = `"[\\"foo\\", 123, \\"xxx\\"]"`;
+exports[`interpreter default scripts manipulation.src 45`] = `"[\\"foo\\", \\"xxx\\", 123]"`;
+
+exports[`interpreter default scripts manipulation.src 46`] = `"null"`;
+
+exports[`interpreter default scripts manipulation.src 47`] = `"[123, \\"xxx\\", \\"foo\\"]"`;
 
 exports[`interpreter default scripts map.src 1`] = `"1"`;
 
