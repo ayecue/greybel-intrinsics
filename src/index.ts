@@ -69,6 +69,10 @@ export function getAPI(): ObjectValue {
   apiInterface.set(s('replace_regex'), manipulation.replaceRegex);
   apiInterface.set(s('is_match'), manipulation.isMatch);
   apiInterface.set(s('matches'), manipulation.matches);
+  apiInterface.set(s('trim'), manipulation.trim);
+  apiInterface.set(s('lastIndexOf'), manipulation.lastIndexOf);
+  apiInterface.set(s('replace'), manipulation.replace);
+  apiInterface.set(s('reverse'), manipulation.reverse);
 
   return apiInterface;
 }
