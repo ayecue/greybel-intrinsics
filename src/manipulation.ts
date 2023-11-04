@@ -258,7 +258,7 @@ export const insert = CustomFunction.createExternalWithSelf(
 export const sort = CustomFunction.createExternalWithSelf(
   'sort',
   (
-    _ctx: OperationContext,
+    ctx: OperationContext,
     _self: CustomValue,
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
@@ -275,12 +275,12 @@ export const sort = CustomFunction.createExternalWithSelf(
     const sorted = origin.value.sort((a: CustomValue, b: CustomValue) => {
       if (isOrderByKey) {
         if (a instanceof CustomValueWithIntrinsics) {
-          a = a.get(key);
+          a = a.get(key, ctx.contextTypeIntrinsics);
         } else {
           a = DefaultType.Void;
         }
         if (b instanceof CustomValueWithIntrinsics) {
-          b = b.get(key);
+          b = b.get(key, ctx.contextTypeIntrinsics);
         } else {
           b = DefaultType.Void;
         }
