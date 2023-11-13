@@ -248,3 +248,16 @@ export const customYield = CustomFunction.createExternal(
     });
   }
 );
+
+export const time = CustomFunction.createExternal(
+  'time',
+  (
+    ctx: OperationContext,
+    _self: CustomValue,
+    _args: Map<string, CustomValue>
+  ): Promise<CustomValue> => {
+    return Promise.resolve(
+      new CustomNumber((Date.now() - ctx.time) / 1000)
+    );
+  }
+);
