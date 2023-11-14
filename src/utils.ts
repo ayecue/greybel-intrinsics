@@ -1,14 +1,3 @@
-import { CustomValue } from 'greybel-interpreter';
-
-export function itemAtIndex(
-  list: Array<CustomValue> | string,
-  n: number
-): number {
-  n = Math.trunc(n) || 0;
-  if (n < 0) n += list.length;
-  return n;
-}
-
 export function getHashCode(value: number, offset: number = 0): number {
   if (value === 0.0) return 0;
   return ((offset << 5) - offset + value) | 0;
@@ -34,4 +23,27 @@ export function isValidUnicodeChar(value: number): boolean {
     return value < 65536;
   }
   return false;
+}
+
+export function checkRange(
+  i: number,
+  min: number,
+  max: number,
+  desc: string = 'index'
+) {
+  if (i < min || i > max) {
+    throw new Error(
+      `Index Error: ${desc} (${i}) out of range (${min} to ${max})`
+    );
+  }
+}
+
+export function at<T>(arr: T[] | string, index: number): T | string {
+  const k = index >= 0 ? index : arr.length + index;
+
+  if (k < 0 || k >= arr.length) {
+    return undefined;
+  }
+
+  return arr[k];
 }

@@ -144,23 +144,19 @@ export const round = CustomFunction.createExternal(
     _self: CustomValue,
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
-    const value = args.get('value');
-    const decimalPlaces = args.get('decimalPlaces');
+    let value = args.get('value').toNumber();
+    let decimalPlaces = args.get('decimalPlaces').toNumber();
 
-    if (value instanceof CustomNil || decimalPlaces instanceof CustomNil) {
-      return Promise.resolve(DefaultType.Void);
+    if (decimalPlaces >= 0) {
+      if (decimalPlaces > 15) decimalPlaces = 15;
+      const pow10 = Math.pow(10, decimalPlaces);
+      value = Math.round(value * pow10) / pow10;
+    } else {
+      const pow10 = Math.pow(10, -decimalPlaces);
+      value = Math.round(value / pow10) * pow10;
     }
 
-    const max = decimalPlaces.toNumber();
-
-    if (max < 0 || max > 15) {
-      throw new Error('Rounding digits must be between 0 and 15, inclusive.');
-    }
-
-    const decPlaces = Math.max(Math.round(max) * 10, 1);
-    const result =
-      Math.round((value.toNumber() + Number.EPSILON) * decPlaces) / decPlaces;
-    return Promise.resolve(new CustomNumber(result));
+    return Promise.resolve(new CustomNumber(value));
   }
 )
   .addArgument('value', DefaultType.Zero)
