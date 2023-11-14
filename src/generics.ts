@@ -8,7 +8,8 @@ import {
   CustomString,
   CustomValue,
   DefaultType,
-  OperationContext
+  OperationContext,
+  deepHash
 } from 'greybel-interpreter';
 
 import { getHashCode, getStringHashCode, isValidUnicodeChar } from './utils';
@@ -155,34 +156,6 @@ export const val = CustomFunction.createExternalWithSelf(
   }
 );
 
-const hashEx = (value: CustomValue, recursionDepth: number): number => {
-  let result: number;
-  if (value instanceof CustomList) {
-    result = getHashCode(value.value.length);
-    if (recursionDepth < 1) return result;
-    value.value.forEach((value: CustomValue) => {
-      result ^= hashEx(value, recursionDepth - 1);
-    });
-    return result;
-  } else if (value instanceof CustomMap) {
-    result = getHashCode(value.value.size);
-    if (recursionDepth < 0) return result;
-    value.value.forEach((value: CustomValue, key: CustomValue) => {
-      result ^= hashEx(key, recursionDepth - 1);
-      result ^= hashEx(value, recursionDepth - 1);
-    });
-    return result;
-  } else if (value instanceof CustomString) {
-    return getStringHashCode(value.toString());
-  } else if (value instanceof CustomBoolean) {
-    return getHashCode(value.toNumber());
-  } else if (value instanceof CustomNumber) {
-    return getHashCode(value.toNumber());
-  }
-
-  return 0;
-};
-
 export const hash = CustomFunction.createExternal(
   'hash',
   (
@@ -193,7 +166,7 @@ export const hash = CustomFunction.createExternal(
     const value = args.get('value');
     const recursionDepth = args.get('recursionDepth').toInt();
 
-    return Promise.resolve(new CustomNumber(hashEx(value, recursionDepth)));
+    return Promise.resolve(new CustomNumber(deepHash(value)));
   }
 )
   .addArgument('value')
