@@ -180,11 +180,11 @@ exports[`interpreter default scripts manipulation.src 42`] = `"{\\"foo\\":123,\\
 
 exports[`interpreter default scripts manipulation.src 43`] = `"[\\"xxx\\", \\"foo\\", 123]"`;
 
-exports[`interpreter default scripts manipulation.src 44`] = `"null"`;
+exports[`interpreter default scripts manipulation.src 44`] = `"{\\"foo\\":123,\\"bar\\":1,\\"lore\\":\\"moo\\"}"`;
 
-exports[`interpreter default scripts manipulation.src 45`] = `"[123, \\"foo\\", \\"xxx\\"]"`;
+exports[`interpreter default scripts manipulation.src 45`] = `"[123, \\"xxx\\", \\"foo\\"]"`;
 
-exports[`interpreter default scripts manipulation.src 46`] = `"null"`;
+exports[`interpreter default scripts manipulation.src 46`] = `"{\\"foo\\":123,\\"bar\\":1,\\"lore\\":\\"moo\\"}"`;
 
 exports[`interpreter default scripts manipulation.src 47`] = `"[123, \\"xxx\\", \\"foo\\"]"`;
 

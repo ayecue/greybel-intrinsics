@@ -1,18 +1,16 @@
 import {
-  CustomBoolean,
   CustomFunction,
   CustomList,
-  CustomMap,
   CustomNil,
   CustomNumber,
   CustomString,
   CustomValue,
+  deepHash,
   DefaultType,
-  OperationContext,
-  deepHash
+  OperationContext
 } from 'greybel-interpreter';
 
-import { getHashCode, getStringHashCode, isValidUnicodeChar } from './utils';
+import { isValidUnicodeChar } from './utils';
 
 export const print = CustomFunction.createExternal(
   'print',
@@ -164,13 +162,11 @@ export const hash = CustomFunction.createExternal(
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
     const value = args.get('value');
-    const recursionDepth = args.get('recursionDepth').toInt();
 
     return Promise.resolve(new CustomNumber(deepHash(value)));
   }
 )
-  .addArgument('value')
-  .addArgument('recursionDepth', new CustomNumber(16));
+  .addArgument('value');
 
 export const range = CustomFunction.createExternal(
   'range',
@@ -229,8 +225,6 @@ export const time = CustomFunction.createExternal(
     _self: CustomValue,
     _args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
-    return Promise.resolve(
-      new CustomNumber((Date.now() - ctx.time) / 1000)
-    );
+    return Promise.resolve(new CustomNumber((Date.now() - ctx.time) / 1000));
   }
 );

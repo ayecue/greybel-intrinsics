@@ -7,10 +7,9 @@ import {
   CustomNumber,
   CustomString,
   CustomValue,
-  CustomValueWithIntrinsics,
+  deepEqual,
   DefaultType,
-  OperationContext,
-  deepEqual
+  OperationContext
 } from 'greybel-interpreter';
 import XRegExp, { ExecArray } from 'xregexp';
 
@@ -286,6 +285,30 @@ export const insert = CustomFunction.createExternalWithSelf(
   .addArgument('index')
   .addArgument('value');
 
+type CompareFn = (a: CustomValue, b: CustomValue) => number;
+
+const ascendingSort: CompareFn = (a, b) => {
+  if (a instanceof CustomString || b instanceof CustomString) {
+    return a.toString().localeCompare(b.toString());
+  }
+
+  const left = a.toNumber() ?? Infinity;
+  const right = b.toNumber() ?? Infinity;
+
+  return left - right;
+};
+
+const descendingSort: CompareFn = (a, b) => {
+  if (a instanceof CustomString && b instanceof CustomString) {
+    return b.toString().localeCompare(a.toString());
+  }
+
+  const left = a.toNumber() ?? Infinity;
+  const right = b.toNumber() ?? Infinity;
+
+  return right - left;
+};
+
 export const sort = CustomFunction.createExternalWithSelf(
   'sort',
   (
@@ -294,51 +317,48 @@ export const sort = CustomFunction.createExternalWithSelf(
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
     const origin = args.get('self');
+
+    if (!(origin instanceof CustomList) || origin.value.length < 2) {
+      return Promise.resolve(origin);
+    }
+
     const key = args.get('key');
     const asc = args.get('asc');
 
-    if (!(origin instanceof CustomList)) {
-      return null;
+    const sortCallback: CompareFn = asc.toTruthy()
+      ? ascendingSort
+      : descendingSort;
+
+    if (key instanceof CustomNil) {
+      origin.value.sort(sortCallback);
+    } else {
+      const count = origin.value.length;
+      const items: { value: CustomValue; sortKey: CustomValue }[] =
+        origin.value.map((value) => ({ value, sortKey: null }));
+      const byKeyInt = key.toInt();
+
+      for (let i = 0; i < count; i++) {
+        const item = origin.value[i];
+        if (item instanceof CustomMap) {
+          items[i].sortKey = item.get(key, ctx.contextTypeIntrinsics);
+        } else if (item instanceof CustomList) {
+          items[i].sortKey =
+            byKeyInt > -item.value.length && byKeyInt < item.value.length
+              ? item.value[byKeyInt]
+              : null;
+        }
+      }
+
+      const sortedItems = items.sort((a, b) =>
+        sortCallback(a.sortKey, b.sortKey)
+      );
+
+      for (let i = 0; i < count; i++) {
+        origin.value[i] = sortedItems[i].value;
+      }
     }
 
-    const isAscending = asc.toTruthy();
-    const isOrderByKey = !(key instanceof CustomNil);
-    const sorted = origin.value.sort((a: CustomValue, b: CustomValue) => {
-      if (isOrderByKey) {
-        if (a instanceof CustomValueWithIntrinsics) {
-          a = a.get(key, ctx.contextTypeIntrinsics);
-        } else {
-          a = DefaultType.Void;
-        }
-        if (b instanceof CustomValueWithIntrinsics) {
-          b = b.get(key, ctx.contextTypeIntrinsics);
-        } else {
-          b = DefaultType.Void;
-        }
-      }
-
-      if (isAscending) {
-        if (a instanceof CustomString || b instanceof CustomString) {
-          return a.toString().localeCompare(b.toString());
-        }
-
-        const left = a.toNumber() ?? Infinity;
-        const right = b.toNumber() ?? Infinity;
-
-        return left - right;
-      }
-
-      if (a instanceof CustomString && b instanceof CustomString) {
-        return b.toString().localeCompare(a.toString());
-      }
-
-      const left = a.toNumber() ?? Infinity;
-      const right = b.toNumber() ?? Infinity;
-
-      return right - left;
-    });
-
-    return Promise.resolve(new CustomList(sorted));
+    return Promise.resolve(origin);
   }
 )
   .addArgument('key')
