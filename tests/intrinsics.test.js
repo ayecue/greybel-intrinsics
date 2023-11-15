@@ -1,11 +1,13 @@
 const {
-  Interpreter,
   Debugger,
   CustomFunction,
   OutputHandler,
   HandlerContainer,
   CustomString
 } = require('greybel-interpreter');
+const {
+  Interpreter
+} = require('greyscript-interpreter');
 const { init } = require('../dist');
 const fs = require('fs');
 const path = require('path');
