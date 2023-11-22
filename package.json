@@ -1,6 +1,6 @@
 {
     "name": "greybel-intrinsics",
-    "version": "4.0.3",
+    "version": "4.0.4",
     "description": "Interpreter intrinsics",
     "main": "dist/index",
     "typings": "dist/index",
@@ -53,6 +53,6 @@
     ],
     "dependencies": {
         "xregexp": "^5.1.1",
-        "greyscript-interpreter": "~1.0.4"
+        "greyscript-interpreter": "~1.0.5"
     }
 }
