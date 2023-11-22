@@ -4,13 +4,13 @@ import {
   CustomNumber,
   CustomValue,
   DefaultType,
-  OperationContext
+  VM
 } from 'greybel-interpreter';
 
 export const abs = CustomFunction.createExternal(
   'abs',
   (
-    _ctx: OperationContext,
+    _vm: VM,
     _self: CustomValue,
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
@@ -23,7 +23,7 @@ export const abs = CustomFunction.createExternal(
 export const acos = CustomFunction.createExternal(
   'acos',
   (
-    _ctx: OperationContext,
+    _vm: VM,
     _self: CustomValue,
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
@@ -36,7 +36,7 @@ export const acos = CustomFunction.createExternal(
 export const asin = CustomFunction.createExternal(
   'asin',
   (
-    _ctx: OperationContext,
+    _vm: VM,
     _self: CustomValue,
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
@@ -49,7 +49,7 @@ export const asin = CustomFunction.createExternal(
 export const atan = CustomFunction.createExternal(
   'atan',
   (
-    _ctx: OperationContext,
+    _vm: VM,
     _self: CustomValue,
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
@@ -62,7 +62,7 @@ export const atan = CustomFunction.createExternal(
 export const tan = CustomFunction.createExternal(
   'tan',
   (
-    _ctx: OperationContext,
+    _vm: VM,
     _self: CustomValue,
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
@@ -75,7 +75,7 @@ export const tan = CustomFunction.createExternal(
 export const ceil = CustomFunction.createExternal(
   'ceil',
   (
-    _ctx: OperationContext,
+    _vm: VM,
     _self: CustomValue,
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
@@ -88,7 +88,7 @@ export const ceil = CustomFunction.createExternal(
 export const cos = CustomFunction.createExternal(
   'cos',
   (
-    _ctx: OperationContext,
+    _vm: VM,
     _self: CustomValue,
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
@@ -101,7 +101,7 @@ export const cos = CustomFunction.createExternal(
 export const floor = CustomFunction.createExternal(
   'floor',
   (
-    _ctx: OperationContext,
+    _vm: VM,
     _self: CustomValue,
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
@@ -114,7 +114,7 @@ export const floor = CustomFunction.createExternal(
 export const sin = CustomFunction.createExternal(
   'sin',
   (
-    _ctx: OperationContext,
+    _vm: VM,
     _self: CustomValue,
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
@@ -127,7 +127,7 @@ export const sin = CustomFunction.createExternal(
 export const sign = CustomFunction.createExternal(
   'sign',
   (
-    _ctx: OperationContext,
+    _vm: VM,
     _self: CustomValue,
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
@@ -140,7 +140,7 @@ export const sign = CustomFunction.createExternal(
 export const round = CustomFunction.createExternal(
   'round',
   (
-    _ctx: OperationContext,
+    _vm: VM,
     _self: CustomValue,
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
@@ -165,7 +165,7 @@ export const round = CustomFunction.createExternal(
 export const sqrt = CustomFunction.createExternal(
   'sqrt',
   (
-    _ctx: OperationContext,
+    _vm: VM,
     _self: CustomValue,
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
@@ -178,7 +178,7 @@ export const sqrt = CustomFunction.createExternal(
 export const pi = CustomFunction.createExternal(
   'pi',
   (
-    _ctx: OperationContext,
+    _vm: VM,
     _self: CustomValue,
     _args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
@@ -189,7 +189,7 @@ export const pi = CustomFunction.createExternal(
 export const bitwise = CustomFunction.createExternal(
   'bitwise',
   (
-    _ctx: OperationContext,
+    _vm: VM,
     _self: CustomValue,
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
@@ -225,7 +225,7 @@ export const bitwise = CustomFunction.createExternal(
 export const bitAnd = CustomFunction.createExternal(
   'bitAnd',
   (
-    _ctx: OperationContext,
+    _vm: VM,
     _self: CustomValue,
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
@@ -241,7 +241,7 @@ export const bitAnd = CustomFunction.createExternal(
 export const bitOr = CustomFunction.createExternal(
   'bitOr',
   (
-    _ctx: OperationContext,
+    _vm: VM,
     _self: CustomValue,
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
@@ -257,7 +257,7 @@ export const bitOr = CustomFunction.createExternal(
 export const bitXor = CustomFunction.createExternal(
   'bitXor',
   (
-    _ctx: OperationContext,
+    _vm: VM,
     _self: CustomValue,
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
@@ -273,7 +273,7 @@ export const bitXor = CustomFunction.createExternal(
 export const log = CustomFunction.createExternal(
   'log',
   (
-    _ctx: OperationContext,
+    _vm: VM,
     _self: CustomValue,
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {

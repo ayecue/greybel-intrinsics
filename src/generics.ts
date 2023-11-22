@@ -7,7 +7,7 @@ import {
   CustomValue,
   deepHash,
   DefaultType,
-  OperationContext
+  VM
 } from 'greybel-interpreter';
 
 import { isValidUnicodeChar } from './utils';
@@ -15,11 +15,11 @@ import { isValidUnicodeChar } from './utils';
 export const print = CustomFunction.createExternal(
   'print',
   (
-    ctx: OperationContext,
+    vm: VM,
     _self: CustomValue,
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
-    ctx.handler.outputHandler.print(ctx, args.get('value').toString(), {
+    vm.handler.outputHandler.print(vm, args.get('value').toString(), {
       appendNewLine: true,
       replace: args.get('replaceText').toTruthy()
     });
@@ -32,12 +32,12 @@ export const print = CustomFunction.createExternal(
 export const exit = CustomFunction.createExternal(
   'exit',
   (
-    ctx: OperationContext,
+    vm: VM,
     _self: CustomValue,
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
-    ctx.handler.outputHandler.print(ctx, args.get('value').toString());
-    ctx.exit();
+    vm.handler.outputHandler.print(vm, args.get('value').toString());
+    vm.exit();
     return Promise.resolve(DefaultType.Void);
   }
 ).addArgument('value');
@@ -45,7 +45,7 @@ export const exit = CustomFunction.createExternal(
 export const wait = CustomFunction.createExternal(
   'wait',
   (
-    ctx: OperationContext,
+    vm: VM,
     _self: CustomValue,
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
@@ -62,16 +62,7 @@ export const wait = CustomFunction.createExternal(
     }
 
     return new Promise((resolve) => {
-      const onExit = () => {
-        clearTimeout(timeout);
-        resolve(DefaultType.Void);
-      };
-      const timeout = setTimeout(() => {
-        ctx.processState.removeListener('exit', onExit);
-        resolve(DefaultType.Void);
-      }, ms);
-
-      ctx.processState.once('exit', onExit);
+      setTimeout(() => resolve(DefaultType.Void), ms);
     });
   }
 ).addArgument('delay', new CustomNumber(1));
@@ -79,7 +70,7 @@ export const wait = CustomFunction.createExternal(
 export const char = CustomFunction.createExternal(
   'char',
   (
-    _ctx: OperationContext,
+    _vm: VM,
     _self: CustomValue,
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
@@ -101,7 +92,7 @@ export const char = CustomFunction.createExternal(
 export const code = CustomFunction.createExternalWithSelf(
   'code',
   (
-    _ctx: OperationContext,
+    _vm: VM,
     _self: CustomValue,
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
@@ -125,7 +116,7 @@ export const code = CustomFunction.createExternalWithSelf(
 export const str = CustomFunction.createExternal(
   'str',
   (
-    _ctx: OperationContext,
+    _vm: VM,
     _self: CustomValue,
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
@@ -136,7 +127,7 @@ export const str = CustomFunction.createExternal(
 export const val = CustomFunction.createExternalWithSelf(
   'val',
   (
-    _ctx: OperationContext,
+    _vm: VM,
     _self: CustomValue,
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
@@ -157,7 +148,7 @@ export const val = CustomFunction.createExternalWithSelf(
 export const hash = CustomFunction.createExternal(
   'hash',
   (
-    _ctx: OperationContext,
+    _ctx: VM,
     _self: CustomValue,
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
@@ -165,13 +156,12 @@ export const hash = CustomFunction.createExternal(
 
     return Promise.resolve(new CustomNumber(deepHash(value)));
   }
-)
-  .addArgument('value');
+).addArgument('value');
 
 export const range = CustomFunction.createExternal(
   'range',
   (
-    _ctx: OperationContext,
+    _vm: VM,
     _self: CustomValue,
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
@@ -208,7 +198,7 @@ export const range = CustomFunction.createExternal(
 export const customYield = CustomFunction.createExternal(
   'yield',
   (
-    _ctx: OperationContext,
+    _vm: VM,
     _self: CustomValue,
     _args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
@@ -221,10 +211,12 @@ export const customYield = CustomFunction.createExternal(
 export const time = CustomFunction.createExternal(
   'time',
   (
-    ctx: OperationContext,
+    vm: VM,
     _self: CustomValue,
     _args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
-    return Promise.resolve(new CustomNumber((Date.now() - ctx.time) / 1000));
+    return Promise.resolve(
+      new CustomNumber((Date.now() - vm.getTime()) / 1000)
+    );
   }
 );
