@@ -62,7 +62,16 @@ export const wait = CustomFunction.createExternal(
     }
 
     return new Promise((resolve) => {
-      setTimeout(() => resolve(DefaultType.Void), ms);
+      const onExit = () => {
+        clearTimeout(timeout);
+        resolve(DefaultType.Void);
+      };
+      const timeout = setTimeout(() => {
+        vm.getSignal().removeListener('exit', onExit);
+        resolve(DefaultType.Void);
+      }, ms);
+
+      vm.getSignal().once('exit', onExit);
     });
   }
 ).addArgument('delay', new CustomNumber(1));
