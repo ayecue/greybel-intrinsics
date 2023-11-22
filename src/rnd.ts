@@ -3,7 +3,7 @@ import {
   CustomNil,
   CustomNumber,
   CustomValue,
-  OperationContext
+  VM
 } from 'greybel-interpreter';
 
 // https://stackoverflow.com/a/47593316
@@ -39,7 +39,7 @@ export default function rndFunctionFactory(): CustomFunction {
   return CustomFunction.createExternal(
     'rnd',
     (
-      _ctx: OperationContext,
+      _vm: VM,
       _self: CustomValue,
       args: Map<string, CustomValue>
     ): Promise<CustomValue> => {
