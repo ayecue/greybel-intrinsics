@@ -771,7 +771,7 @@ export const matches = CustomFunction.createExternalWithSelf(
         ))
       ) {
         result.set(new CustomNumber(match.index), new CustomString(match[0]));
-        offset = match.index + match[0].length;
+        offset = match.index + match[0].length + 1;
       }
 
       return Promise.resolve(result);
