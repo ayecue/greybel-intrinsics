@@ -188,6 +188,10 @@ exports[`interpreter default scripts manipulation.src 46`] = `"{\\"foo\\":123,\\
 
 exports[`interpreter default scripts manipulation.src 47`] = `"[123, \\"xxx\\", \\"foo\\"]"`;
 
+exports[`interpreter default scripts manipulation.src 48`] = `"{0:\\"0\\",1:\\"1\\",2:\\"2\\",3:\\"3\\",4:\\"4\\",5:\\"5\\",6:\\"6\\",7:\\"7\\",8:\\"8\\",9:\\"9\\",10:\\"a\\",11:\\"b\\",12:\\"c\\",13:\\"d\\",14:\\"e\\",15:\\"f\\"}"`;
+
+exports[`interpreter default scripts manipulation.src 49`] = `"{0:\\"0\\",1:\\"1\\",2:\\"2\\",3:\\"3\\",4:\\"4\\",5:\\"5\\",6:\\"6\\",7:\\"7\\",8:\\"8\\",9:\\"9\\"}"`;
+
 exports[`interpreter default scripts map.src 1`] = `"1"`;
 
 exports[`interpreter default scripts map.src 2`] = `"0"`;
@@ -256,15 +260,15 @@ exports[`interpreter default scripts math.src 19`] = `"-1338"`;
 
 exports[`interpreter default scripts rnd.src 1`] = `"0.4985665436834097"`;
 
-exports[`interpreter default scripts rnd.src 2`] = `"0.04626259859651327"`;
+exports[`interpreter default scripts rnd.src 2`] = `"0.4985665436834097"`;
 
-exports[`interpreter default scripts rnd.src 3`] = `"0.04173178947530687"`;
+exports[`interpreter default scripts rnd.src 3`] = `"0.5925850959029049"`;
 
-exports[`interpreter default scripts rnd.src 4`] = `"0.22427810914814472"`;
+exports[`interpreter default scripts rnd.src 4`] = `"0.5925850959029049"`;
 
-exports[`interpreter default scripts rnd.src 5`] = `"0.2948848782107234"`;
+exports[`interpreter default scripts rnd.src 5`] = `"0.4985665436834097"`;
 
-exports[`interpreter default scripts rnd.src 6`] = `"0.8563546116929501"`;
+exports[`interpreter default scripts rnd.src 6`] = `"0.4985665436834097"`;
 
 exports[`interpreter default scripts string.src 1`] = `"1"`;
 

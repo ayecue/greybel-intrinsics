@@ -756,22 +756,15 @@ export const matches = CustomFunction.createExternalWithSelf(
       let options = regexOptions.value;
 
       if (options === 'none') {
-        options = undefined;
+        options = '';
       }
 
-      let offset = 0;
       let match: ExecArray;
+      const xreg = XRegExp(pattern.value, options + 'g');
       const result = new CustomMap();
 
-      while (
-        (match = XRegExp.exec(
-          origin.value,
-          XRegExp(pattern.value, options),
-          offset
-        ))
-      ) {
+      while ((match = xreg.exec(origin.value))) {
         result.set(new CustomNumber(match.index), new CustomString(match[0]));
-        offset = match.index + match[0].length + 1;
       }
 
       return Promise.resolve(result);
