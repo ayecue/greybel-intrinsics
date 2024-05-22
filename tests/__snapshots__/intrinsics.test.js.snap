@@ -260,15 +260,15 @@ exports[`interpreter default scripts math.src 19`] = `"-1338"`;
 
 exports[`interpreter default scripts rnd.src 1`] = `"0.4985665436834097"`;
 
-exports[`interpreter default scripts rnd.src 2`] = `"0.04626259859651327"`;
+exports[`interpreter default scripts rnd.src 2`] = `"0.4985665436834097"`;
 
-exports[`interpreter default scripts rnd.src 3`] = `"0.04173178947530687"`;
+exports[`interpreter default scripts rnd.src 3`] = `"0.5925850959029049"`;
 
-exports[`interpreter default scripts rnd.src 4`] = `"0.22427810914814472"`;
+exports[`interpreter default scripts rnd.src 4`] = `"0.5925850959029049"`;
 
-exports[`interpreter default scripts rnd.src 5`] = `"0.2948848782107234"`;
+exports[`interpreter default scripts rnd.src 5`] = `"0.4985665436834097"`;
 
-exports[`interpreter default scripts rnd.src 6`] = `"0.8563546116929501"`;
+exports[`interpreter default scripts rnd.src 6`] = `"0.4985665436834097"`;
 
 exports[`interpreter default scripts string.src 1`] = `"1"`;
 

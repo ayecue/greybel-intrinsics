@@ -34,7 +34,7 @@ const mulberry32 = function (a: number): Function {
 };
 
 export default function rndFunctionFactory(): CustomFunction {
-  const generators: Map<string, Function> = new Map();
+  const generatorResult: Map<string, number> = new Map();
 
   return CustomFunction.createExternal(
     'rnd',
@@ -47,16 +47,13 @@ export default function rndFunctionFactory(): CustomFunction {
 
       if (!(seedId instanceof CustomNil)) {
         const seedStr = seedId.toString();
-        let generator;
 
-        if (!generators.has(seedStr)) {
-          generator = mulberry32(xmur3(seedStr)());
-          generators.set(seedStr, generator);
-        } else {
-          generator = generators.get(seedStr);
+        if (!generatorResult.has(seedStr)) {
+          const generator = mulberry32(xmur3(seedStr)());
+          generatorResult.set(seedStr, generator());
         }
 
-        return Promise.resolve(new CustomNumber(generator()));
+        return Promise.resolve(new CustomNumber(generatorResult.get(seedStr)!));
       }
 
       return Promise.resolve(new CustomNumber(Math.random()));

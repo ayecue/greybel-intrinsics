@@ -1,6 +1,6 @@
 print(rnd("bar"))
 print(rnd("bar"))
-print(rnd("bar"))
-print(rnd("bar"))
+print(rnd("foo"))
+print(rnd("foo"))
 print(rnd("bar"))
 print(rnd("bar"))
