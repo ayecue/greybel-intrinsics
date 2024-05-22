@@ -95,3 +95,6 @@ print(sort(myList))
 
 print(sort(myMap, null, 0))
 print(sort(myList, null, 0))
+
+print(matches("0123456789abcdef","[0-9]|[a-z]"))
+print(matches("0123456789abcdef","\d"))
