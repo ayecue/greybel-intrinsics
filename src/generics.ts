@@ -140,13 +140,16 @@ export const val = CustomFunction.createExternalWithSelf(
     _self: CustomValue,
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
-    const value = args.get('self');
-    if (value instanceof CustomNumber) {
-      return Promise.resolve(value);
-    } else if (value instanceof CustomString) {
+    const origin = args.get('self');
+    if (origin instanceof CustomNumber) {
+      return Promise.resolve(origin);
+    } else if (origin instanceof CustomString) {
+      const isNumber = /^[+-]?[\d,]+(\.[\d+]+)?([Ee][+-]?\d+)?$/.test(
+        origin.value.trim()
+      );
       return Promise.resolve(
-        value.isNumber()
-          ? new CustomNumber(value.parseFloat())
+        isNumber
+          ? new CustomNumber(parseFloat(origin.value.replace(/,/g, '')))
           : DefaultType.Zero
       );
     }
