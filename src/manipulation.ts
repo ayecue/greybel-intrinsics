@@ -895,9 +895,13 @@ export const toInt = CustomFunction.createExternalWithSelf(
   ): Promise<CustomValue> => {
     const origin = args.get('self');
     if (origin instanceof CustomString) {
-      return Promise.resolve(
-        origin.isNumber() ? new CustomNumber(origin.parseInt()) : origin
-      );
+      if (origin.isNumber()) {
+        const isInt = /^[+-]?\d+$/.test(origin.value.trim());
+        return Promise.resolve(
+          isInt ? new CustomNumber(origin.parseInt()) : origin
+        );
+      }
+      return Promise.resolve(origin);
     }
     return Promise.resolve(DefaultType.Void);
   }

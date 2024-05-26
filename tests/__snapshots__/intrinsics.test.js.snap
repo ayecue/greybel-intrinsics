@@ -304,26 +304,100 @@ exports[`interpreter default scripts string.src 16`] = `"\\"was      xx\\""`;
 
 exports[`interpreter default scripts string.src 17`] = `"12"`;
 
-exports[`interpreter default scripts string.src 18`] = `"1"`;
+exports[`interpreter default scripts string.src 18`] = `"\\"1213373456\\""`;
 
-exports[`interpreter default scripts string.src 19`] = `"\\"nonumber\\""`;
+exports[`interpreter default scripts string.src 19`] = `"[\\"a\\", \\"b\\", \\"c\\", \\"e\\", \\"d\\"]"`;
 
-exports[`interpreter default scripts string.src 20`] = `"\\"1213373456\\""`;
+exports[`interpreter default scripts string.src 20`] = `"[\\"abced\\", \\"ca\\", \\"xa\\"]"`;
 
-exports[`interpreter default scripts string.src 21`] = `"[\\"a\\", \\"b\\", \\"c\\", \\"e\\", \\"d\\"]"`;
+exports[`interpreter default scripts string.src 21`] = `"\\"foo \\\\\\"bar\\\\\\" foo\\""`;
 
-exports[`interpreter default scripts string.src 22`] = `"[\\"abced\\", \\"ca\\", \\"xa\\"]"`;
+exports[`interpreter default scripts string.src 22`] = `"\\"foo \\\\\\"bar\\\\\\" foo\\""`;
 
-exports[`interpreter default scripts string.src 23`] = `"\\"foo \\\\\\"bar\\\\\\" foo\\""`;
+exports[`interpreter default scripts string.src 23`] = `"[\\"ab\\", \\"ce\\", \\"d\\"]"`;
 
-exports[`interpreter default scripts string.src 24`] = `"\\"foo \\\\\\"bar\\\\\\" foo\\""`;
+exports[`interpreter default scripts string.src 24`] = `"-1"`;
 
-exports[`interpreter default scripts string.src 25`] = `"[\\"ab\\", \\"ce\\", \\"d\\"]"`;
+exports[`interpreter default scripts string.src 25`] = `"1"`;
 
-exports[`interpreter default scripts string.src 26`] = `"-1"`;
+exports[`interpreter default scripts string.src 26`] = `"{0:\\"xxx lorem\\",10:\\"ipsum bar\\"}"`;
 
-exports[`interpreter default scripts string.src 27`] = `"1"`;
+exports[`interpreter default scripts string.src 27`] = `"\\"xxx lrem ipsum bar fr\\""`;
 
-exports[`interpreter default scripts string.src 28`] = `"{0:\\"xxx lorem\\",10:\\"ipsum bar\\"}"`;
+exports[`interpreter default scripts to_int.src 1`] = `"\\"1.23\\""`;
 
-exports[`interpreter default scripts string.src 29`] = `"\\"xxx lrem ipsum bar fr\\""`;
+exports[`interpreter default scripts to_int.src 2`] = `"\\"1,23\\""`;
+
+exports[`interpreter default scripts to_int.src 3`] = `"1"`;
+
+exports[`interpreter default scripts to_int.src 4`] = `"123"`;
+
+exports[`interpreter default scripts to_int.src 5`] = `"\\" 12 3  \\""`;
+
+exports[`interpreter default scripts to_int.src 6`] = `"12"`;
+
+exports[`interpreter default scripts to_int.src 7`] = `"-12"`;
+
+exports[`interpreter default scripts to_int.src 8`] = `"\\"23E-1\\""`;
+
+exports[`interpreter default scripts to_int.src 9`] = `"\\"23E+1\\""`;
+
+exports[`interpreter default scripts to_int.src 10`] = `"string"`;
+
+exports[`interpreter default scripts to_int.src 11`] = `"string"`;
+
+exports[`interpreter default scripts to_int.src 12`] = `"number"`;
+
+exports[`interpreter default scripts to_int.src 13`] = `"number"`;
+
+exports[`interpreter default scripts to_int.src 14`] = `"string"`;
+
+exports[`interpreter default scripts to_int.src 15`] = `"number"`;
+
+exports[`interpreter default scripts to_int.src 16`] = `"number"`;
+
+exports[`interpreter default scripts to_int.src 17`] = `"string"`;
+
+exports[`interpreter default scripts to_int.src 18`] = `"string"`;
+
+exports[`interpreter default scripts val.src 1`] = `"1.23"`;
+
+exports[`interpreter default scripts val.src 2`] = `"123"`;
+
+exports[`interpreter default scripts val.src 3`] = `"1"`;
+
+exports[`interpreter default scripts val.src 4`] = `"0"`;
+
+exports[`interpreter default scripts val.src 5`] = `"0"`;
+
+exports[`interpreter default scripts val.src 6`] = `"1234.56"`;
+
+exports[`interpreter default scripts val.src 7`] = `"0"`;
+
+exports[`interpreter default scripts val.src 8`] = `"0"`;
+
+exports[`interpreter default scripts val.src 9`] = `"0"`;
+
+exports[`interpreter default scripts val.src 10`] = `"1234.5"`;
+
+exports[`interpreter default scripts val.src 11`] = `"0"`;
+
+exports[`interpreter default scripts val.src 12`] = `"12.5"`;
+
+exports[`interpreter default scripts val.src 13`] = `"-12.5"`;
+
+exports[`interpreter default scripts val.src 14`] = `"2.3"`;
+
+exports[`interpreter default scripts val.src 15`] = `"230"`;
+
+exports[`interpreter default scripts val.src 16`] = `"2.32"`;
+
+exports[`interpreter default scripts val.src 17`] = `"232"`;
+
+exports[`interpreter default scripts val.src 18`] = `"1"`;
+
+exports[`interpreter default scripts val.src 19`] = `"1230"`;
+
+exports[`interpreter default scripts val.src 20`] = `"0.123"`;
+
+exports[`interpreter default scripts val.src 21`] = `"0"`;

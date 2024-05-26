@@ -1,0 +1,19 @@
+print "1.23".to_int
+print "1,23".to_int
+print "1".to_int
+print " 123  ".to_int
+print " 12 3  ".to_int
+print "+12".to_int
+print "-12".to_int
+print "23E-1".to_int
+print "23E+1".to_int
+
+print typeof("1.23".to_int)
+print typeof("1,23".to_int)
+print typeof("1".to_int)
+print typeof(" 123  ".to_int)
+print typeof(" 12 3  ".to_int)
+print typeof("+12".to_int)
+print typeof("-12".to_int)
+print typeof("23E-1".to_int)
+print typeof("23E+1".to_int)
