@@ -323,3 +323,39 @@ exports[`interpreter default scripts string.src 25`] = `"1"`;
 exports[`interpreter default scripts string.src 26`] = `"{0:\\"xxx lorem\\",10:\\"ipsum bar\\"}"`;
 
 exports[`interpreter default scripts string.src 27`] = `"\\"xxx lrem ipsum bar fr\\""`;
+
+exports[`interpreter default scripts to_int.src 1`] = `"\\"1.23\\""`;
+
+exports[`interpreter default scripts to_int.src 2`] = `"\\"1,23\\""`;
+
+exports[`interpreter default scripts to_int.src 3`] = `"1"`;
+
+exports[`interpreter default scripts to_int.src 4`] = `"123"`;
+
+exports[`interpreter default scripts to_int.src 5`] = `"\\" 12 3  \\""`;
+
+exports[`interpreter default scripts to_int.src 6`] = `"12"`;
+
+exports[`interpreter default scripts to_int.src 7`] = `"-12"`;
+
+exports[`interpreter default scripts to_int.src 8`] = `"\\"23E-1\\""`;
+
+exports[`interpreter default scripts to_int.src 9`] = `"\\"23E+1\\""`;
+
+exports[`interpreter default scripts to_int.src 10`] = `"string"`;
+
+exports[`interpreter default scripts to_int.src 11`] = `"string"`;
+
+exports[`interpreter default scripts to_int.src 12`] = `"number"`;
+
+exports[`interpreter default scripts to_int.src 13`] = `"number"`;
+
+exports[`interpreter default scripts to_int.src 14`] = `"string"`;
+
+exports[`interpreter default scripts to_int.src 15`] = `"number"`;
+
+exports[`interpreter default scripts to_int.src 16`] = `"number"`;
+
+exports[`interpreter default scripts to_int.src 17`] = `"string"`;
+
+exports[`interpreter default scripts to_int.src 18`] = `"string"`;

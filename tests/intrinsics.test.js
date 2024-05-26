@@ -28,6 +28,16 @@ pseudoAPI.set(
   ).addArgument('value')
 );
 
+pseudoAPI.set(
+  new CustomString('typeof'), 
+  CustomFunction.createExternal(
+    'print',
+    (ctx, self, args) => {
+      return Promise.resolve(args.get('value').getCustomType());
+    }
+  ).addArgument('value')
+);
+
 class TestOutputHandler extends OutputHandler {
   print(_ctx, message) {
     printMock(message);
