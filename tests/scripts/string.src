@@ -28,6 +28,7 @@ print(" was      xx       ".trim)
 
 print("bar bar bar bar".lastIndexOf("bar"))
 
+print("123".to_int)
 print("1.23".to_int)
 print("nonumber".to_int)
 
