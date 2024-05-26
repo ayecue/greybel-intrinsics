@@ -304,28 +304,22 @@ exports[`interpreter default scripts string.src 16`] = `"\\"was      xx\\""`;
 
 exports[`interpreter default scripts string.src 17`] = `"12"`;
 
-exports[`interpreter default scripts string.src 18`] = `"123"`;
+exports[`interpreter default scripts string.src 18`] = `"\\"1213373456\\""`;
 
-exports[`interpreter default scripts string.src 19`] = `"\\"1.23\\""`;
+exports[`interpreter default scripts string.src 19`] = `"[\\"a\\", \\"b\\", \\"c\\", \\"e\\", \\"d\\"]"`;
 
-exports[`interpreter default scripts string.src 20`] = `"\\"nonumber\\""`;
+exports[`interpreter default scripts string.src 20`] = `"[\\"abced\\", \\"ca\\", \\"xa\\"]"`;
 
-exports[`interpreter default scripts string.src 21`] = `"\\"1213373456\\""`;
+exports[`interpreter default scripts string.src 21`] = `"\\"foo \\\\\\"bar\\\\\\" foo\\""`;
 
-exports[`interpreter default scripts string.src 22`] = `"[\\"a\\", \\"b\\", \\"c\\", \\"e\\", \\"d\\"]"`;
+exports[`interpreter default scripts string.src 22`] = `"\\"foo \\\\\\"bar\\\\\\" foo\\""`;
 
-exports[`interpreter default scripts string.src 23`] = `"[\\"abced\\", \\"ca\\", \\"xa\\"]"`;
+exports[`interpreter default scripts string.src 23`] = `"[\\"ab\\", \\"ce\\", \\"d\\"]"`;
 
-exports[`interpreter default scripts string.src 24`] = `"\\"foo \\\\\\"bar\\\\\\" foo\\""`;
+exports[`interpreter default scripts string.src 24`] = `"-1"`;
 
-exports[`interpreter default scripts string.src 25`] = `"\\"foo \\\\\\"bar\\\\\\" foo\\""`;
+exports[`interpreter default scripts string.src 25`] = `"1"`;
 
-exports[`interpreter default scripts string.src 26`] = `"[\\"ab\\", \\"ce\\", \\"d\\"]"`;
+exports[`interpreter default scripts string.src 26`] = `"{0:\\"xxx lorem\\",10:\\"ipsum bar\\"}"`;
 
-exports[`interpreter default scripts string.src 27`] = `"-1"`;
-
-exports[`interpreter default scripts string.src 28`] = `"1"`;
-
-exports[`interpreter default scripts string.src 29`] = `"{0:\\"xxx lorem\\",10:\\"ipsum bar\\"}"`;
-
-exports[`interpreter default scripts string.src 30`] = `"\\"xxx lrem ipsum bar fr\\""`;
+exports[`interpreter default scripts string.src 27`] = `"\\"xxx lrem ipsum bar fr\\""`;
