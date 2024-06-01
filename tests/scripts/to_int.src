@@ -1,19 +1,16 @@
-print "1.23".to_int
-print "1,23".to_int
-print "1".to_int
-print " 123  ".to_int
-print " 12 3  ".to_int
-print "+12".to_int
-print "-12".to_int
-print "23E-1".to_int
-print "23E+1".to_int
+test = function(value)
+  print value.to_int
+  print typeof(value.to_int)
+end function
 
-print typeof("1.23".to_int)
-print typeof("1,23".to_int)
-print typeof("1".to_int)
-print typeof(" 123  ".to_int)
-print typeof(" 12 3  ".to_int)
-print typeof("+12".to_int)
-print typeof("-12".to_int)
-print typeof("23E-1".to_int)
-print typeof("23E+1".to_int)
+test "1.23"
+test "1,23"
+test "1"
+test " 123  "
+test " 12 3  "
+test "+12"
+test "-12"
+test "23E-1"
+test "23E+1"
+test "23."
+test "23.00"

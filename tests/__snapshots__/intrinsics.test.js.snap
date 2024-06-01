@@ -326,39 +326,47 @@ exports[`interpreter default scripts string.src 27`] = `"\\"xxx lrem ipsum bar f
 
 exports[`interpreter default scripts to_int.src 1`] = `"\\"1.23\\""`;
 
-exports[`interpreter default scripts to_int.src 2`] = `"\\"1,23\\""`;
+exports[`interpreter default scripts to_int.src 2`] = `"string"`;
 
-exports[`interpreter default scripts to_int.src 3`] = `"1"`;
+exports[`interpreter default scripts to_int.src 3`] = `"\\"1,23\\""`;
 
-exports[`interpreter default scripts to_int.src 4`] = `"123"`;
+exports[`interpreter default scripts to_int.src 4`] = `"string"`;
 
-exports[`interpreter default scripts to_int.src 5`] = `"\\" 12 3  \\""`;
+exports[`interpreter default scripts to_int.src 5`] = `"1"`;
 
-exports[`interpreter default scripts to_int.src 6`] = `"12"`;
+exports[`interpreter default scripts to_int.src 6`] = `"number"`;
 
-exports[`interpreter default scripts to_int.src 7`] = `"-12"`;
+exports[`interpreter default scripts to_int.src 7`] = `"123"`;
 
-exports[`interpreter default scripts to_int.src 8`] = `"\\"23E-1\\""`;
+exports[`interpreter default scripts to_int.src 8`] = `"number"`;
 
-exports[`interpreter default scripts to_int.src 9`] = `"\\"23E+1\\""`;
+exports[`interpreter default scripts to_int.src 9`] = `"\\" 12 3  \\""`;
 
 exports[`interpreter default scripts to_int.src 10`] = `"string"`;
 
-exports[`interpreter default scripts to_int.src 11`] = `"string"`;
+exports[`interpreter default scripts to_int.src 11`] = `"12"`;
 
 exports[`interpreter default scripts to_int.src 12`] = `"number"`;
 
-exports[`interpreter default scripts to_int.src 13`] = `"number"`;
+exports[`interpreter default scripts to_int.src 13`] = `"-12"`;
 
-exports[`interpreter default scripts to_int.src 14`] = `"string"`;
+exports[`interpreter default scripts to_int.src 14`] = `"number"`;
 
-exports[`interpreter default scripts to_int.src 15`] = `"number"`;
+exports[`interpreter default scripts to_int.src 15`] = `"\\"23E-1\\""`;
 
-exports[`interpreter default scripts to_int.src 16`] = `"number"`;
+exports[`interpreter default scripts to_int.src 16`] = `"string"`;
 
-exports[`interpreter default scripts to_int.src 17`] = `"string"`;
+exports[`interpreter default scripts to_int.src 17`] = `"\\"23E+1\\""`;
 
 exports[`interpreter default scripts to_int.src 18`] = `"string"`;
+
+exports[`interpreter default scripts to_int.src 19`] = `"\\"23.\\""`;
+
+exports[`interpreter default scripts to_int.src 20`] = `"string"`;
+
+exports[`interpreter default scripts to_int.src 21`] = `"\\"23.00\\""`;
+
+exports[`interpreter default scripts to_int.src 22`] = `"string"`;
 
 exports[`interpreter default scripts val.src 1`] = `"1.23"`;
 
@@ -401,3 +409,15 @@ exports[`interpreter default scripts val.src 19`] = `"1230"`;
 exports[`interpreter default scripts val.src 20`] = `"0.123"`;
 
 exports[`interpreter default scripts val.src 21`] = `"0"`;
+
+exports[`interpreter default scripts val.src 22`] = `"0"`;
+
+exports[`interpreter default scripts val.src 23`] = `"1234.56"`;
+
+exports[`interpreter default scripts val.src 24`] = `"1.56"`;
+
+exports[`interpreter default scripts val.src 25`] = `"0"`;
+
+exports[`interpreter default scripts val.src 26`] = `"0.56"`;
+
+exports[`interpreter default scripts val.src 27`] = `"2"`;
