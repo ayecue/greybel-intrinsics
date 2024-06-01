@@ -898,7 +898,7 @@ export const toInt = CustomFunction.createExternalWithSelf(
       if (origin.isNumber()) {
         const isInt = /^[+-]?\d+$/.test(origin.value.trim());
         return Promise.resolve(
-          isInt ? new CustomNumber(origin.parseInt()) : origin
+          isInt ? new CustomNumber(Number(origin)) : origin
         );
       }
       return Promise.resolve(origin);
