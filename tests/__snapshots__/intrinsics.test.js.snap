@@ -401,3 +401,15 @@ exports[`interpreter default scripts val.src 19`] = `"1230"`;
 exports[`interpreter default scripts val.src 20`] = `"0.123"`;
 
 exports[`interpreter default scripts val.src 21`] = `"0"`;
+
+exports[`interpreter default scripts val.src 22`] = `"0"`;
+
+exports[`interpreter default scripts val.src 23`] = `"1234.56"`;
+
+exports[`interpreter default scripts val.src 24`] = `"1.56"`;
+
+exports[`interpreter default scripts val.src 25`] = `"0"`;
+
+exports[`interpreter default scripts val.src 26`] = `"0.56"`;
+
+exports[`interpreter default scripts val.src 27`] = `"2"`;

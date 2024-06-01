@@ -19,3 +19,9 @@ print "1e0".val
 print "+1.23e3".val
 print "0.000123e3".val
 print "0x1.23p4".val
+print ",123,4.56".val
+print "1234,.56".val
+print "1,.56".val
+print ",.56".val
+print ".56".val
+print ".2E+1".val
