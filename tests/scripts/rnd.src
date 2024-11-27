@@ -4,3 +4,9 @@ print(rnd("foo"))
 print(rnd("foo"))
 print(rnd("bar"))
 print(rnd("bar"))
+
+rnd(10)
+
+for x in range(10)
+	print(rnd)
+end for

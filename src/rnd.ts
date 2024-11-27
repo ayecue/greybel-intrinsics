@@ -6,8 +6,10 @@ import {
   VM
 } from 'greybel-interpreter';
 
+type RndFn = () => number;
+
 // https://stackoverflow.com/a/47593316
-const xmur3 = function (str: string): Function {
+const xmur3 = function (str: string): RndFn {
   const length = str.length;
   let i = 0;
   let h = 1779033703 ^ length;
@@ -24,7 +26,7 @@ const xmur3 = function (str: string): Function {
   };
 };
 
-const mulberry32 = function (a: number): Function {
+const mulberry32 = function (a: number): RndFn {
   return function (): number {
     let t = (a += 0x6d2b79f5);
     t = Math.imul(t ^ (t >>> 15), t | 1);
@@ -34,7 +36,10 @@ const mulberry32 = function (a: number): Function {
 };
 
 export default function rndFunctionFactory(): CustomFunction {
-  const generatorResult: Map<string, number> = new Map();
+  let rndFn: RndFn = () => Math.random();
+  const rndFnFactory = (seed: string): void => {
+    rndFn = mulberry32(xmur3(seed)());
+  };
 
   return CustomFunction.createExternal(
     'rnd',
@@ -47,16 +52,10 @@ export default function rndFunctionFactory(): CustomFunction {
 
       if (!(seedId instanceof CustomNil)) {
         const seedStr = seedId.toString();
-
-        if (!generatorResult.has(seedStr)) {
-          const generator = mulberry32(xmur3(seedStr)());
-          generatorResult.set(seedStr, generator());
-        }
-
-        return Promise.resolve(new CustomNumber(generatorResult.get(seedStr)!));
+        rndFnFactory(seedStr);
       }
 
-      return Promise.resolve(new CustomNumber(Math.random()));
+      return Promise.resolve(new CustomNumber(rndFn()));
     }
   ).addArgument('seedId');
 }

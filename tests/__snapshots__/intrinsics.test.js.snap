@@ -270,6 +270,28 @@ exports[`interpreter default scripts rnd.src 5`] = `"0.4985665436834097"`;
 
 exports[`interpreter default scripts rnd.src 6`] = `"0.4985665436834097"`;
 
+exports[`interpreter default scripts rnd.src 7`] = `"0.8601930080913007"`;
+
+exports[`interpreter default scripts rnd.src 8`] = `"0.9429001251701266"`;
+
+exports[`interpreter default scripts rnd.src 9`] = `"0.5040702840778977"`;
+
+exports[`interpreter default scripts rnd.src 10`] = `"0.370444345055148"`;
+
+exports[`interpreter default scripts rnd.src 11`] = `"0.7272597649134696"`;
+
+exports[`interpreter default scripts rnd.src 12`] = `"0.038931101094931364"`;
+
+exports[`interpreter default scripts rnd.src 13`] = `"0.13073113723658025"`;
+
+exports[`interpreter default scripts rnd.src 14`] = `"0.7641290149185807"`;
+
+exports[`interpreter default scripts rnd.src 15`] = `"0.17395805357955396"`;
+
+exports[`interpreter default scripts rnd.src 16`] = `"0.9864606389310211"`;
+
+exports[`interpreter default scripts rnd.src 17`] = `"0.8152328915894032"`;
+
 exports[`interpreter default scripts string.src 1`] = `"1"`;
 
 exports[`interpreter default scripts string.src 2`] = `"0"`;
