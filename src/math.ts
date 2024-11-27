@@ -7,6 +7,16 @@ import {
   VM
 } from 'greybel-interpreter';
 
+import {
+  bitwiseAnd,
+  bitwiseLShift,
+  bitwiseNot,
+  bitwiseOr,
+  bitwiseRShift,
+  bitwiseUnsignedRShift,
+  bitwiseXor
+} from './utils';
+
 export const abs = CustomFunction.createExternal(
   'abs',
   (
@@ -199,19 +209,19 @@ export const bitwise = CustomFunction.createExternal(
 
     switch (op) {
       case '&':
-        return Promise.resolve(new CustomNumber(a & b));
+        return Promise.resolve(new CustomNumber(bitwiseAnd(a, b)));
       case '|':
-        return Promise.resolve(new CustomNumber(a | b));
+        return Promise.resolve(new CustomNumber(bitwiseOr(a, b)));
       case '^':
-        return Promise.resolve(new CustomNumber(a ^ b));
+        return Promise.resolve(new CustomNumber(bitwiseXor(a, b)));
       case '<<':
-        return Promise.resolve(new CustomNumber(a << b));
+        return Promise.resolve(new CustomNumber(bitwiseLShift(a, b)));
       case '>>':
-        return Promise.resolve(new CustomNumber(a >> b));
+        return Promise.resolve(new CustomNumber(bitwiseRShift(a, b)));
       case '>>>':
-        return Promise.resolve(new CustomNumber(a >>> b));
+        return Promise.resolve(new CustomNumber(bitwiseUnsignedRShift(a, b)));
       case '~':
-        return Promise.resolve(new CustomNumber(~a));
+        return Promise.resolve(new CustomNumber(bitwiseNot(a)));
       default:
     }
 

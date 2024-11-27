@@ -250,13 +250,15 @@ exports[`interpreter default scripts math.src 14`] = `"1403"`;
 
 exports[`interpreter default scripts math.src 15`] = `"1122"`;
 
-exports[`interpreter default scripts math.src 16`] = `"-939524096"`;
+exports[`interpreter default scripts math.src 16`] = `"179449102336"`;
 
 exports[`interpreter default scripts math.src 17`] = `"0"`;
 
 exports[`interpreter default scripts math.src 18`] = `"0"`;
 
 exports[`interpreter default scripts math.src 19`] = `"-1338"`;
+
+exports[`interpreter default scripts math.src 20`] = `"2147483648"`;
 
 exports[`interpreter default scripts rnd.src 1`] = `"0.4985665436834097"`;
 

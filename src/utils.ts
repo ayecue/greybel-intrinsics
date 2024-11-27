@@ -47,3 +47,31 @@ export function at<T>(arr: T[] | string, index: number): T | string {
 
   return arr[k];
 }
+
+export function bitwiseAnd(a: number, b: number): number {
+  return Number(BigInt(a) & BigInt(b | 0));
+}
+
+export function bitwiseOr(a: number, b: number): number {
+  return Number(BigInt(a) | BigInt(b | 0));
+}
+
+export function bitwiseXor(a: number, b: number): number {
+  return Number(BigInt(a) ^ BigInt(b | 0));
+}
+
+export function bitwiseLShift(a: number, b: number): number {
+  return Number(BigInt(a) << BigInt((b | 0) % 64));
+}
+
+export function bitwiseRShift(a: number, b: number): number {
+  return Number(BigInt(a) >> BigInt((b | 0) % 64));
+}
+
+export function bitwiseUnsignedRShift(a: number, b: number): number {
+  return a >>> (b | 0) % 64;
+}
+
+export function bitwiseNot(a: number): number {
+  return ~a;
+}
