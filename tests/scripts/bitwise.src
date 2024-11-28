@@ -1,0 +1,36 @@
+verboseBitwise = function(op, a, b)
+	if b == null then
+		print("Testing " + op + a + " = " + bitwise(op, a))
+		return 
+	end if
+
+	print("Testing " + a + " " + op + " " + b + " = " + bitwise(op, a, b))
+end function
+
+verboseBitwise("&", 4294967295, 252645135)
+verboseBitwise("&", -1, 252645135)
+verboseBitwise("|", 4042322160, 252645135)
+verboseBitwise("|", -1, 0)
+verboseBitwise("^", 2863311530, 1431655765)
+verboseBitwise("^", -1, 4294967295)
+verboseBitwise("<<", 1, 31)
+verboseBitwise("<<", 1, 64)
+verboseBitwise("<<", -1, 1)
+verboseBitwise(">>", -4, 1)
+verboseBitwise(">>", 2147483648, 31)
+verboseBitwise(">>", 1, 64)
+verboseBitwise(">>>", -1, 1)
+verboseBitwise(">>>", 1, 64)
+verboseBitwise("~", 0, 0)
+verboseBitwise("~", 4294967295, 0)
+verboseBitwise("~", -1, 0)
+verboseBitwise("&", -1, 252645135)
+verboseBitwise("|", -1, 0)
+verboseBitwise("^", -1, 4294967295)
+verboseBitwise("<<", 1, 128)
+verboseBitwise(">>", 1, 128)
+verboseBitwise("&", 123.456, 78.9)
+verboseBitwise("|", 123.456, 78.9)
+verboseBitwise("&", 2147483647, 4294967295)
+verboseBitwise("|", 2147483648, 2147483647)
+verboseBitwise("^", 4294967295, 4294967295)

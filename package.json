@@ -52,7 +52,8 @@
     "greyhack"
   ],
   "dependencies": {
-    "xregexp": "^5.1.1",
-    "greyscript-interpreter": "~2.1.2"
+    "greyscript-interpreter": "~2.1.2",
+    "long": "^5.2.3",
+    "xregexp": "^5.1.1"
   }
 }

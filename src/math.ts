@@ -239,8 +239,8 @@ export const bitAnd = CustomFunction.createExternal(
     _self: CustomValue,
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
-    const a = args.get('numA').toNumber();
-    const b = args.get('numB').toNumber();
+    const a = args.get('numA').toNumber() | 0;
+    const b = args.get('numB').toNumber() | 0;
 
     return Promise.resolve(new CustomNumber(a & b));
   }
@@ -255,8 +255,8 @@ export const bitOr = CustomFunction.createExternal(
     _self: CustomValue,
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
-    const a = args.get('numA').toNumber();
-    const b = args.get('numB').toNumber();
+    const a = args.get('numA').toNumber() | 0;
+    const b = args.get('numB').toNumber() | 0;
 
     return Promise.resolve(new CustomNumber(a | b));
   }
@@ -271,8 +271,8 @@ export const bitXor = CustomFunction.createExternal(
     _self: CustomValue,
     args: Map<string, CustomValue>
   ): Promise<CustomValue> => {
-    const a = args.get('numA').toNumber();
-    const b = args.get('numB').toNumber();
+    const a = args.get('numA').toNumber() | 0;
+    const b = args.get('numB').toNumber() | 0;
 
     return Promise.resolve(new CustomNumber(a ^ b));
   }

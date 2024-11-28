@@ -1,5 +1,59 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`interpreter default scripts bitwise.src 1`] = `"\\"Testing 4294967295 & 252645135 = 252645135\\""`;
+
+exports[`interpreter default scripts bitwise.src 2`] = `"\\"Testing -1 & 252645135 = 252645135\\""`;
+
+exports[`interpreter default scripts bitwise.src 3`] = `"\\"Testing 4042322160 | 252645135 = 4294967295\\""`;
+
+exports[`interpreter default scripts bitwise.src 4`] = `"\\"Testing -1 | 0 = -1\\""`;
+
+exports[`interpreter default scripts bitwise.src 5`] = `"\\"Testing 2863311530 ^ 1431655765 = 4294967295\\""`;
+
+exports[`interpreter default scripts bitwise.src 6`] = `"\\"Testing -1 ^ 4294967295 = 0\\""`;
+
+exports[`interpreter default scripts bitwise.src 7`] = `"\\"Testing 1 << 31 = 2147483648\\""`;
+
+exports[`interpreter default scripts bitwise.src 8`] = `"\\"Testing 1 << 64 = 1\\""`;
+
+exports[`interpreter default scripts bitwise.src 9`] = `"\\"Testing -1 << 1 = -2\\""`;
+
+exports[`interpreter default scripts bitwise.src 10`] = `"\\"Testing -4 >> 1 = -2\\""`;
+
+exports[`interpreter default scripts bitwise.src 11`] = `"\\"Testing 2147483648 >> 31 = 1\\""`;
+
+exports[`interpreter default scripts bitwise.src 12`] = `"\\"Testing 1 >> 64 = 1\\""`;
+
+exports[`interpreter default scripts bitwise.src 13`] = `"\\"Testing -1 >>> 1 = 2147483647\\""`;
+
+exports[`interpreter default scripts bitwise.src 14`] = `"\\"Testing 1 >>> 64 = 1\\""`;
+
+exports[`interpreter default scripts bitwise.src 15`] = `"\\"Testing 0 ~ 0 = -1\\""`;
+
+exports[`interpreter default scripts bitwise.src 16`] = `"\\"Testing 4294967295 ~ 0 = -4294967296\\""`;
+
+exports[`interpreter default scripts bitwise.src 17`] = `"\\"Testing -1 ~ 0 = 0\\""`;
+
+exports[`interpreter default scripts bitwise.src 18`] = `"\\"Testing -1 & 252645135 = 252645135\\""`;
+
+exports[`interpreter default scripts bitwise.src 19`] = `"\\"Testing -1 | 0 = -1\\""`;
+
+exports[`interpreter default scripts bitwise.src 20`] = `"\\"Testing -1 ^ 4294967295 = 0\\""`;
+
+exports[`interpreter default scripts bitwise.src 21`] = `"\\"Testing 1 << 128 = 1\\""`;
+
+exports[`interpreter default scripts bitwise.src 22`] = `"\\"Testing 1 >> 128 = 1\\""`;
+
+exports[`interpreter default scripts bitwise.src 23`] = `"\\"Testing 123.456 & 78.9 = 74\\""`;
+
+exports[`interpreter default scripts bitwise.src 24`] = `"\\"Testing 123.456 | 78.9 = 127\\""`;
+
+exports[`interpreter default scripts bitwise.src 25`] = `"\\"Testing 2147483647 & 4294967295 = 2147483647\\""`;
+
+exports[`interpreter default scripts bitwise.src 26`] = `"\\"Testing 2147483648 | 2147483647 = 4294967295\\""`;
+
+exports[`interpreter default scripts bitwise.src 27`] = `"\\"Testing 4294967295 ^ 4294967295 = -4294967296\\""`;
+
 exports[`interpreter default scripts generics.src 1`] = `"\\"{\\""`;
 
 exports[`interpreter default scripts generics.src 2`] = `"123"`;

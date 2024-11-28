@@ -19,7 +19,7 @@ const pseudoAPI = new Map();
 global.Math.random = () => .5;
 
 pseudoAPI.set(
-  new CustomString('print'), 
+  new CustomString('print'),
   CustomFunction.createExternal(
     'print',
     (ctx, self, args) => {
@@ -29,7 +29,7 @@ pseudoAPI.set(
 );
 
 pseudoAPI.set(
-  new CustomString('typeof'), 
+  new CustomString('typeof'),
   CustomFunction.createExternal(
     'print',
     (ctx, self, args) => {
@@ -45,7 +45,7 @@ class TestOutputHandler extends OutputHandler {
 }
 
 class TestDebugger extends Debugger {
-  debug() {}
+  debug() { }
 }
 
 describe('interpreter', function () {

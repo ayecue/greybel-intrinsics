@@ -1,3 +1,5 @@
+import Long from "long";
+
 export function getHashCode(value: number, offset: number = 0): number {
   if (value === 0.0) return 0;
   return ((offset << 5) - offset + value) | 0;
@@ -49,29 +51,48 @@ export function at<T>(arr: T[] | string, index: number): T | string {
 }
 
 export function bitwiseAnd(a: number, b: number): number {
-  return Number(BigInt(a) & BigInt(b | 0));
+  const left = Long.fromNumber(a);
+  const right = b | 0;
+  const final = left.and(right);
+  return final.toNumber();
 }
 
 export function bitwiseOr(a: number, b: number): number {
-  return Number(BigInt(a) | BigInt(b | 0));
+  const left = Long.fromNumber(a);
+  const right = b | 0;
+  const final = left.or(right);
+  return final.toNumber();
 }
 
 export function bitwiseXor(a: number, b: number): number {
-  return Number(BigInt(a) ^ BigInt(b | 0));
+  const left = Long.fromNumber(a);
+  const right = b | 0;
+  const final = left.xor(right);
+  return final.toNumber();
 }
 
 export function bitwiseLShift(a: number, b: number): number {
-  return Number(BigInt(a) << BigInt((b | 0) % 64));
+  const left = Long.fromNumber(a);
+  const right = b | 0;
+  const final = left.shiftLeft(right);
+  return final.toNumber();
 }
 
 export function bitwiseRShift(a: number, b: number): number {
-  return Number(BigInt(a) >> BigInt((b | 0) % 64));
+  const left = Long.fromNumber(a);
+  const right = b | 0;
+  const final = left.shiftRight(right);
+  return final.toNumber();
 }
-
 export function bitwiseUnsignedRShift(a: number, b: number): number {
-  return a >>> (b | 0) % 64;
+  const left = Long.fromNumber(a >>> 0);
+  const right = b | 0;
+  const final = left.shiftRight(right);
+  return final.toNumber();
 }
 
 export function bitwiseNot(a: number): number {
-  return ~a;
+  const left = Long.fromNumber(a);
+  const final = left.not();
+  return final.toNumber();
 }
