@@ -64,11 +64,11 @@ exports[`interpreter default scripts generics.src 4`] = `"1.23"`;
 
 exports[`interpreter default scripts generics.src 5`] = `"0"`;
 
-exports[`interpreter default scripts generics.src 6`] = `"84645"`;
+exports[`interpreter default scripts generics.src 6`] = `"234300976"`;
 
-exports[`interpreter default scripts generics.src 7`] = `"545874076"`;
+exports[`interpreter default scripts generics.src 7`] = `"-871617262"`;
 
-exports[`interpreter default scripts generics.src 8`] = `"1442108203"`;
+exports[`interpreter default scripts generics.src 8`] = `"1066051823"`;
 
 exports[`interpreter default scripts generics.src 9`] = `"-1447586188"`;
 
@@ -82,7 +82,7 @@ exports[`interpreter default scripts generics.src 13`] = `"[5, 4, 3, 2, 1]"`;
 
 exports[`interpreter default scripts generics.src 14`] = `"[0, 2, 4, 6, 8, 10]"`;
 
-exports[`interpreter default scripts generics.src 15`] = `"563480799"`;
+exports[`interpreter default scripts generics.src 15`] = `"-1785821677"`;
 
 exports[`interpreter default scripts generics.src 16`] = `"1.2055713536802566"`;
 
