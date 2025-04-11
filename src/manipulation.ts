@@ -154,8 +154,7 @@ export const values = CustomFunction.createExternalWithSelf(
       const values = Array.from(origin.value.values());
       return Promise.resolve(new CustomList(values));
     } else if (origin instanceof CustomList) {
-      const values = Object.values(origin.value);
-      return Promise.resolve(new CustomList(values));
+      return Promise.resolve(origin);
     } else if (origin instanceof CustomString) {
       const values = Object.values(origin.value).map(
         (item) => new CustomString(item)
@@ -288,25 +287,25 @@ export const insert = CustomFunction.createExternalWithSelf(
 type CompareFn = (a: CustomValue, b: CustomValue) => number;
 
 const ascendingSort: CompareFn = (a, b) => {
-  if (a instanceof CustomString || b instanceof CustomString) {
-    return a.toString().localeCompare(b.toString());
-  }
+  const rawA = a.value;
+  const rawB = b.value;
+  const isNumA = typeof rawA === "number";
+  const isNumB = typeof rawB === "number";
 
-  const left = a?.toNumber() ?? Infinity;
-  const right = b?.toNumber() ?? Infinity;
-
-  return left - right;
+  if (isNumA && isNumB) return rawA - rawB;
+  if (!isNumA && !isNumB) return rawA.localeCompare(rawB);
+  return isNumA ? -1 : 1;
 };
 
 const descendingSort: CompareFn = (a, b) => {
-  if (a instanceof CustomString && b instanceof CustomString) {
-    return b.toString().localeCompare(a.toString());
-  }
+  const rawA = a.value;
+  const rawB = b.value;
+  const isNumA = typeof rawA === "number";
+  const isNumB = typeof rawB === "number";
 
-  const left = a?.toNumber() ?? Infinity;
-  const right = b?.toNumber() ?? Infinity;
-
-  return right - left;
+  if (isNumA && isNumB) return rawB - rawA;
+  if (!isNumA && !isNumB) return rawB.localeCompare(rawA);
+  return isNumA ? 1 : -1;
 };
 
 export const sort = CustomFunction.createExternalWithSelf(

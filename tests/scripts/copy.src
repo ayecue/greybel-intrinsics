@@ -1,0 +1,21 @@
+list.copy = function(original)
+	return self.values
+end function
+
+someList = [
+	1,
+	2,
+	3,
+]
+copiedList = someList.copy
+
+print(someList)
+print(copiedList)
+
+print("=" * 20)
+
+someList[0] = 10
+copiedList[1] = 10
+
+print(someList)
+print((copiedList))

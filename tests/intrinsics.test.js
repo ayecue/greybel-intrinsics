@@ -3,7 +3,8 @@ const {
   CustomFunction,
   OutputHandler,
   HandlerContainer,
-  CustomString
+  CustomString,
+  DefaultType
 } = require('greybel-interpreter');
 const {
   Interpreter
@@ -12,6 +13,7 @@ const { init } = require('../dist');
 const fs = require('fs');
 const path = require('path');
 const testFolder = path.resolve(__dirname, 'scripts');
+const wait = (time = 0) => new Promise((resolve) => setTimeout(resolve, time));
 
 let printMock;
 const pseudoAPI = new Map();
@@ -22,8 +24,8 @@ pseudoAPI.set(
   new CustomString('print'),
   CustomFunction.createExternal(
     'print',
-    (ctx, self, args) => {
-      ctx.handler.outputHandler.print(ctx, args.get('value'));
+    async (ctx, self, args) => {
+      ctx.handler.outputHandler.print(ctx, args.get('value').toString());
     }
   ).addArgument('value')
 );

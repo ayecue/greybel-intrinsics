@@ -1,64 +1,74 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`interpreter default scripts bitwise.src 1`] = `"\\"Testing 4294967295 & 252645135 = 252645135\\""`;
+exports[`interpreter default scripts bitwise.src 1`] = `"Testing 4294967295 & 252645135 = 252645135"`;
 
-exports[`interpreter default scripts bitwise.src 2`] = `"\\"Testing -1 & 252645135 = 252645135\\""`;
+exports[`interpreter default scripts bitwise.src 2`] = `"Testing -1 & 252645135 = 252645135"`;
 
-exports[`interpreter default scripts bitwise.src 3`] = `"\\"Testing 4042322160 | 252645135 = 4294967295\\""`;
+exports[`interpreter default scripts bitwise.src 3`] = `"Testing 4042322160 | 252645135 = 4294967295"`;
 
-exports[`interpreter default scripts bitwise.src 4`] = `"\\"Testing -1 | 0 = -1\\""`;
+exports[`interpreter default scripts bitwise.src 4`] = `"Testing -1 | 0 = -1"`;
 
-exports[`interpreter default scripts bitwise.src 5`] = `"\\"Testing 2863311530 ^ 1431655765 = 4294967295\\""`;
+exports[`interpreter default scripts bitwise.src 5`] = `"Testing 2863311530 ^ 1431655765 = 4294967295"`;
 
-exports[`interpreter default scripts bitwise.src 6`] = `"\\"Testing -1 ^ 4294967295 = 0\\""`;
+exports[`interpreter default scripts bitwise.src 6`] = `"Testing -1 ^ 4294967295 = 0"`;
 
-exports[`interpreter default scripts bitwise.src 7`] = `"\\"Testing 1 << 31 = 2147483648\\""`;
+exports[`interpreter default scripts bitwise.src 7`] = `"Testing 1 << 31 = 2147483648"`;
 
-exports[`interpreter default scripts bitwise.src 8`] = `"\\"Testing 1 << 64 = 1\\""`;
+exports[`interpreter default scripts bitwise.src 8`] = `"Testing 1 << 64 = 1"`;
 
-exports[`interpreter default scripts bitwise.src 9`] = `"\\"Testing -1 << 1 = -2\\""`;
+exports[`interpreter default scripts bitwise.src 9`] = `"Testing -1 << 1 = -2"`;
 
-exports[`interpreter default scripts bitwise.src 10`] = `"\\"Testing -4 >> 1 = -2\\""`;
+exports[`interpreter default scripts bitwise.src 10`] = `"Testing -4 >> 1 = -2"`;
 
-exports[`interpreter default scripts bitwise.src 11`] = `"\\"Testing 2147483648 >> 31 = 1\\""`;
+exports[`interpreter default scripts bitwise.src 11`] = `"Testing 2147483648 >> 31 = 1"`;
 
-exports[`interpreter default scripts bitwise.src 12`] = `"\\"Testing 1 >> 64 = 1\\""`;
+exports[`interpreter default scripts bitwise.src 12`] = `"Testing 1 >> 64 = 1"`;
 
-exports[`interpreter default scripts bitwise.src 13`] = `"\\"Testing -1 >>> 1 = 2147483647\\""`;
+exports[`interpreter default scripts bitwise.src 13`] = `"Testing -1 >>> 1 = 2147483647"`;
 
-exports[`interpreter default scripts bitwise.src 14`] = `"\\"Testing 1 >>> 64 = 1\\""`;
+exports[`interpreter default scripts bitwise.src 14`] = `"Testing 1 >>> 64 = 1"`;
 
-exports[`interpreter default scripts bitwise.src 15`] = `"\\"Testing 0 ~ 0 = -1\\""`;
+exports[`interpreter default scripts bitwise.src 15`] = `"Testing 0 ~ 0 = -1"`;
 
-exports[`interpreter default scripts bitwise.src 16`] = `"\\"Testing 4294967295 ~ 0 = -4294967296\\""`;
+exports[`interpreter default scripts bitwise.src 16`] = `"Testing 4294967295 ~ 0 = -4294967296"`;
 
-exports[`interpreter default scripts bitwise.src 17`] = `"\\"Testing -1 ~ 0 = 0\\""`;
+exports[`interpreter default scripts bitwise.src 17`] = `"Testing -1 ~ 0 = 0"`;
 
-exports[`interpreter default scripts bitwise.src 18`] = `"\\"Testing -1 & 252645135 = 252645135\\""`;
+exports[`interpreter default scripts bitwise.src 18`] = `"Testing -1 & 252645135 = 252645135"`;
 
-exports[`interpreter default scripts bitwise.src 19`] = `"\\"Testing -1 | 0 = -1\\""`;
+exports[`interpreter default scripts bitwise.src 19`] = `"Testing -1 | 0 = -1"`;
 
-exports[`interpreter default scripts bitwise.src 20`] = `"\\"Testing -1 ^ 4294967295 = 0\\""`;
+exports[`interpreter default scripts bitwise.src 20`] = `"Testing -1 ^ 4294967295 = 0"`;
 
-exports[`interpreter default scripts bitwise.src 21`] = `"\\"Testing 1 << 128 = 1\\""`;
+exports[`interpreter default scripts bitwise.src 21`] = `"Testing 1 << 128 = 1"`;
 
-exports[`interpreter default scripts bitwise.src 22`] = `"\\"Testing 1 >> 128 = 1\\""`;
+exports[`interpreter default scripts bitwise.src 22`] = `"Testing 1 >> 128 = 1"`;
 
-exports[`interpreter default scripts bitwise.src 23`] = `"\\"Testing 123.456 & 78.9 = 74\\""`;
+exports[`interpreter default scripts bitwise.src 23`] = `"Testing 123.456 & 78.9 = 74"`;
 
-exports[`interpreter default scripts bitwise.src 24`] = `"\\"Testing 123.456 | 78.9 = 127\\""`;
+exports[`interpreter default scripts bitwise.src 24`] = `"Testing 123.456 | 78.9 = 127"`;
 
-exports[`interpreter default scripts bitwise.src 25`] = `"\\"Testing 2147483647 & 4294967295 = 2147483647\\""`;
+exports[`interpreter default scripts bitwise.src 25`] = `"Testing 2147483647 & 4294967295 = 2147483647"`;
 
-exports[`interpreter default scripts bitwise.src 26`] = `"\\"Testing 2147483648 | 2147483647 = 4294967295\\""`;
+exports[`interpreter default scripts bitwise.src 26`] = `"Testing 2147483648 | 2147483647 = 4294967295"`;
 
-exports[`interpreter default scripts bitwise.src 27`] = `"\\"Testing 4294967295 ^ 4294967295 = -4294967296\\""`;
+exports[`interpreter default scripts bitwise.src 27`] = `"Testing 4294967295 ^ 4294967295 = -4294967296"`;
 
-exports[`interpreter default scripts generics.src 1`] = `"\\"{\\""`;
+exports[`interpreter default scripts copy.src 1`] = `"[1, 2, 3]"`;
+
+exports[`interpreter default scripts copy.src 2`] = `"[1, 2, 3]"`;
+
+exports[`interpreter default scripts copy.src 3`] = `"===================="`;
+
+exports[`interpreter default scripts copy.src 4`] = `"[10, 10, 3]"`;
+
+exports[`interpreter default scripts copy.src 5`] = `"[10, 10, 3]"`;
+
+exports[`interpreter default scripts generics.src 1`] = `"{"`;
 
 exports[`interpreter default scripts generics.src 2`] = `"123"`;
 
-exports[`interpreter default scripts generics.src 3`] = `"\\"0\\""`;
+exports[`interpreter default scripts generics.src 3`] = `"0"`;
 
 exports[`interpreter default scripts generics.src 4`] = `"1.23"`;
 
@@ -108,11 +118,11 @@ exports[`interpreter default scripts list.src 5`] = `"null"`;
 
 exports[`interpreter default scripts list.src 6`] = `"2"`;
 
-exports[`interpreter default scripts list.src 7`] = `"\\"bar\\""`;
+exports[`interpreter default scripts list.src 7`] = `"bar"`;
 
 exports[`interpreter default scripts list.src 8`] = `"[\\"foo\\"]"`;
 
-exports[`interpreter default scripts list.src 9`] = `"\\"foo\\""`;
+exports[`interpreter default scripts list.src 9`] = `"foo"`;
 
 exports[`interpreter default scripts list.src 10`] = `"[\\"bar\\"]"`;
 
@@ -130,7 +140,7 @@ exports[`interpreter default scripts list.src 16`] = `"[\\"foo\\", \\"bar\\"]"`;
 
 exports[`interpreter default scripts list.src 17`] = `"[\\"xxx\\", \\"bar\\", \\"foo\\"]"`;
 
-exports[`interpreter default scripts list.src 18`] = `"\\"foo;bar;xxx\\""`;
+exports[`interpreter default scripts list.src 18`] = `"foo;bar;xxx"`;
 
 exports[`interpreter default scripts list.src 19`] = `"0"`;
 
@@ -140,7 +150,7 @@ exports[`interpreter default scripts list.src 21`] = `"1"`;
 
 exports[`interpreter default scripts list.src 22`] = `"1"`;
 
-exports[`interpreter default scripts list.src 23`] = `"\\"true\\""`;
+exports[`interpreter default scripts list.src 23`] = `"true"`;
 
 exports[`interpreter default scripts list.src 24`] = `"[{\\"foo\\":2}, {\\"foo\\":4}, {\\"foo\\":5}, {\\"foo\\":9}]"`;
 
@@ -160,7 +170,7 @@ exports[`interpreter default scripts manipulation.src 5`] = `"1"`;
 
 exports[`interpreter default scripts manipulation.src 6`] = `"0"`;
 
-exports[`interpreter default scripts manipulation.src 7`] = `"\\"lore\\""`;
+exports[`interpreter default scripts manipulation.src 7`] = `"lore"`;
 
 exports[`interpreter default scripts manipulation.src 8`] = `"null"`;
 
@@ -188,17 +198,17 @@ exports[`interpreter default scripts manipulation.src 19`] = `"3"`;
 
 exports[`interpreter default scripts manipulation.src 20`] = `"21"`;
 
-exports[`interpreter default scripts manipulation.src 21`] = `"\\"abc lorem ipsum xxxav\\""`;
+exports[`interpreter default scripts manipulation.src 21`] = `"abc lorem ipsum xxxav"`;
 
-exports[`interpreter default scripts manipulation.src 22`] = `"\\"ABC LOREM IPSUM XXXAV\\""`;
+exports[`interpreter default scripts manipulation.src 22`] = `"ABC LOREM IPSUM XXXAV"`;
 
 exports[`interpreter default scripts manipulation.src 23`] = `"[123, \\"foo\\"]"`;
 
 exports[`interpreter default scripts manipulation.src 24`] = `"[\\"xxx\\", 123]"`;
 
-exports[`interpreter default scripts manipulation.src 25`] = `"\\" lorem ipsum XxXaV\\""`;
+exports[`interpreter default scripts manipulation.src 25`] = `" lorem ipsum XxXaV"`;
 
-exports[`interpreter default scripts manipulation.src 26`] = `"\\"abc\\""`;
+exports[`interpreter default scripts manipulation.src 26`] = `"abc"`;
 
 exports[`interpreter default scripts manipulation.src 27`] = `"124"`;
 
@@ -206,15 +216,15 @@ exports[`interpreter default scripts manipulation.src 28`] = `"123"`;
 
 exports[`interpreter default scripts manipulation.src 29`] = `"0"`;
 
-exports[`interpreter default scripts manipulation.src 30`] = `"\\"lore\\""`;
+exports[`interpreter default scripts manipulation.src 30`] = `"lore"`;
 
-exports[`interpreter default scripts manipulation.src 31`] = `"\\"foo\\""`;
+exports[`interpreter default scripts manipulation.src 31`] = `"foo"`;
 
 exports[`interpreter default scripts manipulation.src 32`] = `"{\\"foo\\":123,\\"bar\\":1}"`;
 
 exports[`interpreter default scripts manipulation.src 33`] = `"[\\"xxx\\", 123]"`;
 
-exports[`interpreter default scripts manipulation.src 34`] = `"\\"xxx\\""`;
+exports[`interpreter default scripts manipulation.src 34`] = `"xxx"`;
 
 exports[`interpreter default scripts manipulation.src 35`] = `"{\\"foo\\":123,\\"bar\\":1}"`;
 
@@ -228,7 +238,7 @@ exports[`interpreter default scripts manipulation.src 39`] = `"{\\"foo\\":123,\\
 
 exports[`interpreter default scripts manipulation.src 40`] = `"[\\"xxx\\", \\"foo\\"]"`;
 
-exports[`interpreter default scripts manipulation.src 41`] = `"\\"abc lorem  XxXaV\\""`;
+exports[`interpreter default scripts manipulation.src 41`] = `"abc lorem  XxXaV"`;
 
 exports[`interpreter default scripts manipulation.src 42`] = `"{\\"foo\\":123,\\"bar\\":\\"moo\\",\\"lore\\":1}"`;
 
@@ -236,11 +246,11 @@ exports[`interpreter default scripts manipulation.src 43`] = `"[\\"xxx\\", \\"fo
 
 exports[`interpreter default scripts manipulation.src 44`] = `"{\\"foo\\":123,\\"bar\\":1,\\"lore\\":\\"moo\\"}"`;
 
-exports[`interpreter default scripts manipulation.src 45`] = `"[123, \\"xxx\\", \\"foo\\"]"`;
+exports[`interpreter default scripts manipulation.src 45`] = `"[123, \\"foo\\", \\"xxx\\"]"`;
 
 exports[`interpreter default scripts manipulation.src 46`] = `"{\\"foo\\":123,\\"bar\\":1,\\"lore\\":\\"moo\\"}"`;
 
-exports[`interpreter default scripts manipulation.src 47`] = `"[123, \\"xxx\\", \\"foo\\"]"`;
+exports[`interpreter default scripts manipulation.src 47`] = `"[\\"xxx\\", \\"foo\\", 123]"`;
 
 exports[`interpreter default scripts manipulation.src 48`] = `"{0:\\"0\\",1:\\"1\\",2:\\"2\\",3:\\"3\\",4:\\"4\\",5:\\"5\\",6:\\"6\\",7:\\"7\\",8:\\"8\\",9:\\"9\\",10:\\"a\\",11:\\"b\\",12:\\"c\\",13:\\"d\\",14:\\"e\\",15:\\"f\\"}"`;
 
@@ -254,13 +264,13 @@ exports[`interpreter default scripts map.src 3`] = `"[\\"foo\\", \\"bar\\"]"`;
 
 exports[`interpreter default scripts map.src 4`] = `"[9064, \\"ipsum\\"]"`;
 
-exports[`interpreter default scripts map.src 5`] = `"\\"bar\\""`;
+exports[`interpreter default scripts map.src 5`] = `"bar"`;
 
 exports[`interpreter default scripts map.src 6`] = `"null"`;
 
 exports[`interpreter default scripts map.src 7`] = `"2"`;
 
-exports[`interpreter default scripts map.src 8`] = `"\\"bar\\""`;
+exports[`interpreter default scripts map.src 8`] = `"bar"`;
 
 exports[`interpreter default scripts map.src 9`] = `"{\\"foo\\":123}"`;
 
@@ -364,33 +374,33 @@ exports[`interpreter default scripts string.src 7`] = `"120"`;
 
 exports[`interpreter default scripts string.src 8`] = `"23"`;
 
-exports[`interpreter default scripts string.src 9`] = `"\\"xxx was ccccccc\\""`;
+exports[`interpreter default scripts string.src 9`] = `"xxx was ccccccc"`;
 
 exports[`interpreter default scripts string.src 10`] = `"1.23"`;
 
 exports[`interpreter default scripts string.src 11`] = `"0"`;
 
-exports[`interpreter default scripts string.src 12`] = `"\\"XXX  CCCCCCC\\""`;
+exports[`interpreter default scripts string.src 12`] = `"XXX  CCCCCCC"`;
 
-exports[`interpreter default scripts string.src 13`] = `"\\"XXX WAS CCCCCCC\\""`;
+exports[`interpreter default scripts string.src 13`] = `"XXX WAS CCCCCCC"`;
 
 exports[`interpreter default scripts string.src 14`] = `"[\\"123\\", \\"was\\", \\"false\\"]"`;
 
-exports[`interpreter default scripts string.src 15`] = `"\\"xxx replaced ipsum bar for\\""`;
+exports[`interpreter default scripts string.src 15`] = `"xxx replaced ipsum bar for"`;
 
-exports[`interpreter default scripts string.src 16`] = `"\\"was      xx\\""`;
+exports[`interpreter default scripts string.src 16`] = `"was      xx"`;
 
 exports[`interpreter default scripts string.src 17`] = `"12"`;
 
-exports[`interpreter default scripts string.src 18`] = `"\\"1213373456\\""`;
+exports[`interpreter default scripts string.src 18`] = `"1213373456"`;
 
 exports[`interpreter default scripts string.src 19`] = `"[\\"a\\", \\"b\\", \\"c\\", \\"e\\", \\"d\\"]"`;
 
 exports[`interpreter default scripts string.src 20`] = `"[\\"abced\\", \\"ca\\", \\"xa\\"]"`;
 
-exports[`interpreter default scripts string.src 21`] = `"\\"foo \\\\\\"bar\\\\\\" foo\\""`;
+exports[`interpreter default scripts string.src 21`] = `"foo \\\\\\"bar\\\\\\" foo"`;
 
-exports[`interpreter default scripts string.src 22`] = `"\\"foo \\\\\\"bar\\\\\\" foo\\""`;
+exports[`interpreter default scripts string.src 22`] = `"foo \\\\\\"bar\\\\\\" foo"`;
 
 exports[`interpreter default scripts string.src 23`] = `"[\\"ab\\", \\"ce\\", \\"d\\"]"`;
 
@@ -400,13 +410,13 @@ exports[`interpreter default scripts string.src 25`] = `"1"`;
 
 exports[`interpreter default scripts string.src 26`] = `"{0:\\"xxx lorem\\",10:\\"ipsum bar\\"}"`;
 
-exports[`interpreter default scripts string.src 27`] = `"\\"xxx lrem ipsum bar fr\\""`;
+exports[`interpreter default scripts string.src 27`] = `"xxx lrem ipsum bar fr"`;
 
-exports[`interpreter default scripts to_int.src 1`] = `"\\"1.23\\""`;
+exports[`interpreter default scripts to_int.src 1`] = `"1.23"`;
 
 exports[`interpreter default scripts to_int.src 2`] = `"string"`;
 
-exports[`interpreter default scripts to_int.src 3`] = `"\\"1,23\\""`;
+exports[`interpreter default scripts to_int.src 3`] = `"1,23"`;
 
 exports[`interpreter default scripts to_int.src 4`] = `"string"`;
 
@@ -418,7 +428,7 @@ exports[`interpreter default scripts to_int.src 7`] = `"123"`;
 
 exports[`interpreter default scripts to_int.src 8`] = `"number"`;
 
-exports[`interpreter default scripts to_int.src 9`] = `"\\" 12 3  \\""`;
+exports[`interpreter default scripts to_int.src 9`] = `" 12 3  "`;
 
 exports[`interpreter default scripts to_int.src 10`] = `"string"`;
 
@@ -430,19 +440,19 @@ exports[`interpreter default scripts to_int.src 13`] = `"-12"`;
 
 exports[`interpreter default scripts to_int.src 14`] = `"number"`;
 
-exports[`interpreter default scripts to_int.src 15`] = `"\\"23E-1\\""`;
+exports[`interpreter default scripts to_int.src 15`] = `"23E-1"`;
 
 exports[`interpreter default scripts to_int.src 16`] = `"string"`;
 
-exports[`interpreter default scripts to_int.src 17`] = `"\\"23E+1\\""`;
+exports[`interpreter default scripts to_int.src 17`] = `"23E+1"`;
 
 exports[`interpreter default scripts to_int.src 18`] = `"string"`;
 
-exports[`interpreter default scripts to_int.src 19`] = `"\\"23.\\""`;
+exports[`interpreter default scripts to_int.src 19`] = `"23."`;
 
 exports[`interpreter default scripts to_int.src 20`] = `"string"`;
 
-exports[`interpreter default scripts to_int.src 21`] = `"\\"23.00\\""`;
+exports[`interpreter default scripts to_int.src 21`] = `"23.00"`;
 
 exports[`interpreter default scripts to_int.src 22`] = `"string"`;
 
