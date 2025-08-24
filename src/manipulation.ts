@@ -488,11 +488,7 @@ export const push = CustomFunction.createExternalWithSelf(
       if (value instanceof CustomNil) {
         throw new Error('Key map cannot be null.');
       }
-
-      if (origin.has(value)) {
-        throw new Error(`Key map has already been added: ${value.toString()}`);
-      }
-
+      
       origin.set(value, new CustomNumber(1));
       return Promise.resolve(origin);
     } else if (origin instanceof CustomList) {
