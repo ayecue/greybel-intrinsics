@@ -216,17 +216,17 @@ exports[`interpreter default scripts manipulation.src 28`] = `"123"`;
 
 exports[`interpreter default scripts manipulation.src 29`] = `"0"`;
 
-exports[`interpreter default scripts manipulation.src 30`] = `"lore"`;
+exports[`interpreter default scripts manipulation.src 30`] = `"foo"`;
 
 exports[`interpreter default scripts manipulation.src 31`] = `"foo"`;
 
-exports[`interpreter default scripts manipulation.src 32`] = `"{\\"foo\\": 123,\\"bar\\": 1}"`;
+exports[`interpreter default scripts manipulation.src 32`] = `"{\\"bar\\": 1,\\"lore\\": \\"moo\\"}"`;
 
 exports[`interpreter default scripts manipulation.src 33`] = `"[\\"xxx\\", 123]"`;
 
 exports[`interpreter default scripts manipulation.src 34`] = `"xxx"`;
 
-exports[`interpreter default scripts manipulation.src 35`] = `"{\\"foo\\": 123,\\"bar\\": 1}"`;
+exports[`interpreter default scripts manipulation.src 35`] = `"{\\"bar\\": 1,\\"lore\\": \\"moo\\"}"`;
 
 exports[`interpreter default scripts manipulation.src 36`] = `"[123, \\"foo\\"]"`;
 
@@ -270,9 +270,9 @@ exports[`interpreter default scripts map.src 6`] = `"null"`;
 
 exports[`interpreter default scripts map.src 7`] = `"2"`;
 
-exports[`interpreter default scripts map.src 8`] = `"bar"`;
+exports[`interpreter default scripts map.src 8`] = `"foo"`;
 
-exports[`interpreter default scripts map.src 9`] = `"{\\"foo\\": 123}"`;
+exports[`interpreter default scripts map.src 9`] = `"{\\"bar\\": \\"ipsum\\"}"`;
 
 exports[`interpreter default scripts map.src 10`] = `"{\\"foo\\": 123,\\"bar\\": \\"ipsum\\",\\"moo\\": 1}"`;
 

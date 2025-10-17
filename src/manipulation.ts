@@ -439,8 +439,8 @@ export const pop = CustomFunction.createExternalWithSelf(
 
     if (origin instanceof CustomMap) {
       const keys = Array.from(origin.value.keys());
-      origin.value.delete(keys[keys.length - 1]);
-      return Promise.resolve(keys[keys.length - 1] || DefaultType.Void);
+      origin.value.delete(keys[0]);
+      return Promise.resolve(keys[0] || DefaultType.Void);
     } else if (origin instanceof CustomList) {
       return Promise.resolve(origin.value.pop() || DefaultType.Void);
     }
